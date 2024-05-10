@@ -1,0 +1,53 @@
+<div class="container-fluid d-flex flex-column vh-100">
+  <div class="row flex-grow-1 justify-content-center align-items-center">
+    <div class="col-8 text-center block">
+      <div class="shadow row p-3 mb-3">
+        <p class="text-center text-white" style="font-size: 20px">
+          Rezolvă Chestionar DRPCIV Categoria B (B,B1)
+        </p>
+      </div>
+
+      <div class="shadow row p-3 bg-white">
+        <div class="col-xs-3 col-md-2 text-center border p-2 mx-auto">
+          <span style="font-size: 20px">{{ initialQuestions }}</span
+          ><br class="d-md-block" />Întrebări inițiale
+        </div>
+        <div class="col-xs-3 col-md-2 text-center border p-2 mx-auto">
+          <span style="font-size: 20px">{{ initialQuestions }}</span
+          ><br class="d-md-block" />Întrebări rămase
+        </div>
+        <div
+          class="col-xs-3 col-md-2 border d-flex justify-content-center align-items-center p-2"
+        >
+          <span style="font-size: 25px; color: #4397df">00:00:00</span>
+          <!--I need this span to  be on middle of this col-xs-3 -->
+        </div>
+        <div class="col-xs-3 col-md-2 text-center border p-2 mx-auto">
+          <span style="font-size: 20px; color: #4a893c">{{
+            initialQuestions
+          }}</span
+          ><br class="d-md-block" />Răspunsuri Corecte
+        </div>
+        <div class="col-xs-3 col-md-2 text-center border p-2 mx-auto">
+          <span style="font-size: 20px; color: #e64a46">{{
+            initialQuestions
+          }}</span
+          ><br class="d-md-block" />Răspunsuri Greșite
+        </div>
+      </div>
+
+      <div class="row p-3" style="background-color: #dfe0e6">
+        <span>Întrebarea #index</span><br />
+        <strong class="mb-3" style="font-size: 20px"
+          >Aici vine intrebarea</strong
+        >
+      </div>
+    </div>
+  </div>
+
+  <div
+    class="row shadow row-sm-5 p-3 mb-3 justify-content-center align-items-end text-center"
+  >
+    <p>Inspired by ScoalaRutiera.ro</p>
+  </div>
+</div>
