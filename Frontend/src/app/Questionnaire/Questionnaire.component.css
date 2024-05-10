@@ -1,3 +1,10 @@
 .block {
   background-color: #C95C54;
 }
+
+
+
+label:hover{
+  background-color: red;
+}
+

@@ -12,10 +12,17 @@ import { provideAnimationsAsync } from '@angular/platform-browser/animations/asy
 import { MainComponent } from './Main/Main.component';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
+import { MatCheckboxModule } from '@angular/material/checkbox';
 import { QuestionnaireComponent } from './Questionnaire/questionnaire.component';
 @NgModule({
   declarations: [AppComponent, MainComponent, QuestionnaireComponent],
-  imports: [BrowserModule, AppRoutingModule, MatIconModule, MatButtonModule],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    MatIconModule,
+    MatButtonModule,
+    MatCheckboxModule,
+  ],
   providers: [
     provideClientHydration(),
     provideHttpClient(withFetch()),
