@@ -35,22 +35,71 @@
         </div>
       </div>
 
-      <div class="row p-2" style="background-color: #dfe0e6">
+      <div class="col p-2 d-flex flex-column" style="background-color: #dfe0e6">
         <span>Întrebarea #index</span><br />
-        <strong class="mb-3" style="font-size: 20px"
-          >Aici vine intrebarea</strong
+        <strong class="mb-xl-3" style="font-size: 20px"
+          >Cum procedam cand in fata avem o masina si pe banda din sensul opus
+          am avea o alta masina bro ?</strong
         >
-        <strong class="mb-3" style="font-size: 20px"
-          >Aici vine poza (optional)</strong
-        >
-        <mat-checkbox class="mb-3" color="primary">A.</mat-checkbox>
+        <div class="row">
+          <div class="col-6 d-flex justify-content-center">
+            <img
+              class="img-thumbnail d-block"
+              src="../../assets/images/chestionar-auto2.png.webp"
+            />
+          </div>
 
-        <mat-checkbox class="mb-3" color="primary">B.</mat-checkbox>
-
-        <mat-checkbox class="mb-3" color="primary">C.</mat-checkbox>
-
+          <div class="col-6 d-flex justify-content-center align-self-center">
+            <ul class="list-group">
+              <li class="list-group-item">
+                <input
+                  class="form-check-input me-1"
+                  type="checkbox"
+                  value=""
+                  aria-label="..."
+                  id="checkboxA"
+                />
+                <label class="form-check-label" for="checkboxA">
+                  <span class="answer-label">A.</span>
+                  <p class="answer-variant">
+                    AKJFOPASJFOPASJFOPASJFOPASFJAOSFJASOPFJASOPFJASOPFJASOPFJASOPFASJOPFAJSFPOA
+                  </p>
+                </label>
+              </li>
+              <li class="list-group-item">
+                <input
+                  class="form-check-input me-1"
+                  type="checkbox"
+                  value=""
+                  aria-label="..."
+                  id="checkboxB"
+                />
+                <label class="form-check-label" for="checkboxB">
+                  <span class="answer-label">B.</span>
+                  <p class="answer-variant">
+                    AKJFOPASJFOPASJFOPASJFOPASFJAOSFJASOPFJASOPFJASOPF
+                  </p>
+                </label>
+              </li>
+              <li class="list-group-item">
+                <input
+                  class="form-check-input me-1"
+                  type="checkbox"
+                  value=""
+                  aria-label="..."
+                  id="checkboxC"
+                />
+                <label class="form-check-label" for="checkboxC">
+                  <span class="answer-label">C.</span>
+                  <p class="answer-variant">
+                    AKJFOPASJFOPASJFOPASJFOPASFJAOSFJASOPFJASOPFJASOPFJASO
+                  </p>
+                </label>
+              </li>
+            </ul>
+          </div>
+        </div>
         <div class="row-sm-3 mt-3">
-          <!-- Add spacing between the buttons please -->
           <button class="mx-md-5 mb-3" mat-flat-button color="primary">
             <mat-icon>autorenew</mat-icon>
             Raspunde mai tarziu
