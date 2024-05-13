@@ -13,24 +13,24 @@
           ><br class="d-md-block" />Întrebări inițiale
         </div>
         <div class="col-xs-3 col-md-2 text-center border p-2 mx-auto">
-          <span style="font-size: 20px">{{ initialQuestions }}</span
+          <span style="font-size: 20px">{{ remainingQuestions }}</span
           ><br class="d-md-block" />Întrebări rămase
         </div>
         <div
           class="col-xs-3 col-md-2 border d-flex justify-content-center align-items-center p-2"
         >
-          <span style="font-size: 25px; color: #4397df">00:00:00</span>
+          <span style="font-size: 25px; color: #4397df">{{
+            timeRemaining
+          }}</span>
         </div>
         <div class="col-xs-3 col-md-2 text-center border p-2 mx-auto">
           <span style="font-size: 20px; color: #4a893c">{{
-            initialQuestions
+            correctAnswers
           }}</span
           ><br class="d-md-block" />Răspunsuri Corecte
         </div>
         <div class="col-xs-3 col-md-2 text-center border p-2 mx-auto">
-          <span style="font-size: 20px; color: #e64a46">{{
-            initialQuestions
-          }}</span
+          <span style="font-size: 20px; color: #e64a46">{{ wrongAnswers }}</span
           ><br class="d-md-block" />Răspunsuri Greșite
         </div>
       </div>
@@ -50,6 +50,7 @@
           </div>
 
           <div class="col-6 d-flex justify-content-center align-self-center">
+            <!--If I remove the image, I want this div WITH THIS list-group TO ADJUST WIDTH ACCORDINGLY-->
             <ul class="list-group">
               <li class="list-group-item">
                 <input
