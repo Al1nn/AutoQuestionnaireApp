@@ -15,8 +15,10 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { QuestionnaireComponent } from './Questionnaire/Questionnaire.component';
 import { QuestionnaireService } from './service/QuestionnaireService.service';
+import { FailedComponent } from './failed/failed.component';
+import { CorrectComponent } from './correct/correct.component';
 @NgModule({
-  declarations: [AppComponent, MainComponent, QuestionnaireComponent],
+  declarations: [AppComponent, MainComponent, QuestionnaireComponent, FailedComponent, CorrectComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,

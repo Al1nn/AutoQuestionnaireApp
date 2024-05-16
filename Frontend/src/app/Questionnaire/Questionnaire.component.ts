@@ -14,7 +14,7 @@ export class QuestionnaireComponent implements OnInit {
   public wrongAnswers: number = 1;
   public correctAnswers: number = 1;
 
-  seconds = 1800;
+  seconds = 5;
 
   timeRemaining = '00:00:00';
 
@@ -41,7 +41,7 @@ export class QuestionnaireComponent implements OnInit {
       .subscribe((remainingTime) => {
         if (remainingTime <= 0) {
           this.timeRemaining = '00:00:00'; // Set timeRemaining to '00:00:00' when timer reaches zero
-          this.router.navigate(['/']);
+          this.router.navigate(['/failed']);
         } else {
           const hours = Math.floor(remainingTime / 3600);
           const minutes = Math.floor((remainingTime % 3600) / 60);
