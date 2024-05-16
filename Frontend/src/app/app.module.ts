@@ -13,7 +13,8 @@ import { MainComponent } from './Main/Main.component';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCheckboxModule } from '@angular/material/checkbox';
-import { QuestionnaireComponent } from './Questionnaire/questionnaire.component';
+import { QuestionnaireComponent } from './Questionnaire/Questionnaire.component';
+import { QuestionnaireService } from './service/QuestionnaireService.service';
 @NgModule({
   declarations: [AppComponent, MainComponent, QuestionnaireComponent],
   imports: [
@@ -28,6 +29,7 @@ import { QuestionnaireComponent } from './Questionnaire/questionnaire.component'
     provideHttpClient(withFetch()),
     provideAnimations(),
     provideAnimationsAsync(),
+    QuestionnaireService,
   ],
   bootstrap: [AppComponent],
 })

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { map, takeWhile, timer } from 'rxjs';
+import { QuestionnaireService } from '../service/QuestionnaireService.service';
 
 @Component({
   selector: 'app-Questionnaire',
@@ -17,9 +18,16 @@ export class QuestionnaireComponent implements OnInit {
 
   timeRemaining = '00:00:00';
 
-  constructor(private router: Router) {}
+  constructor(
+    private questionnaireService: QuestionnaireService,
+    private router: Router
+  ) {}
 
   ngOnInit(): void {
+    // this.questionnaireService.getQuestions().subscribe((data) => {
+    //   console.log(data);
+    // });
+
     this.startTimer();
   }
 
