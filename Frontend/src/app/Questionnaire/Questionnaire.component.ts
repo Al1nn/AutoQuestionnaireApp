@@ -14,7 +14,7 @@ export class QuestionnaireComponent implements OnInit {
   public wrongAnswers: number = 1;
   public correctAnswers: number = 1;
 
-  seconds = 5;
+  seconds = 10;
 
   timeRemaining = '00:00:00';
 
@@ -32,15 +32,15 @@ export class QuestionnaireComponent implements OnInit {
   }
 
   startTimer() {
-    const source = timer(0, 1000); // Emits incrementing numbers every second
+    const source = timer(0, 1000); 
     source
       .pipe(
-        map((second) => this.seconds - second), // Calculate remaining seconds
-        takeWhile((remainingTime) => remainingTime >= 0) // Complete when remainingTime < 0
+        map((second) => this.seconds - second), 
+        takeWhile((remainingTime) => remainingTime >= 0) 
       )
       .subscribe((remainingTime) => {
         if (remainingTime <= 0) {
-          this.timeRemaining = '00:00:00'; // Set timeRemaining to '00:00:00' when timer reaches zero
+          this.timeRemaining = '00:00:00'; 
           this.router.navigate(['/failed']);
         } else {
           const hours = Math.floor(remainingTime / 3600);

@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "PxcutbLLePrbi2taKDjs/m53O5zVgsnQyP9cPL6kE+5x6KCiyFua9mxLNmVXxHUN8m+Id1+w8quRXm9VNUb2Sw==",
+  "dgSpecHash": "lkrzgWhYHHw=",
   "success": true,
-  "projectFilePath": "/Users/alingeorgian/Desktop/Proiect_Chestionar_Auto/QuestionnaireAPI/QuestionnaireAPI.csproj",
+  "projectFilePath": "/Users/alingeorgian/Desktop/AutoQuestionnaireApp/QuestionnaireAPI/QuestionnaireAPI.csproj",
   "expectedPackageFiles": [
     "/Users/alingeorgian/.nuget/packages/microsoft.aspnetcore.openapi/8.0.3/microsoft.aspnetcore.openapi.8.0.3.nupkg.sha512",
     "/Users/alingeorgian/.nuget/packages/microsoft.extensions.apidescription.server/6.0.5/microsoft.extensions.apidescription.server.6.0.5.nupkg.sha512",
