@@ -2,8 +2,8 @@ import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-correct',
-  templateUrl: './correct.component.html',
-  styleUrl: './correct.component.css'
+  templateUrl: './questionnaire-successful.component.html',
+  styleUrl: './questionnaire-successful.component.css'
 })
 export class CorrectComponent {
 

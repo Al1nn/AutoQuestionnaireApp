@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "lkrzgWhYHHw=",
+  "dgSpecHash": "2nAvMX7/LPU=",
   "success": true,
   "projectFilePath": "/Users/alingeorgian/Desktop/AutoQuestionnaireApp/QuestionnaireAPI/QuestionnaireAPI.csproj",
   "expectedPackageFiles": [
@@ -10,7 +10,10 @@
     "/Users/alingeorgian/.nuget/packages/swashbuckle.aspnetcore/6.4.0/swashbuckle.aspnetcore.6.4.0.nupkg.sha512",
     "/Users/alingeorgian/.nuget/packages/swashbuckle.aspnetcore.swagger/6.4.0/swashbuckle.aspnetcore.swagger.6.4.0.nupkg.sha512",
     "/Users/alingeorgian/.nuget/packages/swashbuckle.aspnetcore.swaggergen/6.4.0/swashbuckle.aspnetcore.swaggergen.6.4.0.nupkg.sha512",
-    "/Users/alingeorgian/.nuget/packages/swashbuckle.aspnetcore.swaggerui/6.4.0/swashbuckle.aspnetcore.swaggerui.6.4.0.nupkg.sha512"
+    "/Users/alingeorgian/.nuget/packages/swashbuckle.aspnetcore.swaggerui/6.4.0/swashbuckle.aspnetcore.swaggerui.6.4.0.nupkg.sha512",
+    "/Users/alingeorgian/.nuget/packages/microsoft.netcore.app.ref/8.0.17/microsoft.netcore.app.ref.8.0.17.nupkg.sha512",
+    "/Users/alingeorgian/.nuget/packages/microsoft.aspnetcore.app.ref/8.0.17/microsoft.aspnetcore.app.ref.8.0.17.nupkg.sha512",
+    "/Users/alingeorgian/.nuget/packages/microsoft.netcore.app.host.osx-arm64/8.0.17/microsoft.netcore.app.host.osx-arm64.8.0.17.nupkg.sha512"
   ],
   "logs": []
 }

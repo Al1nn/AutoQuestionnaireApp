@@ -1,19 +1,19 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AppComponent } from './app.component';
-import { MainComponent } from './Main/Main.component';
-import { QuestionnaireComponent } from './Questionnaire/Questionnaire.component';
-import { FailedComponent } from './failed/failed.component';
-import { CorrectComponent } from './correct/correct.component';
+import { QuestionnaireMainComponent } from './questionnaire/questionnaire-main/questionnaire-main.component';
+import { QuestionnaireSolveComponent } from './questionnaire/questionnaire-solve/questionnaire-solve.component';
+import { FailedComponent } from './questionnaire/questionnaire-failed/questionnaire-failed.component';
+import { CorrectComponent } from './questionnaire/questionnaire-successful/questionnaire-successful.component';
 
 const routes: Routes = [
   {
     path: '',
-    component: MainComponent,
+    component: QuestionnaireMainComponent,
   },
   {
     path: 'questionnaire',
-    component: QuestionnaireComponent,
+    component: QuestionnaireSolveComponent,
   },
   {
     path: 'failed',

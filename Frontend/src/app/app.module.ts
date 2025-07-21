@@ -9,16 +9,16 @@ import { AppComponent } from './app.component';
 import { provideHttpClient, withFetch } from '@angular/common/http';
 import { provideAnimations } from '@angular/platform-browser/animations';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
-import { MainComponent } from './Main/Main.component';
+import { QuestionnaireMainComponent } from './questionnaire/questionnaire-main/questionnaire-main.component';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCheckboxModule } from '@angular/material/checkbox';
-import { QuestionnaireComponent } from './Questionnaire/Questionnaire.component';
-import { QuestionnaireService } from './service/QuestionnaireService.service';
-import { FailedComponent } from './failed/failed.component';
-import { CorrectComponent } from './correct/correct.component';
+import { QuestionnaireSolveComponent } from './questionnaire/questionnaire-solve/questionnaire-solve.component';
+import { QuestionnaireService } from './service/questionnaire.service';
+import { FailedComponent } from './questionnaire/questionnaire-failed/questionnaire-failed.component';
+import { CorrectComponent } from './questionnaire/questionnaire-successful/questionnaire-successful.component';
 @NgModule({
-  declarations: [AppComponent, MainComponent, QuestionnaireComponent, FailedComponent, CorrectComponent],
+  declarations: [AppComponent, QuestionnaireMainComponent, QuestionnaireSolveComponent, FailedComponent, CorrectComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
