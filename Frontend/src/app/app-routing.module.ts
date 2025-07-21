@@ -18,6 +18,7 @@ const routes: Routes = [
   {
     path: 'failed',
     component: FailedComponent,
+
   },
   {
     path: 'correct',

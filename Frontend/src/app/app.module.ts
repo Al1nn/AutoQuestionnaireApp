@@ -17,15 +17,25 @@ import { QuestionnaireSolveComponent } from './questionnaire/questionnaire-solve
 import { QuestionnaireService } from './service/questionnaire.service';
 import { FailedComponent } from './questionnaire/questionnaire-failed/questionnaire-failed.component';
 import { CorrectComponent } from './questionnaire/questionnaire-successful/questionnaire-successful.component';
+import { FooterComponent } from './footer/footer.component';
+import { ButtonModule } from '@progress/kendo-angular-buttons';
+import { LayoutModule } from '@progress/kendo-angular-layout';
+import { NavigationModule } from '@progress/kendo-angular-navigation';
+import { MenuModule} from '@progress/kendo-angular-menu';
+import { NavbarComponent } from './navbar/navbar.component';
 @NgModule({
-  declarations: [AppComponent, QuestionnaireMainComponent, QuestionnaireSolveComponent, FailedComponent, CorrectComponent],
+  declarations: [AppComponent, QuestionnaireMainComponent, QuestionnaireSolveComponent, FailedComponent, CorrectComponent, FooterComponent, NavbarComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
     MatIconModule,
     MatButtonModule,
     MatCheckboxModule,
-  ],
+    ButtonModule,
+    LayoutModule,
+    NavigationModule,
+    MenuModule
+],
   providers: [
     provideClientHydration(),
     provideHttpClient(withFetch()),
