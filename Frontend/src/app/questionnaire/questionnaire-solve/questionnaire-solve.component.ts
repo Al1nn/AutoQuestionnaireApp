@@ -16,7 +16,9 @@ export class QuestionnaireSolveComponent implements OnInit {
 
   seconds = 10;
 
-  timeRemaining = '00:00:00';
+  timeRemaining = '00:00:05';
+
+  private timerSubscription: any;
 
   constructor(
     private questionnaireService: QuestionnaireService,
@@ -31,17 +33,28 @@ export class QuestionnaireSolveComponent implements OnInit {
     this.startTimer();
   }
 
+  ngOnDestroy(): void {
+    if (this.timerSubscription) {
+      this.timerSubscription.unsubscribe();
+    }
+  }
+
   startTimer() {
     const source = timer(0, 1000);
-    source
+    this.timerSubscription = source
       .pipe(
         map((second) => this.seconds - second),
         takeWhile((remainingTime) => remainingTime >= 0)
       )
       .subscribe((remainingTime) => {
         if (remainingTime <= 0) {
-          this.timeRemaining = '00:00:00';
-          this.router.navigate(['/failed']);
+          if (this.router.url === '/solve') {
+            this.timeRemaining = '00:00:00';
+            this.router.navigate(['/failed']);
+          } else {
+            this.seconds = 10;
+            this.startTimer();
+          }
         } else {
           const hours = Math.floor(remainingTime / 3600);
           const minutes = Math.floor((remainingTime % 3600) / 60);

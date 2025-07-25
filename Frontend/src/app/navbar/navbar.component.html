@@ -1,19 +1,78 @@
-<!-- Telerik UI for Angular Navbar Example -->
-<!-- Just an image -->
-<nav class="navbar navbar-expand navbar-light bg-light">
-  <a class="navbar-brand" [routerLink]="'/'">
-    <img class="img mx-3" width="125" src="../../assets/images/logo.png" alt="Logo">
-  </a>
+<nav class="flex items-center space-x-8 border-b border-gray-200 px-4 py-1">
 
-  <ul class="navbar-nav mt-2">
-    <li class="nav-item">
-      <a class="nav-link " routerLink="/failed">Legislation <span class="sr-only">(current)</span></a>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link " href="#">Road Signs</a>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link " href="#">Questionnaires</a>
-    </li>
-  </ul>
+  <button type="button" routerLink="/" (click)="activeSection = null" >
+    <img src="../../assets/images/logo.png" alt="Logo" class="h-12" />
+  </button>
+
+
+  <div class="flex flex-1 space-x-8 px-3">
+    <!-- Legislation -->
+    <button
+      type="button"
+      routerLink="/legislation"
+      (click)="setActive('legislation')"
+      [ngClass]="{
+        'text-red-600': activeSection === 'legislation',
+        'text-gray-600': activeSection !== 'legislation'
+      }"
+      class="hover:text-red-400 px-3 font-light"
+    >
+      Legislation
+    </button>
+
+    <!-- Road Signs -->
+    <button
+      type="button"
+      routerLink="/roadsigns"
+      (click)="setActive('roadsigns')"
+      [ngClass]="{
+        'text-yellow-500': activeSection === 'roadsigns',
+        'text-gray-600': activeSection !== 'roadsigns'
+      }"
+      class="hover:text-yellow-600 px-3 font-light"
+    >
+      Road Signs
+    </button>
+
+    <!-- Questionnaire -->
+    <button
+      type="button"
+      routerLink="/questionnaires"
+      (click)="setActive('questionnaire')"
+      [ngClass]="{
+        'text-green-600': activeSection === 'questionnaire',
+        'text-gray-600': activeSection !== 'questionnaire'
+      }"
+      class="hover:text-green-600 px-3 font-light"
+    >
+      Questionnaire
+    </button>
+  </div>
+  <div class="flex justify-end-2"  >
+      <button
+      type="button"
+      (click)="setActive('register')"
+      routerLink="user/register"
+      [ngClass]="{
+        'text-gray-400': activeSection === 'register',
+        'text-gray-600': activeSection !== 'register'
+      }"
+      class="hover:text-gray-400 px-3 font-light"
+    >
+      Register
+    </button>
+      <button
+      type="button"
+      (click)="setActive('login')"
+      routerLink="user/login"
+      [ngClass]="{
+        'text-gray-400': activeSection === 'login',
+        'text-gray-600': activeSection !== 'login'
+      }"
+      class="hover:text-gray-400 px-3 font-light"
+    >
+      Login
+    </button>
+  </div>
+
 </nav>
