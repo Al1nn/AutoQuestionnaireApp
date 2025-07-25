@@ -1,4 +1,4 @@
-<nav class="flex items-center space-x-8 border-b border-gray-200 px-4 py-1">
+<nav class="navigation-bar flex items-center  space-x-8 border-b border-gray-200 px-4 py-1">
 
   <button type="button" routerLink="/" (click)="activeSection = null" >
     <img src="../../assets/images/logo.png" alt="Logo" class="h-12" />
@@ -54,8 +54,8 @@
       (click)="setActive('register')"
       routerLink="user/register"
       [ngClass]="{
-        'text-gray-400': activeSection === 'register',
-        'text-gray-600': activeSection !== 'register'
+        'text-gray-500': activeSection === 'register',
+        'text-gray-800': activeSection !== 'register'
       }"
       class="hover:text-gray-400 px-3 font-light"
     >
@@ -66,8 +66,8 @@
       (click)="setActive('login')"
       routerLink="user/login"
       [ngClass]="{
-        'text-gray-400': activeSection === 'login',
-        'text-gray-600': activeSection !== 'login'
+        'text-gray-500': activeSection === 'login',
+        'text-gray-800': activeSection !== 'login'
       }"
       class="hover:text-gray-400 px-3 font-light"
     >
