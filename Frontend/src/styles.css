@@ -4,4 +4,10 @@ html, body { height: 100%; }
 
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 
+@font-face {
+  font-family: 'Economica';
+  src: url('../src/assets/fonts/Economica-Regular-OTF.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+}
 

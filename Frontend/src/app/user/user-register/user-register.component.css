@@ -1,0 +1,14 @@
+.label {
+  font-family: 'Economica';
+  font-size: 20px;
+}
+
+.register-button{
+  background-color: #FF5758;
+  font-size: 1.5rem;
+  border-radius: 16px;
+}
+
+.register-button:hover {
+  background-color: #a50000;
+}

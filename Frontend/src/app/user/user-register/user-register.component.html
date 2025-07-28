@@ -1,3 +1,80 @@
-<p>
-  user-register works!
-</p>
+<div class="flex justify-center min-h-screen" >
+
+  <div class="p-6  bg-white mt-1">
+
+    <div class="px-15 border border-2 border-black py-auto rounded-3xl mt-10 relative pt-12 bg-white shadow-lg">
+      <div class="w-50 h-50 absolute top-0 left-1/2 transform -translate-x-1/2">
+        <img src="../../../assets/images/register.png" alt="Register" class=" w-65 absolute -top-10  left-1/2 transform -translate-x-1/2   bg-white px-4" >
+      </div>
+
+
+      <div class="justify-center items-center flex flex-col py-3">
+
+
+          <div class="relative w-35 h-35">
+            <img src="../../../assets/images/user-default.png" alt="User Default" class="w-full h-full rounded-2xl  object-cover">
+
+            <button type="button" class="absolute -bottom-6 -right-8  p-2  hover:text-gray-500 rounded-full">
+              <i class="fa-regular fa-pen text-4xl"></i>
+            </button>
+
+          </div>
+
+          <!--PUT HERE THE FORM FROM THAT PICTURE-->
+            <div class="relative w-200 h-full max-w-md mt-4">
+              <input type="text" class="w-full py-3 pl-5 text-xl border-2 border-black rounded-lg focus:outline-none focus:ring-1 focus:ring-gray-500">
+              <label for="name" class="label absolute left-5 -top-4 text-gray-500 bg-white px-2">Name</label>
+            </div>
+
+            <div class="relative w-200 h-full max-w-md mt-7">
+              <input type="email" class="w-full py-3 pl-5 text-xl border-2 border-black rounded-lg focus:outline-none focus:ring-1 focus:ring-gray-500">
+              <label for="email" class="label absolute left-5 -top-4 text-gray-500 bg-white px-2">Email</label>
+            </div>
+
+
+            <div class="relative w-200 h-full max-w-md mt-7">
+              <input type="password" class="w-full py-3 pl-5 text-xl border-2 border-black rounded-lg focus:outline-none focus:ring-1 focus:ring-gray-500">
+              <label for="password" class="label absolute left-5 -top-4 text-gray-500 bg-white px-2">Password</label>
+            </div>
+
+            <div class="relative w-200 h-full max-w-md mt-7">
+              <input type="password" class="w-full py-3 pl-5 text-xl border-2 border-black rounded-lg focus:outline-none focus:ring-1 focus:ring-gray-500">
+              <label for="password" class="label absolute left-5 -top-4 text-gray-500 bg-white px-2">Confirm Password</label>
+            </div>
+
+            <div class="relative w-200 h-full max-w-md mt-7">
+              <input type="text" class="w-full py-3 pl-5 text-xl border-2 border-black rounded-lg focus:outline-none focus:ring-1 focus:ring-gray-500">
+              <label for="number" class="label absolute left-5 -top-4 text-gray-500 bg-white px-2">Phone Number</label>
+            </div>
+
+            <!--I need some radio buttons here-->
+            <div class="relative w-200 h-full max-w-md mt-7 flex justify-between items-center">
+              <div class="flex items-center">
+                <input type="radio" name="role" value="admin" id="admin"
+                  class="accent-black checked:accent-gray-400 transition-colors duration-200">
+                <label for="admin" class="label ml-2">Admin</label>
+              </div>
+
+              <div class="flex items-center">
+                <input type="radio" name="role" value="learner" id="learner"
+                  class="accent-black checked:accent-gray-400 transition-colors duration-200">
+                <label for="learner" class="label ml-2">Learner</label>
+              </div>
+
+            </div>
+
+            <div class="flex justify-center h-full max-w-md mt-7 py-3">
+              <button class="register-button w-200 h-15  label  text-white ">Register</button>
+            </div>
+
+
+    </div>
+
+
+
+  </div>
+
+
+
+
+</div>
