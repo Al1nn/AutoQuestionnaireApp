@@ -1,0 +1,9 @@
+.login-button{
+  background-color: #FF5758;
+  font-size: 1.5rem;
+  border-radius: 16px;
+}
+
+.login-button:hover {
+  background-color: #a50000;
+}
