@@ -15,11 +15,6 @@ namespace QuestionnaireAPI.Controllers
 
         }
 
-        [HttpGet("questions")]
-        public IActionResult GetQuestions()
-        {
-            string[] questions = { "Test intrebare conexiune?", "Raspuns intrebare conexiune" };
-            return Ok(questions);
-        }
+        
     }
 }

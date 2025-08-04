@@ -1,0 +1,33 @@
+{
+  "Files": [
+    {
+      "Id": "/Users/alingeorgian/Desktop/AutoQuestionnaireApp/QuestionnaireAPI/wwwroot/avatars/original/c0fc1b6a-394b-4f29-a2c4-13119c95ee78_bill_Gates.jpg",
+      "PackagePath": "staticwebassets/avatars/original/c0fc1b6a-394b-4f29-a2c4-13119c95ee78_bill_Gates.jpg"
+    },
+    {
+      "Id": "/Users/alingeorgian/Desktop/AutoQuestionnaireApp/QuestionnaireAPI/wwwroot/avatars/thumbnail/c0fc1b6a-394b-4f29-a2c4-13119c95ee78_bill_Gates.jpg",
+      "PackagePath": "staticwebassets/avatars/thumbnail/c0fc1b6a-394b-4f29-a2c4-13119c95ee78_bill_Gates.jpg"
+    },
+    {
+      "Id": "obj/Debug/net9.0/staticwebassets/msbuild.QuestionnaireAPI.Microsoft.AspNetCore.StaticWebAssetEndpoints.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssetEndpoints.props"
+    },
+    {
+      "Id": "obj/Debug/net9.0/staticwebassets/msbuild.QuestionnaireAPI.Microsoft.AspNetCore.StaticWebAssets.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssets.props"
+    },
+    {
+      "Id": "obj/Debug/net9.0/staticwebassets/msbuild.build.QuestionnaireAPI.props",
+      "PackagePath": "build\\QuestionnaireAPI.props"
+    },
+    {
+      "Id": "obj/Debug/net9.0/staticwebassets/msbuild.buildMultiTargeting.QuestionnaireAPI.props",
+      "PackagePath": "buildMultiTargeting\\QuestionnaireAPI.props"
+    },
+    {
+      "Id": "obj/Debug/net9.0/staticwebassets/msbuild.buildTransitive.QuestionnaireAPI.props",
+      "PackagePath": "buildTransitive\\QuestionnaireAPI.props"
+    }
+  ],
+  "ElementsToRemove": []
+}
