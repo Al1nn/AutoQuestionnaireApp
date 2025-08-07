@@ -2,6 +2,8 @@ import { Routes, RouterModule } from '@angular/router';
 import { UserLoginComponent } from './user-login/user-login.component';
 import { UserRegisterComponent } from './user-register/user-register.component';
 import { NgModule } from '@angular/core';
+import { ReactiveFormsModule } from '@angular/forms';
+import { CommonModule } from '@angular/common';
 
 const routes: Routes = [
   {
@@ -28,7 +30,9 @@ export class UserRoutingModule {
   ];
 
   static modules: any[] = [
-    UserRoutingModule
+    UserRoutingModule,
+    ReactiveFormsModule,
+    CommonModule
   ]
   static providers: any[] = [
 

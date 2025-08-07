@@ -7,22 +7,17 @@ import { BrowserModule, provideClientHydration } from '@angular/platform-browser
 import { provideHttpClient, withFetch } from '@angular/common/http';
 import { provideAnimations } from '@angular/platform-browser/animations';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
-    AppComponent,
-    NavbarComponent,
+    AppRoutingModule.components
   ],
   imports: [
-    AppRoutingModule,
-    CommonModule,
-    BrowserModule
+    AppRoutingModule.modules,
   ],
   providers: [
-    provideClientHydration(),
-    provideHttpClient(withFetch()),
-    provideAnimations(),
-    provideAnimationsAsync(),
+    AppRoutingModule.providers
   ],
   bootstrap: [AppComponent],
 })
