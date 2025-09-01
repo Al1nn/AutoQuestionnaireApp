@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ReactiveFormsModule, FormGroup, FormBuilder, FormControl, AbstractControl, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { AuthService } from '../../service/auth.service';
 
 
 @Component({
@@ -16,10 +17,10 @@ export class UserRegisterComponent implements OnInit {
 
 
   userSubmited: boolean = false;
+  userData: FormData = new FormData();
 
-  constructor(private fb: FormBuilder, private router: Router) {
 
-  }
+  constructor(private fb: FormBuilder, private router: Router, private authService: AuthService) {}
 
 
   get name(){
@@ -50,13 +51,13 @@ export class UserRegisterComponent implements OnInit {
     this.createRegisterForm();
   }
 
-  createRegisterForm() { // Initialize the form with controls and their default values
+  createRegisterForm() {
     this.registerationForm = this.fb.group({
       name: ['', Validators.required],
       email: ['', [Validators.required, Validators.email]],
       password: ['', Validators.required],
       confirmPassword: ['',Validators.required],
-      phoneNumber: ['', [Validators.required, Validators.pattern('^\\+?[0-9]{10,15}$')]], // Example pattern for phone number
+      phoneNumber: ['', [Validators.required, Validators.pattern('^\\+?[0-9]{10,15}$')]],
       role: ['', Validators.required]
     },
     {
@@ -70,37 +71,68 @@ export class UserRegisterComponent implements OnInit {
   }
 
 
-  onAvatarSelected(event: any) { // Handle the file input change event
+  onAvatarSelected(event: any) {
     const file: File = event.target.files[0];
+    this.userData.append('file', file);
 
     if (file) {
       const reader = new FileReader();
       reader.onload = (e: any) => {
-        // e.target.result contains the Data URL
+
         this.imageUrl = e.target.result;
+
       };
       reader.readAsDataURL(file);
     }
     console.log(file);
   }
 
+
+  user() : FormData{
+    this.userData.append('name', this.name.value);
+    this.userData.append('email', this.email.value);
+    this.userData.append('password', this.password.value);
+    this.userData.append('phoneNumber', this.phoneNumber.value);
+    this.userData.append('role', this.role.value);
+    return this.userData;
+  }
+
   onSubmit() {
-    this.userSubmited = true; // Set the flag to true when the form is submitted
+    this.userSubmited = true;
 
     if(this.registerationForm.valid) {
+      this.authService.registerUser(this.user()).subscribe(
+        ()=>{
 
-      console.log(this.registerationForm.value);
+          this.userData.forEach((value, key) => {
+            console.log(`${key}:`, value);
+          });
 
-      this.registerationForm.reset();
-      this.imageUrl = null;
+          this.reset();
+          console.log("User registered successfully")
+          this.router.navigate(['/']);
 
-      this.router.navigate(['/']); // Navigate to the login page after successful registration
 
+        }
+      );
 
 
     }
 
 
+  }
+
+  reset(){
+    this.userSubmited = false;
+    this.registerationForm.reset();
+    this.imageUrl = null;
+
+    this.userData.delete('file');
+    this.userData.delete('name');
+    this.userData.delete('email');
+    this.userData.delete('password');
+    this.userData.delete('phoneNumber');
+    this.userData.delete('role');
   }
 
 }
