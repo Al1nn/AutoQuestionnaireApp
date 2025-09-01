@@ -1,8 +1,16 @@
 {
   "Files": [
     {
+      "Id": "/Users/alingeorgian/Desktop/AutoQuestionnaireApp/QuestionnaireAPI/wwwroot/avatars/original/ab854ade-7e16-4c57-8d64-aaa891da4237_maria.jpg",
+      "PackagePath": "staticwebassets/avatars/original/ab854ade-7e16-4c57-8d64-aaa891da4237_maria.jpg"
+    },
+    {
       "Id": "/Users/alingeorgian/Desktop/AutoQuestionnaireApp/QuestionnaireAPI/wwwroot/avatars/original/c0fc1b6a-394b-4f29-a2c4-13119c95ee78_bill_Gates.jpg",
       "PackagePath": "staticwebassets/avatars/original/c0fc1b6a-394b-4f29-a2c4-13119c95ee78_bill_Gates.jpg"
+    },
+    {
+      "Id": "/Users/alingeorgian/Desktop/AutoQuestionnaireApp/QuestionnaireAPI/wwwroot/avatars/thumbnail/ab854ade-7e16-4c57-8d64-aaa891da4237_maria.jpg",
+      "PackagePath": "staticwebassets/avatars/thumbnail/ab854ade-7e16-4c57-8d64-aaa891da4237_maria.jpg"
     },
     {
       "Id": "/Users/alingeorgian/Desktop/AutoQuestionnaireApp/QuestionnaireAPI/wwwroot/avatars/thumbnail/c0fc1b6a-394b-4f29-a2c4-13119c95ee78_bill_Gates.jpg",
