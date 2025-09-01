@@ -9,9 +9,7 @@ import { FailedComponent } from './questionnaire-failed/questionnaire-failed.com
 import { CorrectComponent } from './questionnaire-successful/questionnaire-successful.component';
 import { FooterComponent } from '../footer/footer.component';
 import { QuestionnaireService } from '../service/questionnaire.service';
-import { MatIconModule } from '@angular/material/icon';
-import { MatButtonModule } from '@angular/material/button';
-import { MatCheckboxModule } from '@angular/material/checkbox';
+
 
 const routes: Routes = [
   {
@@ -65,9 +63,6 @@ export class QuestionnaireRoutingModule {
 
     static modules: any[] = [
       QuestionnaireRoutingModule,
-      MatIconModule,
-      MatButtonModule,
-      MatCheckboxModule,
     ];
 
     static providers: any[] = [
