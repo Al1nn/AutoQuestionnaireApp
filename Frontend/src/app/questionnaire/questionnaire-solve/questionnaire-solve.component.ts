@@ -7,6 +7,7 @@ import { QuestionnaireService } from '../../service/questionnaire.service';
   selector: 'app-questionnaire-solve',
   templateUrl: './questionnaire-solve.component.html',
   styleUrl: './questionnaire-solve.component.css',
+  standalone: false,
 })
 export class QuestionnaireSolveComponent implements OnInit {
   public initialQuestions: number = 0;

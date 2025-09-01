@@ -3,7 +3,8 @@ import { Component, OnInit } from '@angular/core';
 @Component({
   selector: 'app-questionnaire-roadsigns',
   templateUrl: './questionnaire-roadsigns.component.html',
-  styleUrls: ['./questionnaire-roadsigns.component.css']
+  styleUrls: ['./questionnaire-roadsigns.component.css'],
+  standalone: false
 })
 export class QuestionnaireRoadsignsComponent implements OnInit {
 
