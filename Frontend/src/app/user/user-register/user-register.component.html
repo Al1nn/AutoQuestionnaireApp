@@ -1,178 +1,187 @@
-<div class="flex justify-center min-h-screen" >
-
-  <div class="p-6  bg-white mt-2">
-
-    <div class="px-15 border border-2 border-black py-auto rounded-3xl mt-10 relative pt-12 bg-white shadow-lg">
-
-      <div class="w-50 h-50 absolute top-0 left-1/2 transform -translate-x-1/2">
-        <img src="../../../assets/images/register.png" alt="Register" class=" w-65 absolute -top-10  left-1/2 transform -translate-x-1/2   bg-white px-4" >
-      </div>
 
 
-      <div class="justify-center items-center flex flex-col py-3">
+
+<div class="bg-gray-100 min-h-screen flex justify-center mt-1">
+  <img class="w-50 min-w-screen blur-md" src="../../../assets/images/register_cover_image.png" />
+  <div class="absolute">
+
+    <div class="p-6 bg-transparent rounded-3xl">
+
+      <div class="px-10 border border-2 border-black py-auto rounded-3xl mt-3 relative pt-12 bg-white shadow-lg">
+
+        <div class="w-50 h-50 absolute top-0  left-1/2 transform -translate-x-1/2">
+          <img src="../../../assets/images/register.png" alt="Register" class="w-65 rounded-3xl absolute -top-10  left-1/2 transform -translate-x-1/2 bg-white px-4" >
+        </div>
 
 
-          <div class="relative w-35 h-35">
-            <img [src]="imageUrl || '../../../assets/images/user-default.png'" alt="User Default" class="w-full h-full rounded-2xl  object-cover">
-
-            <input type="file" class="absolute inset-0 opacity-0 cursor-pointer" accept="image/*" #avatarInput hidden (change)="onAvatarSelected($event)">
-
-            <button type="button" class="absolute -bottom-6 -right-8  p-2  hover:text-gray-500 rounded-full" (click)="avatarInput.click()">
-              <i class="fa-regular fa-pen text-4xl"></i>
-            </button>
-
-          </div>
-
-          <form [formGroup]="registerationForm" (ngSubmit)="onSubmit()" >
-
-            <div class="relative w-200  h-full max-w-md mt-4">
+        <div class="justify-center items-center flex flex-col py-3">
 
 
-              <label for="name"
-              [ngClass]="{'text-red-500': !name.valid && (name.touched || userSubmited)}"
-              class="label absolute left-5 -top-4 text-gray-500 bg-white px-2">Name</label>
+            <div class="relative w-35 h-35">
+              <img [src]="imageUrl || '../../../assets/images/user-default.png'" alt="User Default" class="w-full h-full rounded-2xl  object-cover">
 
-              <input type="text" formControlName="name"
-                class="w-full py-3 pl-5 text-xl border-2 rounded-lg focus:outline-none focus:ring-1 focus:ring-gray-500"
+              <input type="file" class="absolute inset-0 opacity-0 cursor-pointer" accept="image/*" #avatarInput hidden (change)="onAvatarSelected($event)">
+
+              <button type="button" class="absolute -bottom-6 -right-8  p-2  hover:text-gray-500 rounded-full" (click)="avatarInput.click()">
+                <i class="fa-regular fa-pen text-4xl"></i>
+              </button>
+
+            </div>
+
+            <form [formGroup]="registerationForm" (ngSubmit)="onSubmit()" >
+
+              <div class="relative w-200  h-full max-w-md mt-4">
+
+
+                <label for="name"
+                [ngClass]="{'text-red-500': !name.valid && (name.touched || userSubmited)}"
+                class="label absolute left-5 -top-4 text-gray-500 bg-white px-2">Name</label>
+
+                <input type="text" formControlName="name"
+                  class="w-full py-3 pl-5 text-xl border-2 rounded-lg focus:outline-none focus:ring-1 focus:ring-gray-500"
+                  [ngClass]="{
+                    'border-red-500': !name.valid && (name.touched || userSubmited),
+                    'border-black': name.valid || !(name.touched || userSubmited)
+                  }"
+                />
+
+                <div class="min-h-6 text-red-500">
+                  <span *ngIf="!name.valid && (name.touched || userSubmited)">
+                    <span *ngIf="name.errors?.['required']">Name is required.</span>
+                  </span>
+                </div>
+
+              </div>
+
+
+
+              <div class="relative w-200 h-full max-w-md mt-7">
+                <input type="email" formControlName="email"
                 [ngClass]="{
-                  'border-red-500': !name.valid && (name.touched || userSubmited),
-                  'border-black': name.valid || !(name.touched || userSubmited)
+                  'border-red-500': !email.valid && (email.touched || userSubmited),
+                  'border-black': email.valid || !(email.touched || userSubmited)
                 }"
-              />
-
-              <div class="min-h-6 text-red-500">
-                <span *ngIf="!name.valid && (name.touched || userSubmited)">
-                  <span *ngIf="name.errors?.['required']">Name is required.</span>
-                </span>
-              </div>
-
-            </div>
+                class="w-full py-3 pl-5 text-xl border-2  rounded-lg focus:outline-none focus:ring-1 focus:ring-gray-500"
+                />
 
 
+                <label for="email"
+                [ngClass]="{'text-red-500': !email.valid && (email.touched || userSubmited)}"
+                class="label absolute left-5 -top-4 text-gray-500 bg-white px-2">Email</label>
 
-            <div class="relative w-200 h-full max-w-md mt-7">
-              <input type="email" formControlName="email"
-              [ngClass]="{
-                'border-red-500': !email.valid && (email.touched || userSubmited),
-                'border-black': email.valid || !(email.touched || userSubmited)
-              }"
-              class="w-full py-3 pl-5 text-xl border-2  rounded-lg focus:outline-none focus:ring-1 focus:ring-gray-500"
-              />
+                <div class="min-h-6 text-red-500">
+                  <span *ngIf="!email.valid && (email.touched || userSubmited)">
+                    <span *ngIf="email.errors?.['required']">Email is required.</span>
+                    <span *ngIf="email.errors?.['email']">Invalid email format.</span>
+                  </span>
+                </div>
 
 
-              <label for="email"
-              [ngClass]="{'text-red-500': !email.valid && (email.touched || userSubmited)}"
-              class="label absolute left-5 -top-4 text-gray-500 bg-white px-2">Email</label>
-
-              <div class="min-h-6 text-red-500">
-                <span *ngIf="!email.valid && (email.touched || userSubmited)">
-                  <span *ngIf="email.errors?.['required']">Email is required.</span>
-                  <span *ngIf="email.errors?.['email']">Invalid email format.</span>
-                </span>
               </div>
 
 
-            </div>
+              <div class="relative w-200 h-full max-w-md mt-7">
+                <input type="password" formControlName="password"
+                [ngClass]="{
+                  'border-red-500': !password.valid && (password.touched || userSubmited),
+                  'border-black': password.valid || !(password.touched || userSubmited)
+                }"
+                class="w-full py-3 pl-5 text-xl border-2 rounded-lg focus:outline-none focus:ring-1 focus:ring-gray-500 tracking-widest">
+                <label for="password"
+                [ngClass]="{'text-red-500': !password.valid && (password.touched || userSubmited)}"
+                class="label absolute left-5 -top-4 text-gray-500 bg-white px-2">Password</label>
+
+                <div class="min-h-6 text-red-500">
+                  <span *ngIf="!password.valid && (password.touched || userSubmited)" class="text-red-500">
+                    <span *ngIf="password.errors?.['required']">Password is required.</span>
+                  </span>
+                </div>
 
 
-            <div class="relative w-200 h-full max-w-md mt-7">
-              <input type="password" formControlName="password"
-              [ngClass]="{
-                'border-red-500': !password.valid && (password.touched || userSubmited),
-                'border-black': password.valid || !(password.touched || userSubmited)
-              }"
-              class="w-full py-3 pl-5 text-xl border-2 rounded-lg focus:outline-none focus:ring-1 focus:ring-gray-500 tracking-widest">
-              <label for="password"
-              [ngClass]="{'text-red-500': !password.valid && (password.touched || userSubmited)}"
-              class="label absolute left-5 -top-4 text-gray-500 bg-white px-2">Password</label>
 
-              <div class="min-h-6 text-red-500">
-                <span *ngIf="!password.valid && (password.touched || userSubmited)" class="text-red-500">
-                  <span *ngIf="password.errors?.['required']">Password is required.</span>
-                </span>
               </div>
 
+              <div class="relative w-200 h-full max-w-md mt-7">
+                <input type="password" formControlName="confirmPassword"
+                [ngClass]="{
+                  'border-red-500': !confirmPassword.valid && (confirmPassword.touched || userSubmited) || registerationForm.hasError('notMatching'),
+                  'border-black': confirmPassword.valid || !(confirmPassword.touched || userSubmited) && !registerationForm.hasError('notMatching')
+                }"
+                class="w-full py-3 pl-5 text-xl border-2 rounded-lg focus:outline-none focus:ring-1 focus:ring-gray-500 tracking-widest">
+                <label for="password"
+                [ngClass]="{'text-red-500': !confirmPassword.valid && (confirmPassword.touched || userSubmited) || registerationForm.hasError('notMatching')}"
+                class="label absolute left-5 -top-4 text-gray-500 bg-white px-2">Confirm Password</label>
+
+                <div class="min-h-6 text-red-500">
+                  <span *ngIf="!confirmPassword.valid && (confirmPassword.touched || userSubmited)" >
+                    Confirm Password is required.
+                  </span>
+                  <span *ngIf="registerationForm.hasError('notMatching') && confirmPassword.valid">
+                    Passwords do not match.
+                  </span>
+                </div>
 
 
-            </div>
-
-            <div class="relative w-200 h-full max-w-md mt-7">
-              <input type="password" formControlName="confirmPassword"
-              [ngClass]="{
-                'border-red-500': !confirmPassword.valid && (confirmPassword.touched || userSubmited) || registerationForm.hasError('notMatching'),
-                'border-black': confirmPassword.valid || !(confirmPassword.touched || userSubmited) && !registerationForm.hasError('notMatching')
-              }"
-              class="w-full py-3 pl-5 text-xl border-2 rounded-lg focus:outline-none focus:ring-1 focus:ring-gray-500 tracking-widest">
-              <label for="password"
-              [ngClass]="{'text-red-500': !confirmPassword.valid && (confirmPassword.touched || userSubmited) || registerationForm.hasError('notMatching')}"
-              class="label absolute left-5 -top-4 text-gray-500 bg-white px-2">Confirm Password</label>
-
-              <div class="min-h-6 text-red-500">
-                <span *ngIf="!confirmPassword.valid && (confirmPassword.touched || userSubmited)" >
-                  Confirm Password is required.
-                </span>
-                <span *ngIf="registerationForm.hasError('notMatching') && confirmPassword.valid">
-                  Passwords do not match.
-                </span>
-              </div>
-
-
-            </div>
-
-
-
-            <div class="relative w-200 h-full max-w-md mt-7">
-              <input type="text" formControlName="phoneNumber"
-              [ngClass]="{
-                'border-red-500': !phoneNumber.valid && (phoneNumber.touched || userSubmited),
-                'border-black': phoneNumber.valid || !(phoneNumber.touched || userSubmited)
-              }"
-              class="w-full py-3 pl-5 text-xl border-2 border-black rounded-lg focus:outline-none focus:ring-1 focus:ring-gray-500">
-              <label for="number"
-              [ngClass]="{'text-red-500': !phoneNumber.valid && (phoneNumber.touched || userSubmited)}"
-              class="label absolute left-5 -top-4 text-gray-500 bg-white px-2">Phone Number</label>
-
-              <div class="min-h-6 text-red-500">
-                <span *ngIf="!phoneNumber.valid && (phoneNumber.touched || userSubmited)">
-                  <span *ngIf="phoneNumber.errors?.['required']">Phone number is required.</span>
-                  <span *ngIf="phoneNumber.errors?.['pattern']">Invalid phone number format.</span>
-                </span>
               </div>
 
 
 
-            </div>
+              <div class="relative w-200 h-full max-w-md mt-7">
+                <input type="text" formControlName="phoneNumber"
+                [ngClass]="{
+                  'border-red-500': !phoneNumber.valid && (phoneNumber.touched || userSubmited),
+                  'border-black': phoneNumber.valid || !(phoneNumber.touched || userSubmited)
+                }"
+                class="w-full py-3 pl-5 text-xl border-2 border-black rounded-lg focus:outline-none focus:ring-1 focus:ring-gray-500">
+                <label for="number"
+                [ngClass]="{'text-red-500': !phoneNumber.valid && (phoneNumber.touched || userSubmited)}"
+                class="label absolute left-5 -top-4 text-gray-500 bg-white px-2">Phone Number</label>
 
-            <!--I need some radio buttons here-->
-            <div class="relative w-200 h-full max-w-md mt-7 flex justify-between items-center">
+                <div class="min-h-6 text-red-500">
+                  <span *ngIf="!phoneNumber.valid && (phoneNumber.touched || userSubmited)">
+                    <span *ngIf="phoneNumber.errors?.['required']">Phone number is required.</span>
+                    <span *ngIf="phoneNumber.errors?.['pattern']">Invalid phone number format.</span>
+                  </span>
+                </div>
 
-              <div class="flex items-center" >
-                <input type="radio" name="role" value="Admin" id="admin" formControlName="role"
-                  class="accent-black checked:accent-gray-400 transition-colors duration-200">
-                <label for="admin" class="label ml-2">Admin</label>
+
+
               </div>
 
-              <div class="flex items-center">
-                <input type="radio" name="role" value="Learner" id="learner" formControlName="role"
-                  class="accent-black checked:accent-gray-400 transition-colors duration-200">
-                <label for="learner" class="label ml-2">Learner</label>
+
+              <div class="relative w-200 h-full max-w-md mt-7 flex justify-between items-center">
+
+                <div class="flex items-center" >
+                  <input type="radio" name="role" value="Admin" id="admin" formControlName="role"
+                    class="accent-black checked:accent-gray-400 transition-colors duration-200">
+                  <label for="admin" class="label ml-2">Admin</label>
+                </div>
+
+                <div class="flex items-center">
+                  <input type="radio" name="role" value="Learner" id="learner" formControlName="role"
+                    class="accent-black checked:accent-gray-400 transition-colors duration-200">
+                  <label for="learner" class="label ml-2">Learner</label>
+                </div>
+
+
+
+              </div>
+              <div class=" text-red-500">
+                  <span *ngIf="!role.valid && (role.touched || userSubmited)">
+                    Role is required.
+                  </span>
+              </div>
+
+              <div class="flex justify-center h-full max-w-md mt-7 py-3">
+                <button type="submit" class="register-button w-200 h-15  label  text-white ">Register</button>
               </div>
 
 
-
-            </div>
-            <div class="min-h-2 text-red-500">
-                <span *ngIf="!role.valid && (role.touched || userSubmited)">
-                  Role is required.
-                </span>
-            </div>
-
-            <div class="flex justify-center h-full max-w-md mt-7 py-3">
-              <button type="submit" class="register-button w-200 h-15  label  text-white ">Register</button>
-            </div>
+            </form>
 
 
-          </form>
+
+      </div>
 
 
 
@@ -180,9 +189,6 @@
 
 
 
-  </div>
 
-
-
-
+</div>
 </div>
