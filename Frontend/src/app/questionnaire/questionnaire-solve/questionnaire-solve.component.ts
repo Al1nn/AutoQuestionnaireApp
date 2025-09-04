@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { map, takeWhile, timer } from 'rxjs';
-import { QuestionnaireService } from '../../service/questionnaire.service';
+import { QuestionnaireService } from '../../services/questionnaire.service';
 
 @Component({
   selector: 'app-questionnaire-solve',

@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { provideHotToastConfig } from '@ngxpert/hot-toast';
 
 
 @NgModule({
@@ -11,7 +12,8 @@ import { AppComponent } from './app.component';
     AppRoutingModule.modules,
   ],
   providers: [
-    AppRoutingModule.providers
+    AppRoutingModule.providers,
+    provideHotToastConfig()
   ],
   bootstrap: [AppComponent],
 })

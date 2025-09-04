@@ -4,7 +4,7 @@ import { UserRegisterComponent } from './user-register/user-register.component';
 import { NgModule } from '@angular/core';
 import { ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
-import { AuthService } from '../service/auth.service';
+import { AuthService } from '../services/auth.service';
 
 const routes: Routes = [
   {
@@ -36,6 +36,6 @@ export class UserRoutingModule {
     CommonModule
   ]
   static providers: any[] = [
-    AuthService
+
   ];
 }

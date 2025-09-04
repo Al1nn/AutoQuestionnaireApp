@@ -4,10 +4,13 @@ import { AppComponent } from './app.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { CommonModule } from '@angular/common';
 import { BrowserModule, provideClientHydration } from '@angular/platform-browser';
-import { provideHttpClient, withFetch } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, provideHttpClient, withFetch, withInterceptors } from '@angular/common/http';
 import { provideAnimations } from '@angular/platform-browser/animations';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms'
+import { httpErrorInterceptor } from './interceptors/httpinterceptor.interceptor';
+import { StoreService } from './store/store.service';
+
 
 
 const routes: Routes = [
@@ -43,8 +46,10 @@ export class AppRoutingModule {
 
   static providers: any[] = [
     provideClientHydration(),
-    provideHttpClient(withFetch()),
+    provideHttpClient(withFetch(),
+      withInterceptors([httpErrorInterceptor])),
     provideAnimations(),
     provideAnimationsAsync(),
+    StoreService
   ];
 }

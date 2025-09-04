@@ -8,7 +8,7 @@ import { QuestionnaireSolveComponent } from './questionnaire-solve/questionnaire
 import { FailedComponent } from './questionnaire-failed/questionnaire-failed.component';
 import { CorrectComponent } from './questionnaire-successful/questionnaire-successful.component';
 import { FooterComponent } from '../footer/footer.component';
-import { QuestionnaireService } from '../service/questionnaire.service';
+import { QuestionnaireService } from '../services/questionnaire.service';
 
 
 const routes: Routes = [

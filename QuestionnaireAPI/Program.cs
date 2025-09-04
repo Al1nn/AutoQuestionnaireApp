@@ -3,6 +3,7 @@
 using Microsoft.EntityFrameworkCore;
 using QuestionnaireAPI.Data;
 using QuestionnaireAPI.Interfaces;
+using QuestionnaireAPI.Middleware;
 using QuestionnaireAPI.Repos;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -26,6 +27,8 @@ app.UseSwagger();
 
 app.UseSwaggerUI();
 
+app.UseMiddleware<ExceptionMiddleware>();
+
 app.UseRouting();
 
 app.UseFileServer();
@@ -35,6 +38,7 @@ app.UseHsts();
 app.UseHttpsRedirection();
 
 app.UseCors(m => m.AllowAnyOrigin().AllowAnyHeader().AllowAnyMethod());
+
 
 
 app.UseDefaultFiles();

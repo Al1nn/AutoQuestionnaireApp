@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { ReactiveFormsModule, FormGroup, FormBuilder, FormControl, AbstractControl, Validators } from '@angular/forms';
+import { FormGroup, FormBuilder, FormControl, AbstractControl, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { AuthService } from '../../service/auth.service';
+import { StoreService } from '../../store/store.service';
 
 
 @Component({
@@ -21,7 +21,7 @@ export class UserRegisterComponent implements OnInit {
   userData: FormData = new FormData();
 
 
-  constructor(private fb: FormBuilder, private router: Router, private authService: AuthService) {}
+  constructor(private fb: FormBuilder, private router: Router, private store: StoreService) {}
 
 
   get name(){
@@ -102,7 +102,7 @@ export class UserRegisterComponent implements OnInit {
     this.userSubmited = true;
 
     if(this.registerationForm.valid) {
-      this.authService.registerUser(this.user()).subscribe(
+      this.store.authService.registerUser(this.user()).subscribe(
         ()=>{
 
           this.userData.forEach((value, key) => {
@@ -110,11 +110,12 @@ export class UserRegisterComponent implements OnInit {
           });
 
           this.reset();
-          console.log("User registered successfully")
+          console.log("User registered successfully");
           this.router.navigate(['/']);
 
 
         }
+
       );
 
 
