@@ -1,32 +1,66 @@
+
+
 <div class="flex justify-center min-h-screen">
 
-  <div class="p-6 mt-30">
-    <div class="px-15 border border-2 border-black py-auto rounded-3xl mt-10 relative pt-12 bg-white shadow-lg">
+<div class="absolute mt-1">
+  <img src="../../../assets/images/login_cover_image.png" alt="Login Cover" class="min-w-screen min-h-screen blur-sm">
+</div>
+
+  <div class="p-6 mt-30 bg-transparent shadow-lg z-1 h-100 rounded-3xl">
+    <div class="px-15 border border-2 border-black py-auto rounded-3xl mt-10 relative pt-12 bg-white ">
 
       <div class="w-70 h-50 absolute top-0 left-1/2 transform -translate-x-1/2">
-        <img src="../../../assets/images/login.png" alt="Login" class=" w-65 absolute -top-10  left-1/2 transform -translate-x-1/2   bg-white px-4">
+        <img src="../../../assets/images/login.png" alt="Login" class=" w-65 absolute -top-10  left-1/2 transform -translate-x-1/2 rounded-3xl  bg-white px-4">
       </div>
 
-      <div class="justify-center items-center flex flex-col py-5">
 
-        <div class="relative w-200 h-full max-w-md mt-3">
-          <input type="text" class="w-full py-3 pl-5 text-xl border-2 border-black rounded-lg focus:outline-none focus:ring-1 focus:ring-gray-500">
-          <label for="name" class="label absolute left-5 -top-4 text-gray-500 bg-white px-2">Name or Email</label>
+
+
+        <div class="justify-center items-center flex flex-col py-5">
+
+          <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+
+              <div class="relative w-200 h-full max-w-md mt-3">
+                <input type="text" formControlName="usernameOrEmail"  class="w-full py-3 pl-5 text-xl border-2 border-black rounded-lg focus:outline-none focus:ring-1 focus:ring-gray-500">
+                <label for="name" class="label absolute left-5 -top-4 text-gray-500 bg-white px-2">Name or Email</label>
+                <div class="min-h-6 text-red-500">
+                  <span *ngIf="!usernameOrEmail.valid && (usernameOrEmail.touched || userSubmited)">
+                    <span *ngIf="usernameOrEmail.errors?.['required']">Name or Email is required.</span>
+                  </span>
+
+                </div>
+              </div>
+
+              <div class="relative w-200 h-full max-w-md mt-15">
+                <input type="password" formControlName="password" class="w-full py-3 pl-5 text-xl border-2 border-black rounded-lg focus:outline-none focus:ring-1 focus:ring-gray-500">
+                <label for="password" class="label absolute left-5 -top-4 text-gray-500 bg-white px-2">Password</label>
+                <div class="min-h-6 text-red-500">
+                  <span *ngIf="!password.valid && (password.touched || userSubmited)">
+                    <span *ngIf="password.errors?.['required']">Password is required.</span>
+                  </span>
+
+                </div>
+              </div>
+
+              <div class="flex justify-center h-full max-w-md mt-10 py-3">
+                <button type="submit" class="login-button w-74 h-15  label  text-white" [disabled]="!loginForm.valid">LOG IN</button>
+              </div>
+
+          </form>
+
+
         </div>
 
-        <div class="relative w-200 h-full max-w-md mt-15">
-          <input type="password" class="w-full py-3 pl-5 text-xl border-2 border-black rounded-lg focus:outline-none focus:ring-1 focus:ring-gray-500">
-          <label for="password" class="label absolute left-5 -top-4 text-gray-500 bg-white px-2">Password</label>
-        </div>
 
-        <div class="flex justify-center h-full max-w-md mt-10 py-3">
-          <button class="login-button w-74 h-15  label  text-white ">LOG IN</button>
-        </div>
 
-      </div>
+
+
+
 
     </div>
 
   </div>
+
+
 
 </div>

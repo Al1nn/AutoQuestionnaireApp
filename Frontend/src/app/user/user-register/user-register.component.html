@@ -1,11 +1,8 @@
-
-
-
 <div class="bg-gray-100 min-h-screen flex justify-center mt-1">
-  <img class="w-50 min-w-screen blur-md" src="../../../assets/images/register_cover_image.png" />
+  <img class="w-50 min-w-screen min-h-screen blur-sm" src="../../../assets/images/register_cover_image.png" />
   <div class="absolute">
 
-    <div class="p-6 bg-transparent rounded-3xl">
+    <div class="p-6 bg-transparent rounded-3xl shadow-lg mt-2">
 
       <div class="px-10 border border-2 border-black py-auto rounded-3xl mt-3 relative pt-12 bg-white shadow-lg">
 
@@ -28,7 +25,7 @@
 
             </div>
 
-            <form [formGroup]="registerationForm" (ngSubmit)="onSubmit()" >
+            <form [formGroup]="registerationForm" (ngSubmit)="onRegister()" >
 
               <div class="relative w-200  h-full max-w-md mt-4">
 
@@ -76,9 +73,7 @@
                   </span>
                 </div>
 
-
               </div>
-
 
               <div class="relative w-200 h-full max-w-md mt-7">
                 <input type="password" formControlName="password"
@@ -121,10 +116,7 @@
                   </span>
                 </div>
 
-
               </div>
-
-
 
               <div class="relative w-200 h-full max-w-md mt-7">
                 <input type="text" formControlName="phoneNumber"
@@ -144,12 +136,10 @@
                   </span>
                 </div>
 
-
-
               </div>
 
 
-              <div class="relative w-200 h-full max-w-md mt-7 flex justify-between items-center">
+              <div class="relative w-200 h-full max-w-md mt-4 flex justify-between items-center">
 
                 <div class="flex items-center" >
                   <input type="radio" name="role" value="Admin" id="admin" formControlName="role"
@@ -163,8 +153,6 @@
                   <label for="learner" class="label ml-2">Learner</label>
                 </div>
 
-
-
               </div>
               <div class=" text-red-500">
                   <span *ngIf="!role.valid && (role.touched || userSubmited)">
@@ -172,23 +160,13 @@
                   </span>
               </div>
 
-              <div class="flex justify-center h-full max-w-md mt-7 py-3">
+              <div class="flex justify-center h-full max-w-md mt-2 py-2">
                 <button type="submit" class="register-button w-200 h-15  label  text-white ">Register</button>
               </div>
 
-
             </form>
-
-
-
       </div>
-
-
-
     </div>
-
-
-
 
 </div>
 </div>

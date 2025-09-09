@@ -85,7 +85,7 @@ export class UserRegisterComponent implements OnInit {
       };
       reader.readAsDataURL(file);
     }
-    console.log(file);
+
   }
 
 
@@ -98,20 +98,18 @@ export class UserRegisterComponent implements OnInit {
     return this.userData;
   }
 
-  onSubmit() {
+  onRegister() {
     this.userSubmited = true;
 
     if(this.registerationForm.valid) {
       this.store.authService.registerUser(this.user()).subscribe(
         ()=>{
 
-          this.userData.forEach((value, key) => {
-            console.log(`${key}:`, value);
-          });
+
 
           this.reset();
           console.log("User registered successfully");
-          this.router.navigate(['/']);
+            this.router.navigate(['/user/login']);
 
 
         }

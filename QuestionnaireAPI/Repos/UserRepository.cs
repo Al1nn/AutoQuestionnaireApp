@@ -27,6 +27,41 @@ public class UserRepository : IUserRepository
         }
     }
 
+    private bool VerifyPassword(string password, byte[] passwordHash, byte[] passwordKey)
+    {
+        using (var hmac = new HMACSHA512(passwordKey))
+        {
+            var computedHash = hmac.ComputeHash(System.Text.Encoding.UTF8.GetBytes(password));
+            return computedHash.SequenceEqual(passwordHash);
+        }
+    }
+    
+    public async Task<User> Authenticate(string name, string email, string password)
+    {
+        User user = null;
+        
+        if (!string.IsNullOrEmpty(name))
+        {
+            user = await dc.Users.FirstOrDefaultAsync(user => user.Name == name);
+        }else if (!string.IsNullOrEmpty(email))
+        {
+            user = await dc.Users.FirstOrDefaultAsync(user => user.Email == email);
+        }
+        
+        if (user == null)
+        {
+            return null;
+        }
+        
+        if (!VerifyPassword(password, user.Password, user.PasswordKey))
+        {
+            return null;
+        }
+        
+        return user;
+        
+    }
+
     public void Register(string name, string password, string email, string phoneNumber, string role, IFormFile? file)
     {
        byte[] passwordHash, passwordKey;
@@ -89,8 +124,12 @@ public class UserRepository : IUserRepository
        dc.Users.Add(user);
     }
 
-    public async Task<bool> UserAlreadyExists(string username)
+  
+
+    public async Task<bool> UserAlreadyExists(string name)
     {
-        return await dc.Users.AnyAsync(user => user.Name == username);
+        return await dc.Users.AnyAsync(user => user.Name == name);
     }
+
+    
 }
