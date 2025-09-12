@@ -131,5 +131,8 @@ public class UserRepository : IUserRepository
         return await dc.Users.AnyAsync(user => user.Name == name);
     }
 
-    
+    public async Task<User> FindUserByIdAsync(int id)
+    {
+        return await dc.Users.FirstOrDefaultAsync(user => user.Id == id);
+    }
 }

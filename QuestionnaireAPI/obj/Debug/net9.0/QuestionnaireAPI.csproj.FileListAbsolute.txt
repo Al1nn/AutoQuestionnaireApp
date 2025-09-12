@@ -261,3 +261,11 @@
 /Users/alingeorgian/Desktop/AutoQuestionnaireApp/QuestionnaireAPI/obj/Debug/net9.0/QuestionnaireAPI.genruntimeconfig.cache
 /Users/alingeorgian/Desktop/AutoQuestionnaireApp/QuestionnaireAPI/obj/Debug/net9.0/ref/QuestionnaireAPI.dll
 /Users/alingeorgian/Desktop/AutoQuestionnaireApp/QuestionnaireAPI/bin/Debug/net9.0/SixLabors.ImageSharp.dll
+/Users/alingeorgian/Desktop/AutoQuestionnaireApp/QuestionnaireAPI/bin/Debug/net9.0/Microsoft.AspNetCore.Authentication.JwtBearer.dll
+/Users/alingeorgian/Desktop/AutoQuestionnaireApp/QuestionnaireAPI/bin/Debug/net9.0/Microsoft.IdentityModel.Abstractions.dll
+/Users/alingeorgian/Desktop/AutoQuestionnaireApp/QuestionnaireAPI/bin/Debug/net9.0/Microsoft.IdentityModel.JsonWebTokens.dll
+/Users/alingeorgian/Desktop/AutoQuestionnaireApp/QuestionnaireAPI/bin/Debug/net9.0/Microsoft.IdentityModel.Logging.dll
+/Users/alingeorgian/Desktop/AutoQuestionnaireApp/QuestionnaireAPI/bin/Debug/net9.0/Microsoft.IdentityModel.Protocols.dll
+/Users/alingeorgian/Desktop/AutoQuestionnaireApp/QuestionnaireAPI/bin/Debug/net9.0/Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+/Users/alingeorgian/Desktop/AutoQuestionnaireApp/QuestionnaireAPI/bin/Debug/net9.0/Microsoft.IdentityModel.Tokens.dll
+/Users/alingeorgian/Desktop/AutoQuestionnaireApp/QuestionnaireAPI/bin/Debug/net9.0/System.IdentityModel.Tokens.Jwt.dll
