@@ -10,6 +10,7 @@ import { provideAnimationsAsync } from '@angular/platform-browser/animations/asy
 import { FormsModule, ReactiveFormsModule } from '@angular/forms'
 import { httpErrorInterceptor } from './interceptors/httpinterceptor.interceptor';
 import { StoreService } from './store/store.service';
+import { authTokenInterceptor } from './interceptors/authinterceptor.interceptor';
 
 
 
@@ -47,7 +48,7 @@ export class AppRoutingModule {
   static providers: any[] = [
     provideClientHydration(),
     provideHttpClient(withFetch(),
-      withInterceptors([httpErrorInterceptor])),
+      withInterceptors([httpErrorInterceptor, authTokenInterceptor])),
     provideAnimations(),
     provideAnimationsAsync(),
     StoreService

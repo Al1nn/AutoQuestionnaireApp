@@ -4,13 +4,7 @@ export interface IUserForLogin {
     password: string;
 }
 
-export interface IUser {
-    id: number;
-    accessToken: string;
 
-    name: string;
-    email: string;
-    role: string;
-    photo: string;
-    phoneNumber: string;
+export interface IToken {
+    accessToken: string;
 }

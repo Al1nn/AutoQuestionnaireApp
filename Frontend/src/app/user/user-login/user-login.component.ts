@@ -61,16 +61,15 @@ export class UserLoginComponent implements OnInit {
 
     if (this.loginForm.valid) {
 
-      this.store.authService.loginUser(this.userData()).subscribe((data) => {
-        this.store.authService.setToken(data as string);
-        this.store.authService.setLoggedIn(true);
+      this.store.authService.loginUser(this.userData()).subscribe(() => {
         this.store.alertifyService.success('You are logged in successfully');
+        this.loginForm.reset();
         this.router.navigate(['/']);
       });
 
 
-      this.loginForm.reset();
-      this.router.navigate(['/']);
+
+
     }
 
   }

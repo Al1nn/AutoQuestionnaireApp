@@ -3,7 +3,7 @@ import { AuthService } from '../services/auth.service';
 import { QuestionnaireService } from '../services/questionnaire.service';
 import { AlertifyService } from '../services/alertify.service';
 import { BehaviorSubject } from 'rxjs';
-import { IUser } from '../models/IUser';
+
 
 @Injectable({
   providedIn: 'root'

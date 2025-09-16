@@ -1,4 +1,5 @@
 using System.Security.Claims;
+using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Http.HttpResults;
@@ -108,12 +109,12 @@ namespace QuestionnaireAPI.Controllers
 
 
         [HttpPost("logout")]
-        [Authorize] 
+        [Authorize]
         public async Task<IActionResult> Logout()
         {
             try
             {
-                var userIdClaim = User.FindFirst(ClaimTypes.NameIdentifier);
+                var userIdClaim = User.FindFirst(ClaimTypes.NameIdentifier); 
                 if (userIdClaim == null || !int.TryParse(userIdClaim.Value, out int userId))
                 {
                     return BadRequest(new ApiError
@@ -122,9 +123,18 @@ namespace QuestionnaireAPI.Controllers
                         ErrorMessage = "Invalid user identity"
                     });
                 }
+
+                
+                
                 
                 string cookieName = $"credentials_{userId}";
-                Response.Cookies.Delete(cookieName);
+                Response.Cookies.Delete(cookieName, new CookieOptions
+                {
+                    HttpOnly = true,
+                    Secure = false, // Matching login configuration
+                    SameSite = SameSiteMode.Strict,
+                    Path = "/"
+                });
                 
                 var user = await uow.UserRepository.FindUserByIdAsync(userId);
                 if (user != null)
@@ -134,20 +144,18 @@ namespace QuestionnaireAPI.Controllers
                     await uow.SaveChangesAsync();
                 }
 
-                return Ok();
-
+                return Ok(new { message = "Successfully logged out" });
             }
-            catch (Exception)
+            catch (Exception ex)
             {
+                // Log the exception if you have a logger configured
+                Console.WriteLine("Could not log out : "+ ex.Message);
                 return StatusCode(StatusCodes.Status500InternalServerError, new ApiError
                 {
                     ErrorCode = StatusCodes.Status500InternalServerError,
                     ErrorMessage = "An error occurred while logging out"
                 });
             }
-
-            
-            
         }
 
         [HttpPost("refresh-token")]

@@ -19,6 +19,7 @@ export const httpErrorInterceptor: HttpInterceptorFn = (req: HttpRequest<unknown
     const retryDelay = 1000 * Math.pow(2, retryCount); // exponential backoff
     switch (error.status) {
       case ErrorCode.serverDown:
+
       case ErrorCode.unauthorised:
         return throwError(() => error);
       default:
@@ -38,7 +39,7 @@ export const httpErrorInterceptor: HttpInterceptorFn = (req: HttpRequest<unknown
       return error.error?.errorMessage;
     }
     if (error.status === ErrorCode.unauthorised) {
-      return error.error?.errorMessage || 'Unauthorized access';
+      return error.error?.errorMessage || 'Unauthorized access'; //error.error is null, what TO DO IF IT IS NULL ?
     }
     if (typeof error.error === 'string') {
       return error.error;
@@ -55,7 +56,11 @@ export const httpErrorInterceptor: HttpInterceptorFn = (req: HttpRequest<unknown
     catchError((error: HttpErrorResponse) => {
       const errorMessage = setError(error);
       console.error('HTTP Error:', error);
-      alertifyService.error(error.error.errorMessage);
+
+      const messageToShow = error.error?.errorMessage || errorMessage || 'Unexpected error';
+      alertifyService.error(messageToShow);
+
+
       return throwError(() => new Error(errorMessage));
     })
   );

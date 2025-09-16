@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { StoreService } from '../store/store.service';
-import { map } from 'rxjs';
+import { catchError, map } from 'rxjs';
 
 @Component({
   selector: 'app-navbar',
@@ -27,10 +27,20 @@ export class NavbarComponent {
   }
 
   logout(): void {
-    this.store.authService.setToken(null);
-    this.store.authService.setLoggedIn(false);
-    this.store.alertifyService.message('You have been logged out');
+    this.store.authService.logoutUser().subscribe({
+      next: () => {
+        this.store.authService.setToken(null);
+        this.store.authService.setLoggedIn(false);
+        this.store.alertifyService.message('You have been logged out');
+      },
+      error: err => {
+        console.error('Logout failed', err);
+        this.store.alertifyService.error('Could not logout');
+      }
+    });
   }
+
+
 
 
 
