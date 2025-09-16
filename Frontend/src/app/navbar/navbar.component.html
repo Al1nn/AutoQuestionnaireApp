@@ -47,8 +47,20 @@
     >
       Questionnaires
     </button>
+
+    <!-- <button *ngIf="(role$ | async ) === 'Admin'" type="button"
+      routerLink=""
+      (click)="setActive('admin')"
+      [ngClass]="{
+        'text-blue-600': activeSection === 'admin',
+        'text-gray-600': activeSection !== 'admin'
+      }"
+      class="hover:text-blue-400 px-3 font-light">
+      Admin Panel
+    </button> -->
+
   </div>
-  <div class="flex justify-end-2"  >
+  <div class="flex justify-end-2" *ngIf="(loggedIn$ | async) === false" >
       <button
       type="button"
       (click)="setActive('register')"
@@ -74,5 +86,17 @@
       Login
     </button>
   </div>
+
+
+  <div *ngIf="loggedIn$ | async" class="flex justify-end-2"  >
+      <button
+      type="button"
+      (click)="logout()"
+      class="hover:text-gray-400 px-3 font-light text-gray-800"
+      >
+      Logout
+    </button>
+  </div>
+
 
 </nav>

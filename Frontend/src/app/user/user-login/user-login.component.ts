@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
-import { IUserForLogin } from '../../models/IUserForLogin';
+import { IUserForLogin } from '../../models/IUser';
 import { Router } from '@angular/router';
 import { StoreService } from '../../store/store.service';
 
@@ -61,12 +61,14 @@ export class UserLoginComponent implements OnInit {
 
     if (this.loginForm.valid) {
 
-      this.store.authService.loginUser(this.userData()).subscribe(() => {
-
+      this.store.authService.loginUser(this.userData()).subscribe((data) => {
+        this.store.authService.setToken(data as string);
+        this.store.authService.setLoggedIn(true);
+        this.store.alertifyService.success('You are logged in successfully');
+        this.router.navigate(['/']);
       });
 
-      console.log(this.loginForm.value);
-      console.log('loginRequest:', this.loginRequest);
+
       this.loginForm.reset();
       this.router.navigate(['/']);
     }

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { StoreService } from '../../store/store.service';
 
 @Component({
   selector: 'app-Main',
@@ -8,9 +9,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class QuestionnaireMainComponent implements OnInit {
 
+
+
   constructor() { }
 
   ngOnInit() {
+
   }
 
 }

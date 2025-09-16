@@ -55,6 +55,10 @@ app.UseMiddleware<ExceptionMiddleware>();
 
 app.UseRouting();
 
+app.UseAuthentication();
+
+app.UseAuthorization();
+
 app.UseFileServer();
 
 app.UseHsts();
