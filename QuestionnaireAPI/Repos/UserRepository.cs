@@ -135,4 +135,9 @@ public class UserRepository : IUserRepository
     {
         return await dc.Users.FirstOrDefaultAsync(user => user.Id == id);
     }
+
+    public async Task<User> FindUserByRefreshTokenAsync(string refreshToken)
+    {
+        return await dc.Users.FirstOrDefaultAsync(user => user.RefreshToken == refreshToken);
+    }
 }

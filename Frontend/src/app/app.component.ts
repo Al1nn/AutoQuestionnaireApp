@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { StoreService } from './store/store.service';
+import { first, map, switchMap } from 'rxjs';
 
 @Component({
   selector: 'app-root',
@@ -7,8 +8,9 @@ import { StoreService } from './store/store.service';
   styleUrl: './app.component.css',
   standalone: false
 })
-export class AppComponent {
+export class AppComponent  {
   title = 'proiect-chestionar-auto';
+
 
 
 

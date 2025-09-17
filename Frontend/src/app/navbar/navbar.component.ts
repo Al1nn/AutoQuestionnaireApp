@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { StoreService } from '../store/store.service';
 import { catchError, map } from 'rxjs';
 
@@ -8,7 +8,7 @@ import { catchError, map } from 'rxjs';
   styleUrl: './navbar.component.css',
   standalone: false
 })
-export class NavbarComponent {
+export class NavbarComponent  {
 
 
   activeSection: 'legislation' | 'roadsigns' | 'questionnaire' | 'register' | 'login' | 'admin' | null = null;
@@ -20,6 +20,8 @@ export class NavbarComponent {
 
 
   constructor(private store: StoreService) { }
+
+
 
 
   setActive(section: 'legislation' | 'roadsigns' | 'questionnaire' | 'register' | 'login' | 'admin'): void {

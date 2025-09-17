@@ -101,7 +101,7 @@ namespace QuestionnaireAPI.Controllers
                 Expires = user.RefreshTokenExpiry
             };
 
-            string cookieName = $"credentials_{user.Id}";
+            string cookieName = $"cookie.localhost.com";
             Response.Cookies.Append(cookieName, refreshToken, cookieOptions);
 
             return Ok(new { accessToken });
@@ -109,46 +109,44 @@ namespace QuestionnaireAPI.Controllers
 
 
         [HttpPost("logout")]
-        [Authorize]
         public async Task<IActionResult> Logout()
         {
             try
             {
-                var userIdClaim = User.FindFirst(ClaimTypes.NameIdentifier); 
-                if (userIdClaim == null || !int.TryParse(userIdClaim.Value, out int userId))
+                string cookieName = $"cookie.localhost.com";
+                
+                if (!Request.Cookies.TryGetValue(cookieName, out var refreshToken))
                 {
                     return BadRequest(new ApiError
                     {
                         ErrorCode = BadRequest().StatusCode,
-                        ErrorMessage = "Invalid user identity"
+                        ErrorMessage = "Refresh token missing"
                     });
                 }
-
                 
+                var user = await uow.UserRepository.FindUserByRefreshTokenAsync(refreshToken);
                 
-                
-                string cookieName = $"credentials_{userId}";
-                Response.Cookies.Delete(cookieName, new CookieOptions
-                {
-                    HttpOnly = true,
-                    Secure = false, // Matching login configuration
-                    SameSite = SameSiteMode.Strict,
-                    Path = "/"
-                });
-                
-                var user = await uow.UserRepository.FindUserByIdAsync(userId);
                 if (user != null)
                 {
                     user.RefreshToken = null;
                     user.RefreshTokenExpiry = null;
                     await uow.SaveChangesAsync();
                 }
+                
+                
+                Response.Cookies.Delete(cookieName, new CookieOptions
+                {
+                    HttpOnly = true,
+                    Secure = false, 
+                    SameSite = SameSiteMode.Strict,
+                    Path = "/"
+                });
 
                 return Ok();
             }
             catch (Exception ex)
             {
-                // Log the exception if you have a logger configured
+                
                 Console.WriteLine("Could not log out : "+ ex.Message);
                 return StatusCode(StatusCodes.Status500InternalServerError, new ApiError
                 {
@@ -159,23 +157,12 @@ namespace QuestionnaireAPI.Controllers
         }
 
         [HttpPost("refresh-token")]
-        public async Task<IActionResult> RefreshToken([FromBody] RefreshTokenDto refreshTokenDto)
+        public async Task<IActionResult> RefreshToken()
         {
-            if (string.IsNullOrEmpty(refreshTokenDto.accessToken))
-            {
-                return BadRequest(new ApiError
-                {
-                    ErrorCode = BadRequest().StatusCode,
-                    ErrorMessage = "Invalid token"
-                });
-            }
-
             try
             {
-                var principal = tokenService.GetPrincipalFromExpiredToken(refreshTokenDto.accessToken);
-                var userId = int.Parse(principal.FindFirst(ClaimTypes.NameIdentifier)?.Value);
-
-                string cookieName = $"credentials_{userId}";
+                
+                string cookieName = $"cookie.localhost.com";
 
                 if (!Request.Cookies.TryGetValue(cookieName, out var refreshToken))
                 {
@@ -186,9 +173,18 @@ namespace QuestionnaireAPI.Controllers
                     });
                 }
 
-                var user = await uow.UserRepository.FindUserByIdAsync(userId);
-                if (user == null ||
-                    user.RefreshToken != refreshToken ||
+                var user = await uow.UserRepository.FindUserByRefreshTokenAsync(refreshToken);
+
+                if (user == null)
+                {
+                    return BadRequest(new ApiError
+                    {
+                        ErrorCode = BadRequest().StatusCode,
+                        ErrorMessage = "User doesnt exist"
+                    });
+                }
+                
+                if (user.RefreshToken != refreshToken ||
                     user.RefreshTokenExpiry <= DateTime.UtcNow)
                 {
                     return BadRequest(new ApiError
@@ -197,7 +193,6 @@ namespace QuestionnaireAPI.Controllers
                         ErrorMessage = "Invalid refresh token"
                     });
                 }
-
                 
                 var newAccessToken = tokenService.GenerateAccessToken(user);
                 var newRefreshToken = tokenService.GenerateRefreshToken();

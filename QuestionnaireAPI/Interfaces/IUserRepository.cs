@@ -11,4 +11,6 @@ public interface IUserRepository
     Task<bool> UserAlreadyExists(string name);
 
     Task<User> FindUserByIdAsync(int id);
+
+    Task<User> FindUserByRefreshTokenAsync(string refreshToken);
 }

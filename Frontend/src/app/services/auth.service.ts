@@ -23,6 +23,7 @@ export class AuthService {
   constructor(private http: HttpClient) {}
 
 
+
   setLoggedIn(state: boolean): void {
     this.loggedInSubject.next(state);
   }
@@ -48,10 +49,10 @@ export class AuthService {
     return this.http.post(this.baseUrl + '/account/logout',{} ,{ withCredentials: true} );
   }
 
-  refreshToken(token: IToken) : Observable<IToken> {
-    return this.http.post<IToken>(this.baseUrl + '/account/refresh-token', { accessToken: token.accessToken }, { withCredentials: true })
-      .pipe(tap(token => {
-        this.setToken(token);
+  refreshToken() : Observable<IToken> {
+    return this.http.post<IToken>(this.baseUrl + '/account/refresh-token', { }, { withCredentials: true })
+      .pipe(tap(newToken => {
+        this.setToken(newToken);
         this.setLoggedIn(true);
       }));
   }
