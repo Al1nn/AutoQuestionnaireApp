@@ -144,7 +144,7 @@ namespace QuestionnaireAPI.Controllers
                     await uow.SaveChangesAsync();
                 }
 
-                return Ok(new { message = "Successfully logged out" });
+                return Ok();
             }
             catch (Exception ex)
             {
@@ -161,7 +161,7 @@ namespace QuestionnaireAPI.Controllers
         [HttpPost("refresh-token")]
         public async Task<IActionResult> RefreshToken([FromBody] RefreshTokenDto refreshTokenDto)
         {
-            if (string.IsNullOrEmpty(refreshTokenDto.AccessToken))
+            if (string.IsNullOrEmpty(refreshTokenDto.accessToken))
             {
                 return BadRequest(new ApiError
                 {
@@ -172,7 +172,7 @@ namespace QuestionnaireAPI.Controllers
 
             try
             {
-                var principal = tokenService.GetPrincipalFromExpiredToken(refreshTokenDto.AccessToken);
+                var principal = tokenService.GetPrincipalFromExpiredToken(refreshTokenDto.accessToken);
                 var userId = int.Parse(principal.FindFirst(ClaimTypes.NameIdentifier)?.Value);
 
                 string cookieName = $"credentials_{userId}";

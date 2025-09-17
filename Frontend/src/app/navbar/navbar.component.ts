@@ -32,10 +32,6 @@ export class NavbarComponent {
         this.store.authService.setToken(null);
         this.store.authService.setLoggedIn(false);
         this.store.alertifyService.message('You have been logged out');
-      },
-      error: err => {
-        console.error('Logout failed', err);
-        this.store.alertifyService.error('Could not logout');
       }
     });
   }

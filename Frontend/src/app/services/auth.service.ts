@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { environment } from '../environments/environment';
 import { IToken, IUserForLogin } from '../models/IUser';
 import { BehaviorSubject, Observable, tap, throwError } from 'rxjs';
+import { access } from 'node:fs';
 
 @Injectable({
   providedIn: 'root'
@@ -40,7 +41,6 @@ export class AuthService {
       .pipe(tap(token => {
         this.setToken(token);
         this.setLoggedIn(true);
-        console.log("Token set in AuthService:", token); //this is showing correct token
       }));
   }
 
@@ -48,7 +48,13 @@ export class AuthService {
     return this.http.post(this.baseUrl + '/account/logout',{} ,{ withCredentials: true} );
   }
 
-
+  refreshToken(token: IToken) : Observable<IToken> {
+    return this.http.post<IToken>(this.baseUrl + '/account/refresh-token', { accessToken: token.accessToken }, { withCredentials: true })
+      .pipe(tap(token => {
+        this.setToken(token);
+        this.setLoggedIn(true);
+      }));
+  }
 
 
 

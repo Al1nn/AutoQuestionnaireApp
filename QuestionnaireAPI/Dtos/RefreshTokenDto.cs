@@ -5,7 +5,7 @@ namespace QuestionnaireAPI.Dtos;
 public class RefreshTokenDto
 {
     [Required]
-    public string AccessToken { get; set; }
+    public string accessToken { get; set; }
     
     
 }

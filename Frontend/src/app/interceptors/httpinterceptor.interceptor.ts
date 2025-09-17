@@ -16,7 +16,7 @@ export const httpErrorInterceptor: HttpInterceptorFn = (req: HttpRequest<unknown
     if (retryCount >= 3) {
       return throwError(() => error);
     }
-    const retryDelay = 1000 * Math.pow(2, retryCount); // exponential backoff
+    const retryDelay = 1000 * Math.pow(2, retryCount);
     switch (error.status) {
       case ErrorCode.serverDown:
 
@@ -39,7 +39,7 @@ export const httpErrorInterceptor: HttpInterceptorFn = (req: HttpRequest<unknown
       return error.error?.errorMessage;
     }
     if (error.status === ErrorCode.unauthorised) {
-      return error.error?.errorMessage || 'Unauthorized access'; //error.error is null, what TO DO IF IT IS NULL ?
+      return error.error?.errorMessage || 'Unauthorized access';
     }
     if (typeof error.error === 'string') {
       return error.error;
