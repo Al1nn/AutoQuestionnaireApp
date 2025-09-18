@@ -25,24 +25,12 @@ export class NavbarComponent implements OnInit{
 
   ngOnInit(): void {
     if (isPlatformBrowser(this.platformId)) {
-      this.browserRefresh = this.checkIfBrowserReloaded();
-
-      if (this.browserRefresh) {
-        console.log('Browser was reloaded!');
-
-
-        this.store.authService.refreshToken().subscribe(); // Calling this
-      } else {
-        console.log('Normal navigation (not a reload).');
-      }
+      this.store.authService.refreshToken().subscribe();
     }
-  }
 
 
-  private checkIfBrowserReloaded(): boolean {
-    const entries = performance.getEntriesByType('navigation') as PerformanceNavigationTiming[];
-    return entries.length > 0 && entries[0].type === 'reload';
   }
+
 
   setActive(section: 'legislation' | 'roadsigns' | 'questionnaire' | 'register' | 'login' | 'admin'): void {
     this.activeSection = section;

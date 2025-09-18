@@ -11,12 +11,4 @@ import { StoreService } from './store/store.service';
 export class AppComponent  {
   title = 'proiect-chestionar-auto';
 
-
-
-
-
-
-
-
-
 }

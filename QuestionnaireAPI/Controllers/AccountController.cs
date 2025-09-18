@@ -120,7 +120,7 @@ namespace QuestionnaireAPI.Controllers
                     return BadRequest(new ApiError
                     {
                         ErrorCode = BadRequest().StatusCode,
-                        ErrorMessage = "Refresh token missing"
+                        ErrorMessage = "Cookie is missing"
                     });
                 }
                 
@@ -169,7 +169,7 @@ namespace QuestionnaireAPI.Controllers
                     return BadRequest(new ApiError
                     {
                         ErrorCode = BadRequest().StatusCode,
-                        ErrorMessage = "Refresh token missing"
+                        ErrorMessage = "Cookie is missing"
                     });
                 }
                 

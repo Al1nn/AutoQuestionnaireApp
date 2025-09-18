@@ -59,7 +59,7 @@ export const httpErrorInterceptor: HttpInterceptorFn = (req: HttpRequest<unknown
 
       const messageToShow = error.error?.errorMessage || errorMessage || 'Unexpected error';
 
-      if (messageToShow !== 'Refresh token missing') {
+      if (messageToShow !== 'Cookie is missing') {
         alertifyService.error(messageToShow);
       }
 
