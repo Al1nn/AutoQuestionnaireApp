@@ -1,0 +1,54 @@
+# ------------------------------
+# Frontend (Angular/Node) ignores
+# ------------------------------
+# Compiled output
+Frontend/dist
+Frontend/tmp
+Frontend/out-tsc
+Frontend/bazel-out
+
+# Node
+Frontend/node_modules
+npm-debug.log
+yarn-error.log
+
+# IDEs and editors
+Frontend/.idea/
+Frontend/.project
+Frontend/.classpath
+Frontend/.c9/
+Frontend/*.launch
+Frontend/.settings/
+Frontend/*.sublime-workspace
+
+# Visual Studio Code
+Frontend/.vscode/*
+!Frontend/.vscode/settings.json
+!Frontend/.vscode/tasks.json
+!Frontend/.vscode/launch.json
+!Frontend/.vscode/extensions.json
+Frontend/.history/*
+
+# Miscellaneous
+Frontend/.angular
+Frontend/.angular/cache
+Frontend/.sass-cache/
+Frontend/connect.lock
+Frontend/coverage
+Frontend/libpeerconnection.log
+Frontend/testem.log
+Frontend/typings
+
+# System files
+.DS_Store
+Thumbs.db
+
+# ------------------------------
+# QuestionnaireAPI ignores
+# ------------------------------
+# Ignore avatars folder in wwwroot
+QuestionnaireAPI/wwwroot/*
+
+# Ignore build output and temporary files (optional)
+QuestionnaireAPI/bin/
+QuestionnaireAPI/obj/
