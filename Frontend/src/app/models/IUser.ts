@@ -8,3 +8,5 @@ export interface IUserForLogin {
 export interface IToken {
     accessToken: string;
 }
+
+

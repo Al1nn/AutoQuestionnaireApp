@@ -161,7 +161,6 @@ namespace QuestionnaireAPI.Controllers
         {
             try
             {
-                
                 string cookieName = $"cookie.localhost.com";
 
                 if (!Request.Cookies.TryGetValue(cookieName, out var refreshToken))
@@ -172,8 +171,6 @@ namespace QuestionnaireAPI.Controllers
                         ErrorMessage = "Cookie is missing"
                     });
                 }
-                
-                
                 
                 var user = await uow.UserRepository.FindUserByRefreshTokenAsync(refreshToken);
 
@@ -200,8 +197,23 @@ namespace QuestionnaireAPI.Controllers
                 var newRefreshToken = tokenService.GenerateRefreshToken();
 
                 user.RefreshToken = newRefreshToken;
-                user.RefreshTokenExpiry = DateTime.UtcNow.AddDays(jwtConfig.RefreshTokenExpirationDays);
+                
+                
+                
+                //Here each time this method is called, expiry of Cookie gets reduced by 3 hours till it is expired.
 
+                if (user.RefreshTokenExpiry.HasValue)
+                {
+                    user.RefreshTokenExpiry = user.RefreshTokenExpiry.Value.AddHours(-3);
+                }
+                else
+                {
+                    user.RefreshTokenExpiry = DateTime.UtcNow.AddDays(jwtConfig.RefreshTokenExpirationDays);
+                }
+
+                
+                
+                
                 await uow.SaveChangesAsync();
         
                
@@ -211,7 +223,7 @@ namespace QuestionnaireAPI.Controllers
                     HttpOnly = true,
                     Secure = false, // Use true for HTTPS in production,
                     SameSite = SameSiteMode.Strict,
-                    Expires = user.RefreshTokenExpiry
+                    Expires = user.RefreshTokenExpiry 
                 };
 
                 Response.Cookies.Append(cookieName, newRefreshToken, cookieOptions);

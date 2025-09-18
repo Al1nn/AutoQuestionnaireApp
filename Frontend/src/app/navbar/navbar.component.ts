@@ -27,8 +27,6 @@ export class NavbarComponent implements OnInit{
     if (isPlatformBrowser(this.platformId)) {
       this.store.authService.refreshToken().subscribe();
     }
-
-
   }
 
 
