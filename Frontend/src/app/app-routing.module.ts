@@ -1,29 +1,33 @@
-import { NgModule } from '@angular/core';
+import {  APP_INITIALIZER, NgModule, provideAppInitializer } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { CommonModule } from '@angular/common';
 import { BrowserModule, provideClientHydration } from '@angular/platform-browser';
-import { HTTP_INTERCEPTORS, provideHttpClient, withFetch, withInterceptors } from '@angular/common/http';
+import { provideHttpClient, withFetch, withInterceptors } from '@angular/common/http';
 import { provideAnimations } from '@angular/platform-browser/animations';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms'
 import { httpErrorInterceptor } from './interceptors/httpinterceptor.interceptor';
 import { StoreService } from './store/store.service';
 import { authTokenInterceptor } from './interceptors/authinterceptor.interceptor';
+import { AuthService } from './services/auth.service';
+
 
 
 
 const routes: Routes = [
   {
     path: '',
-    loadChildren: () => import('./questionnaire/questionnaire.module').then(m => m.QuestionnaireModule)
+    loadChildren: () => import('./questionnaire/questionnaire.module').then(m => m.QuestionnaireModule),
+
   },
   {
     path: 'user',
     loadChildren: () => import('./user/user.module').then(m => m.UserModule)
   }
 ];
+
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
@@ -48,7 +52,7 @@ export class AppRoutingModule {
   static providers: any[] = [
     provideClientHydration(),
     provideHttpClient(withFetch(),
-      withInterceptors([httpErrorInterceptor, authTokenInterceptor])),
+    withInterceptors([httpErrorInterceptor, authTokenInterceptor])),
     provideAnimations(),
     provideAnimationsAsync(),
     StoreService

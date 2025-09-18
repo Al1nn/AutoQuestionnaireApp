@@ -1,6 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Inject, OnInit, PLATFORM_ID } from '@angular/core';
+import { isPlatformBrowser } from '@angular/common';
 import { StoreService } from './store/store.service';
-import { first, map, switchMap } from 'rxjs';
 
 @Component({
   selector: 'app-root',
@@ -10,6 +10,10 @@ import { first, map, switchMap } from 'rxjs';
 })
 export class AppComponent  {
   title = 'proiect-chestionar-auto';
+
+
+
+
 
 
 

@@ -1,9 +1,9 @@
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient} from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { environment } from '../environments/environment';
 import { IToken, IUserForLogin } from '../models/IUser';
-import { BehaviorSubject, Observable, tap, throwError } from 'rxjs';
-import { access } from 'node:fs';
+import { BehaviorSubject, catchError, Observable, of, tap } from 'rxjs';
+
 
 @Injectable({
   providedIn: 'root'
@@ -22,10 +22,28 @@ export class AuthService {
 
   constructor(private http: HttpClient) {}
 
-
+   initializeSession() {
+    return this.http.post<IToken>(this.baseUrl + '/account/refresh-token', {})
+      .pipe(
+        tap(token => {
+          this.setToken(token);
+          this.setLoggedIn(true);
+        }),
+        catchError(err => {
+          console.warn('No valid refresh token or refresh failed', err);
+          this.setToken(null);
+          this.setLoggedIn(false);
+          return of(null);
+        })
+      );
+  }
 
   setLoggedIn(state: boolean): void {
     this.loggedInSubject.next(state);
+  }
+
+  isLoggedIn(): boolean {
+    return this.loggedInSubject.value;
   }
 
   setToken(state: IToken | null): void {

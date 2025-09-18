@@ -58,7 +58,10 @@ export const httpErrorInterceptor: HttpInterceptorFn = (req: HttpRequest<unknown
       console.error('HTTP Error:', error);
 
       const messageToShow = error.error?.errorMessage || errorMessage || 'Unexpected error';
-      alertifyService.error(messageToShow);
+
+      if (messageToShow !== 'Refresh token missing') {
+        alertifyService.error(messageToShow);
+      }
 
 
       return throwError(() => new Error(errorMessage));

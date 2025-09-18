@@ -172,7 +172,9 @@ namespace QuestionnaireAPI.Controllers
                         ErrorMessage = "Refresh token missing"
                     });
                 }
-
+                
+                
+                
                 var user = await uow.UserRepository.FindUserByRefreshTokenAsync(refreshToken);
 
                 if (user == null)
@@ -201,12 +203,13 @@ namespace QuestionnaireAPI.Controllers
                 user.RefreshTokenExpiry = DateTime.UtcNow.AddDays(jwtConfig.RefreshTokenExpirationDays);
 
                 await uow.SaveChangesAsync();
-
+        
+               
                 
                 var cookieOptions = new CookieOptions
                 {
                     HttpOnly = true,
-                    Secure = true,
+                    Secure = false, // Use true for HTTPS in production,
                     SameSite = SameSiteMode.Strict,
                     Expires = user.RefreshTokenExpiry
                 };
