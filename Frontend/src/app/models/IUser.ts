@@ -9,4 +9,9 @@ export interface IToken {
     accessToken: string;
 }
 
-
+export interface IUser {
+    id: string;
+    name: string;
+    photo?: string;
+    role: string;
+}

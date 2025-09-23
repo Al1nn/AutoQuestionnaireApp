@@ -210,13 +210,8 @@ namespace QuestionnaireAPI.Controllers
                 {
                     user.RefreshTokenExpiry = DateTime.UtcNow.AddDays(jwtConfig.RefreshTokenExpirationDays);
                 }
-
-                
-                
                 
                 await uow.SaveChangesAsync();
-        
-               
                 
                 var cookieOptions = new CookieOptions
                 {

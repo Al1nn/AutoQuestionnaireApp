@@ -1,7 +1,7 @@
 import { HttpClient} from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { environment } from '../environments/environment';
-import { IToken, IUserForLogin } from '../models/IUser';
+import { IToken, IUser, IUserForLogin } from '../models/IUser';
 import { BehaviorSubject, Observable, tap } from 'rxjs';
 
 
@@ -61,6 +61,25 @@ export class AuthService {
   }
 
 
+  decodeToken(token: IToken): IUser {
+  try {
+    const payload = token.accessToken.split('.')[1];
+    const decodedPayload = atob(payload.replace(/-/g, '+').replace(/_/g, '/'));
+    const parsed = JSON.parse(decodedPayload);
+
+    const user: IUser = {
+      id: parsed["http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier"],
+      name: parsed["http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name"],
+      photo: parsed.Photo || "", // your token has "Photo"
+      role: parsed["http://schemas.microsoft.com/ws/2008/06/identity/claims/role"]
+    };
+
+    return user;
+  } catch (error) {
+    console.error('Invalid JWT', error);
+    throw new Error('Token could not be decoded');
+  }
+}
 
 }
 
