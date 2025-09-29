@@ -32,6 +32,7 @@ export class NavbarComponent implements OnInit{
   ngOnInit(): void {
     if (isPlatformBrowser(this.platformId)) {
       this.store.authService.refreshToken().subscribe();
+      console.log('NavbarComponent initialized on the browser');
     }
     this.loggedIn$.pipe(
       map(loggedIn => {

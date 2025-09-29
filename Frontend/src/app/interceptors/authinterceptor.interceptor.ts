@@ -3,10 +3,11 @@ import { inject } from '@angular/core';
 import { Observable, catchError, first, switchMap, throwError } from 'rxjs';
 import { AuthService } from '../services/auth.service';
 import { IToken } from '../models/IUser';
+import { Router } from '@angular/router';
 
 export const authTokenInterceptor: HttpInterceptorFn = (req: HttpRequest<any>, next: HttpHandlerFn): Observable<HttpEvent<any>> => {
   const authService = inject(AuthService);
-
+  const router = inject(Router);
   return authService.token$.pipe(
     first(),
     switchMap( (token: IToken | null) => {
@@ -42,7 +43,7 @@ export const authTokenInterceptor: HttpInterceptorFn = (req: HttpRequest<any>, n
                 authService.logoutUser().subscribe();
                 authService.setToken(null);
                 authService.setLoggedIn(false);
-
+                router.navigate(['user/login']);
                 return throwError(() => innerErr);
               })
 

@@ -116,11 +116,11 @@
         *ngIf="dropdownOpen"
         class="absolute right-0 mt-5 w-48 bg-white rounded-lg shadow-lg py-2 z-50"
         id="dropdownMenu"
-        (clickOutside)="dropdownOpen = false"
       >
 
         <button
           type="button"
+          routerLink="/user/profile"
           class="w-full flex items-center gap-2 px-4 py-2 text-gray-700 hover:bg-gray-100"
         >
           <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" >
@@ -132,6 +132,7 @@
 
         <button
           type="button"
+          routerLink="/user/settings"
           class="w-full flex items-center gap-2 px-4 py-2 text-gray-700 hover:bg-gray-100"
         >
 

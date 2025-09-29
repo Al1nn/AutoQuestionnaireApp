@@ -1,4 +1,4 @@
-import {  APP_INITIALIZER, NgModule, provideAppInitializer } from '@angular/core';
+import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './navbar/navbar.component';
@@ -11,7 +11,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms'
 import { httpErrorInterceptor } from './interceptors/httpinterceptor.interceptor';
 import { StoreService } from './store/store.service';
 import { authTokenInterceptor } from './interceptors/authinterceptor.interceptor';
-import { AuthService } from './services/auth.service';
+
 
 
 

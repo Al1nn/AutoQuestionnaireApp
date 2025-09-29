@@ -5,6 +5,9 @@ import { NgModule } from '@angular/core';
 import { ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { AuthService } from '../services/auth.service';
+import { UserProfileComponent } from './user-profile/user-profile.component';
+import { UserSettingsComponent } from './user-settings/user-settings.component';
+import { authGuard } from '../guards/auth-guard';
 
 const routes: Routes = [
   {
@@ -15,6 +18,16 @@ const routes: Routes = [
     path: 'register',
     component: UserRegisterComponent
   },
+  {
+    path: 'profile',
+    component: UserProfileComponent,
+    canActivate: [authGuard]
+  },
+  {
+    path: 'settings',
+    component: UserSettingsComponent,
+    canActivate: [authGuard]
+  }
 ];
 
 @NgModule({

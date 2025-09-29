@@ -2,7 +2,8 @@ import { HttpClient} from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { environment } from '../environments/environment';
 import { IToken, IUser, IUserForLogin } from '../models/IUser';
-import { BehaviorSubject, Observable, tap } from 'rxjs';
+import { BehaviorSubject, Observable, of, tap } from 'rxjs';
+import { map, catchError } from 'rxjs/operators';
 
 
 @Injectable({
@@ -27,14 +28,19 @@ export class AuthService {
     this.loggedInSubject.next(state);
   }
 
-  isLoggedIn(): boolean {
-    return this.loggedInSubject.value;
-  }
+
 
   setToken(state: IToken | null): void {
     this.tokenSubject.next(state);
   }
 
+  get token(): IToken | null {
+    return this.tokenSubject.value;
+  }
+
+  get isLoggedIn(): boolean {
+    return this.loggedInSubject.value;
+  }
 
   registerUser(user: FormData)  {
     return this.http.post(this.baseUrl + '/account/register', user, { withCredentials: true });
@@ -79,7 +85,21 @@ export class AuthService {
     console.error('Invalid JWT', error);
     throw new Error('Token could not be decoded');
   }
-}
+
+
+
 
 }
+checkAuthStatus(): Observable<boolean> {
+    if (this.isLoggedIn && this.token) {
+      return of(true);
+    }
+
+    return this.refreshToken().pipe(
+      map(() => true),
+      catchError(() => of(false))
+    );
+  }
+}
+
 
