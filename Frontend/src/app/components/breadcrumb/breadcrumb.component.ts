@@ -22,4 +22,18 @@ export class BreadcrumbComponent implements OnInit {
         });
     }
 
+    getBreadcrumbColor(label: string, isActive = false): string {
+    switch (label) {
+      case 'Legislation':
+        return isActive ? 'bg-red-600 text-white' : 'bg-red-200 text-red-800 hover:bg-red-300';
+      case 'Road Signs':
+        return isActive ? 'bg-yellow-500 text-white' : 'bg-yellow-200 text-yellow-800 hover:bg-yellow-300';
+      case 'Questionnaires':
+        return isActive ? 'bg-green-600 text-white' : 'bg-green-200 text-green-800 hover:bg-green-300';
+      default:
+        return isActive ? 'bg-blue-500 text-white' : 'bg-gray-200 text-gray-700 hover:bg-gray-300';
+    }
+  }
+
+
 }

@@ -1,13 +1,20 @@
 <nav *ngIf="showBreadcrumb" aria-label="breadcrumb">
-  <ol class="breadcrumb absolute z-2 ml-10 mt-25">
+  <ol class="flex space-x-2 text-sm items-center absolute z-2 top-20 ">
     <ng-container *ngFor="let breadcrumb of breadcrumbs$ | async; let last = last">
       <ng-container *ngIf="!last">
         <li class="breadcrumb-item">
-          <a [routerLink]="breadcrumb.url">{{ breadcrumb.label }}</a>
+          <a class="inline-flex items-center px-3 py-1 bg-gray-200 rounded-full hover:bg-blue-100 transition-colors"
+          [routerLink]="breadcrumb.url"
+          [ngClass]="getBreadcrumbColor(breadcrumb.label)"
+          >
+          {{ breadcrumb.label }}</a>
         </li>
       </ng-container>
       <ng-container *ngIf="last">
-        <li class="breadcrumb-item active" aria-current="page">
+        <li
+        [ngClass]="getBreadcrumbColor(breadcrumb.label,true)"
+        class="inline-flex items-center px-3 py-1 bg-blue-500 text-white rounded-full"
+        aria-current="page">
           {{ breadcrumb.label }}
         </li>
       </ng-container>
