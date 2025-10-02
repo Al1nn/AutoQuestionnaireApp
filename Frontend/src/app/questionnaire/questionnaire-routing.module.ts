@@ -15,31 +15,37 @@ const routes: Routes = [
   {
       path: '',
       component: QuestionnaireMainComponent,
+      data: { breadcrumb: 'Welcome' }
     },
     {
       path: 'legislation',
       component: QuestionnaireLegislationComponent,
+      data: { breadcrumb: 'Legislation' }
     },
     {
       path: 'roadsigns',
       component: QuestionnaireRoadsignsComponent,
+      data: { breadcrumb: 'Road Signs' }
     },
     {
       path: 'questionnaires',
-      component: QuestionnaireListComponent
+      component: QuestionnaireListComponent,
+      data: { breadcrumb: 'Questionnaires' }
     },
     {
       path: 'solve',
       component: QuestionnaireSolveComponent,
+       data: { breadcrumb: null }
     },
     {
       path: 'failed',
       component: FailedComponent,
-
+      data: { breadcrumb: null }
     },
     {
       path: 'correct',
       component: CorrectComponent,
+      data: { breadcrumb: null }
     },
 ];
 

@@ -101,5 +101,3 @@ checkAuthStatus(): Observable<boolean> {
     );
   }
 }
-
-

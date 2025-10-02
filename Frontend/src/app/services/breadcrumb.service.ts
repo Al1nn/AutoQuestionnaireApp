@@ -1,51 +1,59 @@
-import { ActivatedRoute, Router, NavigationEnd } from '@angular/router';
+/* eslint-disable max-len */
 import { Injectable } from '@angular/core';
-import { BehaviorSubject } from 'rxjs';
-import { filter } from 'rxjs/operators';
+import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
+import { BehaviorSubject, Observable, filter } from 'rxjs';
 
 @Injectable({
-  providedIn: 'root'
+    providedIn: 'root'
 })
 export class BreadcrumbService {
+    private breadcrumbsSubject = new BehaviorSubject<Array<{ label: string, url: string }>>([]);
 
-  private breadcrumbsSubject = new BehaviorSubject<Array<{ label: string, url: string }>>([]);
-
-  constructor(private router: Router, private activatedRoute: ActivatedRoute) {
-    this.router.events
-      .pipe(filter(event => event instanceof NavigationEnd))
-      .subscribe(() => {
-        const breadcrumbs = this.buildBreadcrumbs(this.activatedRoute.root);
-        this.breadcrumbsSubject.next(breadcrumbs);
-      });
-  }
-
-  getBreadcrumbs() {
-    return this.breadcrumbsSubject.asObservable();
-  }
-
-  private buildBreadcrumbs(route: ActivatedRoute, url: string = '', breadcrumbs: Array<{ label: string, url: string }> = []): Array<{ label: string, url: string }> {
-
-    const children: ActivatedRoute[] = route.children; // Current child routes
-
-    if (children.length === 0) { // If there are no more children, return the breadcrumbs
-      return breadcrumbs;
+    constructor(private router: Router, private activatedRoute: ActivatedRoute) {
+        this.router.events.pipe(
+            filter(event => event instanceof NavigationEnd)
+        ).subscribe(() => {
+            const breadcrumbs = this.createBreadcrumbs(this.activatedRoute.root);
+            this.breadcrumbsSubject.next(breadcrumbs);
+        });
     }
 
-    for (const child of children) {
-
-      const routeURL: string = child.snapshot.url.map(segment => segment.path).join('/'); //Verify this route
-      if (routeURL !== '') {
-        url += `/${routeURL}`;
-      }
-
-      const label = child.snapshot.data['breadcrumb'];
-      if (label) {
-        breadcrumbs.push({ label, url });
-      }
-
-      return this.buildBreadcrumbs(child, url, breadcrumbs);
+    getBreadcrumbs(): Observable<Array<{ label: string, url: string }>> {
+        return this.breadcrumbsSubject.asObservable();
     }
 
-    return breadcrumbs;
-  }
+    private createBreadcrumbs(route: ActivatedRoute, url: string = '', breadcrumbs: Array<{ label: string, url: string }> = []): Array<{ label: string, url: string }> {
+        const children: ActivatedRoute[] = route.children;
+
+        if (children.length === 0) {
+            return breadcrumbs;
+        }
+
+
+
+        for (const child of children) {
+            const routeURL: string = child.snapshot.url.map(segment => segment.path).join('/');
+
+            if (routeURL !== '') {
+                url += `/${routeURL}`;
+            }
+
+
+            const label = child.snapshot.data['breadcrumb'];
+
+            if (label === null) {
+              return [];
+            }
+
+            if (label ) {
+                breadcrumbs.push({ label, url });
+            }
+
+
+
+            return this.createBreadcrumbs(child, url, breadcrumbs);
+        }
+
+        return breadcrumbs;
+    }
 }

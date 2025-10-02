@@ -2,12 +2,7 @@ import {  NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { provideHotToastConfig } from '@ngxpert/hot-toast';
-
-
-
-
-
-
+import { BreadcrumbComponent } from './components/breadcrumb/breadcrumb.component';
 
 @NgModule({
   declarations: [
@@ -15,7 +10,7 @@ import { provideHotToastConfig } from '@ngxpert/hot-toast';
   ],
   imports: [
     AppRoutingModule.modules,
-  ],
+],
   providers: [
     AppRoutingModule.providers,
     provideHotToastConfig(),

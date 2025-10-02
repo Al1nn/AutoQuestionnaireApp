@@ -11,6 +11,9 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms'
 import { httpErrorInterceptor } from './interceptors/httpinterceptor.interceptor';
 import { StoreService } from './store/store.service';
 import { authTokenInterceptor } from './interceptors/authinterceptor.interceptor';
+import { BreadcrumbComponent } from './components/breadcrumb/breadcrumb.component';
+
+
 
 
 
@@ -20,11 +23,12 @@ const routes: Routes = [
   {
     path: '',
     loadChildren: () => import('./questionnaire/questionnaire.module').then(m => m.QuestionnaireModule),
-
+    data: { breadcrumb: 'DRPCIV' }
   },
   {
     path: 'user',
-    loadChildren: () => import('./user/user.module').then(m => m.UserModule)
+    loadChildren: () => import('./user/user.module').then(m => m.UserModule),
+
   }
 ];
 
@@ -38,7 +42,8 @@ const routes: Routes = [
 export class AppRoutingModule {
   static components: any[] = [
     AppComponent,
-    NavbarComponent
+    NavbarComponent,
+    BreadcrumbComponent
   ];
 
   static modules: any[] = [

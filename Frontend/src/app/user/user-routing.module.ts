@@ -12,11 +12,13 @@ import { authGuard } from '../guards/auth-guard';
 const routes: Routes = [
   {
     path: 'login',
-    component: UserLoginComponent
+    component: UserLoginComponent,
+
   },
   {
     path: 'register',
-    component: UserRegisterComponent
+    component: UserRegisterComponent,
+
   },
   {
     path: 'profile',

@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-inferrable-types */
 import { Component, OnInit } from '@angular/core';
 import { BreadcrumbService } from '../../services/breadcrumb.service';
 import { Observable } from 'rxjs';
@@ -5,11 +6,12 @@ import { Observable } from 'rxjs';
 @Component({
     selector: 'app-breadcrumb',
     templateUrl: './breadcrumb.component.html',
-    styleUrls: ['./breadcrumb.component.css']
+    styleUrls: ['./breadcrumb.component.css'],
+    standalone: false,
 })
 export class BreadcrumbComponent implements OnInit {
 
-    breadcrumbs$: Observable<Array<{ label: string, url: string }>> = new Observable();
+    breadcrumbs$!: Observable<Array<{ label: string; url: string; }>>;
     showBreadcrumb: boolean = true;
     constructor(private breadcrumbService: BreadcrumbService) { }
 
