@@ -1,0 +1,41 @@
+.profile-body{
+    background-color: #F0D8ED;
+}
+.profile-info-body{
+  background-color: #F1F0FF;
+}
+.profile-info{
+  font-family: 'Economica';
+  font-size: 20px;
+}
+
+.profile-info p {
+  margin-bottom: 5px;
+}
+.profile-info p:last-child {
+  margin-bottom: 0;
+}
+.profile-edit-body{
+  background-color: #F1F0FF;
+}
+
+.label{
+  background-color: #F1F0FF;
+}
+
+::ng-deep .mat-mdc-tab .mdc-tab-indicator__content--underline {
+  border-color: #e39bd9 !important;
+}
+.save-button{
+  background-color: #FF5758;
+  border-radius: 15px;
+  font-size: 25px;
+  font-family: 'Economica';
+}
+
+.save-button:hover{
+  background-color: #e03e3e;
+  border-radius: 15px;
+  font-size: 25px;
+  font-family: 'Economica';
+}

@@ -51,7 +51,8 @@ export class AppRoutingModule {
     BrowserModule,
     CommonModule,
     FormsModule,
-    ReactiveFormsModule,
+
+    ReactiveFormsModule
   ];
 
   static providers: any[] = [

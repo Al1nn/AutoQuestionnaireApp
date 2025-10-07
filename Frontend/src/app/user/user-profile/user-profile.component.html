@@ -1,3 +1,123 @@
-<p>
-  user-profile works!
-</p>
+
+<div class="flex justify-center min-h-screen">
+
+  <div class="absolute mt-1">
+    <img src="../../../assets/images/user_profile_cover.png" alt="Login Cover" class="min-w-screen min-h-screen blur-sm">
+  </div>
+
+  <div class="profile-body  flex overflow-hidden w-[1240px] h-[839px] mt-[100px] rounded-4xl shadow-md border border-black z-2">
+
+    <div class="w-[439px] h-[494px] bg-gray-100 rounded-4xl ml-[40px] mt-[40px] profile-left border border-black relative flex items-center">
+      <img src="../../../assets/images/user-default.png" alt="User Avatar" class="w-full h-full object-contain">
+
+      <button type="button"
+          class="absolute bottom-[-15px] right-[-30px] w-[60px] h-[50px]  rounded-full  flex items-center justify-center">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none"
+            viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"
+            class="w-20 h-20 stroke-gray-600 hover:stroke-gray-500 transition-colors">
+            <path stroke-linecap="round" stroke-linejoin="round"
+              d="m16.862 4.487 1.687-1.688a1.875 1.875 0
+                1 1 2.652 2.652L6.832 19.82a4.5 4.5 0
+                0 1-1.897 1.13l-2.685.8.8-2.685a4.5
+                4.5 0 0 1 1.13-1.897L16.863 4.487Zm0
+                0L19.5 7.125" />
+          </svg>
+      </button>
+
+    </div>
+
+
+
+    <div class="profile-info-body w-[439px] h-[239px]  ml-[40px] mt-[560px] rounded-4xl absolute">
+
+      <div class="profile-info ml-[25px] mt-[10px]">
+        <p>
+          Name:
+        </p>
+        <p>
+          Email:
+        </p>
+        <p>
+          Phone Number:
+        </p>
+        <p>
+          Role:
+        </p>
+        <p>
+          Questionnaires Solved:
+        </p>
+        <p>
+          Average Score:
+        </p>
+      </div>
+    </div>
+
+    <div class="profile-edit-body w-[660px] h-[760px] mt-[40px] ml-[60px] rounded-[30px]">
+
+      <mat-tab-group class="mt-[20px] ml-[20px] mr-5" >
+        <mat-tab label="Name">
+
+          <div class="flex flex-col min-h-screen">
+
+            <div class="flex flex-col items-center">
+
+              <div class="relative w-200 max-w-md  mt-5">
+                <input type="text" class="w-full py-3 pl-5 text-xl border-2 border-black rounded-lg focus:outline-none focus:ring-1 focus:ring-gray-500">
+                <label for="name" class="label  absolute left-5 -top-4 text-gray-500  px-2">Name</label>
+              </div>
+
+              <div class="relative w-200  max-w-md mt-5">
+                <input type="text" class="w-full py-3 pl-5 text-xl border-2 border-black rounded-lg focus:outline-none focus:ring-1 focus:ring-gray-500">
+                <label for="name" class="label  absolute left-5 -top-4 text-gray-500  px-2">New Name</label>
+              </div>
+
+            </div>
+
+
+            <div class="flex mt-[400px] justify-between items-center mr-[5px] ml-[2px]">
+
+              <div class="flex mb-3">
+
+                <button type="button" class="w-[50px] h-[42px] max-w-md group">
+                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1" stroke="currentColor" class="group-hover:stroke-gray-500 transition-colors">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5 8.25 12l7.5-7.5" />
+                  </svg>
+                </button>
+
+                <button type="button" class="w-[50px] h-[42px] max-w-md group">
+                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1" stroke="currentColor" class="group-hover:stroke-gray-500 transition-colors">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" />
+                  </svg>
+                </button>
+
+              </div>
+
+              <button type="submit" class="save-button w-[148px] h-[42px] max-w-md text-white">
+                SAVE
+              </button>
+
+            </div>
+
+          </div>
+
+
+        </mat-tab>
+        <mat-tab label="Email">
+
+        </mat-tab>
+        <mat-tab label="Password">
+
+        </mat-tab>
+        <mat-tab label="Phone Number">
+
+        </mat-tab>
+      </mat-tab-group>
+
+    </div>
+
+  </div>
+
+
+
+
+</div>

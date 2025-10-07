@@ -1,6 +1,7 @@
 /* You can add global styles to this file, and also import other style files */
 @import "tailwindcss";
 @import "../src/assets/forms.css";
+/* Tailwind base, components, and utilities should be imported via PostCSS or your build tool configuration */
 
 
 html, body { height: 100%; }
@@ -15,6 +16,11 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 }
 
 .label {
+  font-family: 'Economica';
+  font-size: 20px;
+  color: black;
+}
+mat-tab-label {
   font-family: 'Economica';
   font-size: 20px;
 }
