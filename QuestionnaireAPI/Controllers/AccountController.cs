@@ -236,5 +236,28 @@ namespace QuestionnaireAPI.Controllers
         }
 
 
+        [HttpGet("me")]
+        [Authorize]
+        public async Task<IActionResult> Profile()
+        {
+            int id = int.Parse(User.FindFirstValue(ClaimTypes.NameIdentifier));
+
+            User user = await uow.UserRepository.FindUserByIdAsync(id);
+
+            UserDto userDto = new UserDto
+            {
+                Id = user.Id,
+                Name = user.Name,
+                Email = user.Email,
+                PhoneNumber = user.PhoneNumber,
+                Role = user.Role,
+                Photo = user.Photo
+                //Add more fields here if needed
+            };
+            
+            return Ok(userDto);
+        }
+
+
     }
 }

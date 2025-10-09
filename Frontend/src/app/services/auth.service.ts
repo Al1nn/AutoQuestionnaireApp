@@ -1,7 +1,7 @@
 import { HttpClient} from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { environment } from '../environments/environment';
-import { IToken, IUser, IUserForLogin } from '../models/IUser';
+import { Profile, IToken, IUser, IUserForLogin } from '../models/IUser';
 import { BehaviorSubject, Observable, of, tap } from 'rxjs';
 import { map, catchError } from 'rxjs/operators';
 
@@ -58,6 +58,10 @@ export class AuthService {
     return this.http.post(this.baseUrl + '/account/logout',{} ,{ withCredentials: true} );
   }
 
+  profile() : Observable<Profile> {
+    return this.http.get<Profile>(this.baseUrl + '/account/me', { withCredentials: true });
+  }
+
   refreshToken() : Observable<IToken> {
     return this.http.post<IToken>(this.baseUrl + '/account/refresh-token', { }, { withCredentials: true })
       .pipe(tap(newToken => {
@@ -68,36 +72,26 @@ export class AuthService {
 
 
   decodeToken(token: IToken): IUser {
-  try {
-    const payload = token.accessToken.split('.')[1];
-    const decodedPayload = atob(payload.replace(/-/g, '+').replace(/_/g, '/'));
-    const parsed = JSON.parse(decodedPayload);
+    try {
+      const payload = token.accessToken.split('.')[1];
+      const decodedPayload = atob(payload.replace(/-/g, '+').replace(/_/g, '/'));
+      const parsed = JSON.parse(decodedPayload);
 
-    const user: IUser = {
-      id: parsed["http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier"],
-      name: parsed["http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name"],
-      photo: parsed.Photo || "", // your token has "Photo"
-      role: parsed["http://schemas.microsoft.com/ws/2008/06/identity/claims/role"]
-    };
+      const user: IUser = {
+        id: parsed["http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier"],
+        name: parsed["http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name"],
+        photo: parsed.Photo || "", // your token has "Photo"
+        role: parsed["http://schemas.microsoft.com/ws/2008/06/identity/claims/role"]
+      };
 
-    return user;
-  } catch (error) {
-    console.error('Invalid JWT', error);
-    throw new Error('Token could not be decoded');
-  }
-
-
-
-
-}
-checkAuthStatus(): Observable<boolean> {
-    if (this.isLoggedIn && this.token) {
-      return of(true);
+      return user;
+    } catch (error) {
+      console.error('Invalid JWT', error);
+      throw new Error('Token could not be decoded');
     }
-
-    return this.refreshToken().pipe(
-      map(() => true),
-      catchError(() => of(false))
-    );
   }
+
+
+
 }
+

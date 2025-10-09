@@ -8,10 +8,13 @@
   <div class="profile-body  flex overflow-hidden w-[1240px] h-[839px] mt-[100px] rounded-4xl shadow-md border border-black z-2">
 
     <div class="w-[439px] h-[494px] bg-gray-100 rounded-4xl ml-[40px] mt-[40px] profile-left border border-black relative flex items-center">
-      <img src="../../../assets/images/user-default.png" alt="User Avatar" class="w-full h-full object-contain">
+      <img [src]="profileUrl || '../../assets/images/user-default.png'"  alt="User Avatar" class="w-full h-full object-cover rounded-4xl">
 
+      <input #editProfilePhoto type="file" accept="image/*" (change)="onPhotoChanged($event)" hidden/>
       <button type="button"
-          class="absolute bottom-[-15px] right-[-30px] w-[60px] h-[50px]  rounded-full  flex items-center justify-center">
+          class="absolute bottom-[-15px] right-[-30px] w-[60px] h-[50px]  rounded-full  flex items-center justify-center"
+          (click)="editProfilePhoto.click()"
+          >
           <svg xmlns="http://www.w3.org/2000/svg" fill="none"
             viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"
             class="w-20 h-20 stroke-gray-600 hover:stroke-gray-500 transition-colors">
@@ -22,7 +25,7 @@
                 4.5 0 0 1 1.13-1.897L16.863 4.487Zm0
                 0L19.5 7.125" />
           </svg>
-      </button>
+       </button>
 
     </div>
 
@@ -32,16 +35,16 @@
 
       <div class="profile-info ml-[25px] mt-[10px]">
         <p>
-          Name:
+          Name: {{profile.name}}
         </p>
         <p>
-          Email:
+          Email: {{profile.email}}
         </p>
         <p>
-          Phone Number:
+          Phone Number: {{profile.phoneNumber}}
         </p>
         <p>
-          Role:
+          Role: {{profile.role}}
         </p>
         <p>
           Questionnaires Solved:
@@ -54,7 +57,7 @@
 
     <div class="profile-edit-body w-[660px] h-[760px] mt-[40px] ml-[60px] rounded-[30px]">
 
-      <mat-tab-group class="mt-[20px] ml-[20px] mr-5" >
+      <mat-tab-group #tabGroup class="mt-[20px] ml-[20px] mr-5" >
         <mat-tab label="Name">
 
           <div class="flex flex-col min-h-screen">
@@ -78,13 +81,13 @@
 
               <div class="flex mb-3">
 
-                <button type="button" class="w-[50px] h-[42px] max-w-md group">
+                <button type="button" class="w-[50px] h-[42px] max-w-md group" (click)="previousTab()">
                   <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1" stroke="currentColor" class="group-hover:stroke-gray-500 transition-colors">
                     <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5 8.25 12l7.5-7.5" />
                   </svg>
                 </button>
 
-                <button type="button" class="w-[50px] h-[42px] max-w-md group">
+                <button type="button" class="w-[50px] h-[42px] max-w-md group" (click)="nextTab()">
                   <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1" stroke="currentColor" class="group-hover:stroke-gray-500 transition-colors">
                     <path stroke-linecap="round" stroke-linejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" />
                   </svg>
@@ -104,12 +107,139 @@
         </mat-tab>
         <mat-tab label="Email">
 
+          <div class="flex flex-col min-h-screen">
+
+            <div class="flex flex-col items-center">
+
+              <div class="relative w-200 max-w-md  mt-5">
+                <input type="text" class="w-full py-3 pl-5 text-xl border-2 border-black rounded-lg focus:outline-none focus:ring-1 focus:ring-gray-500">
+                <label for="name" class="label  absolute left-5 -top-4 text-gray-500  px-2">Email</label>
+              </div>
+
+              <div class="relative w-200  max-w-md mt-5">
+                <input type="text" class="w-full py-3 pl-5 text-xl border-2 border-black rounded-lg focus:outline-none focus:ring-1 focus:ring-gray-500">
+                <label for="name" class="label  absolute left-5 -top-4 text-gray-500  px-2">New Email</label>
+              </div>
+
+            </div>
+
+
+            <div class="flex mt-[400px] justify-between items-center mr-[5px] ml-[2px]">
+
+              <div class="flex mb-3">
+
+                <button type="button" class="w-[50px] h-[42px] max-w-md group" (click)="previousTab()">
+                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1" stroke="currentColor" class="group-hover:stroke-gray-500 transition-colors">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5 8.25 12l7.5-7.5" />
+                  </svg>
+                </button>
+
+                <button type="button" class="w-[50px] h-[42px] max-w-md group" (click)="nextTab()">
+                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1" stroke="currentColor" class="group-hover:stroke-gray-500 transition-colors">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" />
+                  </svg>
+                </button>
+
+              </div>
+
+              <button type="submit" class="save-button w-[148px] h-[42px] max-w-md text-white">
+                SAVE
+              </button>
+
+            </div>
+
+          </div>
+
         </mat-tab>
         <mat-tab label="Password">
 
+          <div class="flex flex-col min-h-screen">
+
+            <div class="flex flex-col items-center">
+
+              <div class="relative w-200 max-w-md  mt-5">
+                <input type="password" class="w-full py-3 pl-5 text-xl border-2 border-black rounded-lg focus:outline-none focus:ring-1 focus:ring-gray-500">
+                <label for="name" class="label  absolute left-5 -top-4 text-gray-500  px-2">Password</label>
+              </div>
+
+              <div class="relative w-200  max-w-md mt-5">
+                <input type="password" class="w-full py-3 pl-5 text-xl border-2 border-black rounded-lg focus:outline-none focus:ring-1 focus:ring-gray-500">
+                <label for="name" class="label  absolute left-5 -top-4 text-gray-500  px-2">New Password</label>
+              </div>
+
+            </div>
+
+
+            <div class="flex mt-[400px] justify-between items-center mr-[5px] ml-[2px]">
+
+              <div class="flex mb-3">
+
+                <button type="button" class="w-[50px] h-[42px] max-w-md group" (click)="previousTab()">
+                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1" stroke="currentColor" class="group-hover:stroke-gray-500 transition-colors">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5 8.25 12l7.5-7.5" />
+                  </svg>
+                </button>
+
+                <button type="button" class="w-[50px] h-[42px] max-w-md group" (click)="nextTab()">
+                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1" stroke="currentColor" class="group-hover:stroke-gray-500 transition-colors">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" />
+                  </svg>
+                </button>
+
+              </div>
+
+              <button type="submit" class="save-button w-[148px] h-[42px] max-w-md text-white">
+                SAVE
+              </button>
+
+            </div>
+
+          </div>
+
         </mat-tab>
         <mat-tab label="Phone Number">
+          <div class="flex flex-col min-h-screen">
 
+            <div class="flex flex-col items-center">
+
+              <div class="relative w-200 max-w-md  mt-5">
+                <input type="text" class="w-full py-3 pl-5 text-xl border-2 border-black rounded-lg focus:outline-none focus:ring-1 focus:ring-gray-500">
+                <label for="name" class="label  absolute left-5 -top-4 text-gray-500  px-2">Phone Number</label>
+              </div>
+
+              <div class="relative w-200  max-w-md mt-5">
+                <input type="text" class="w-full py-3 pl-5 text-xl border-2 border-black rounded-lg focus:outline-none focus:ring-1 focus:ring-gray-500">
+                <label for="name" class="label  absolute left-5 -top-4 text-gray-500  px-2">New Phone Number</label>
+              </div>
+
+            </div>
+
+
+            <div class="flex mt-[400px] justify-between items-center mr-[5px] ml-[2px]">
+
+              <div class="flex mb-3">
+
+                <button type="button" class="w-[50px] h-[42px] max-w-md group" (click)="previousTab()">
+                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1" stroke="currentColor" class="group-hover:stroke-gray-500 transition-colors">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5 8.25 12l7.5-7.5" />
+                  </svg>
+                </button>
+
+                <button type="button" class="w-[50px] h-[42px] max-w-md group" (click)="nextTab()">
+                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1" stroke="currentColor" class="group-hover:stroke-gray-500 transition-colors">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" />
+                  </svg>
+                </button>
+
+              </div>
+
+              <button type="submit" class="save-button w-[148px] h-[42px] max-w-md text-white">
+                SAVE
+              </button>
+
+            </div>
+
+          </div>
         </mat-tab>
       </mat-tab-group>
 
