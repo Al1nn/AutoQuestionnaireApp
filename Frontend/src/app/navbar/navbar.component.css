@@ -5,6 +5,18 @@
 }
 
 
-#dropdownMenu {
-   background: linear-gradient(to right, #FCFCFC, #D9D9D9);
+.main-container {
+  height: 100vh;
 }
+
+.sidenav {
+  width: 375px;
+  background: linear-gradient(to right,  #D9D9D9,#FCFCFC);
+  box-shadow: -2px 0 6px rgba(0, 0, 0, 0.2);
+}
+
+.sidenav-footer {
+  margin-top: 55vh;
+  border-top: 1px solid #e5e7eb;
+}
+

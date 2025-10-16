@@ -37,7 +37,8 @@
             "styles": [
               "@ngxpert/hot-toast/styles.css",
               "node_modules/bootstrap/dist/css/bootstrap.min.css",
-              "src/styles.css"
+              "src/styles.css",
+              "src/material.scss"
             ],
             "scripts": [
               "node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"
@@ -54,7 +55,7 @@
                 {
                   "type": "initial",
                   "maximumWarning": "500kb",
-                  "maximumError": "1mb"
+                  "maximumError": "2mb"
                 },
                 {
                   "type": "anyComponentStyle",
@@ -104,7 +105,8 @@
             ],
             "styles": [
               "@ngxpert/hot-toast/styles.css",
-              "src/styles.css"
+              "src/styles.css",
+              "src/material.scss"
             ],
             "scripts": []
           }

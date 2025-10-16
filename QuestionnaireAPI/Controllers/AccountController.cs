@@ -258,6 +258,66 @@ namespace QuestionnaireAPI.Controllers
             return Ok(userDto);
         }
 
+        [HttpPatch("edit/name/{newName}")] // better is HttpPatch
+        [Authorize]
+        public async Task<IActionResult> EditProfile(string newName)
+        {
+            int id = int.Parse(User.FindFirstValue(ClaimTypes.NameIdentifier));
+            
+            User user = await uow.UserRepository.FindUserByIdAsync(id);
+            
+            user.Name = newName;
+            await uow.SaveChangesAsync();
+            
+            return Ok();
+        }
+        
+        [HttpPatch("edit/email/{newEmail}")]
+        [Authorize]
+        public async Task<IActionResult> EditEmail(string newEmail)
+        {
+            int id = int.Parse(User.FindFirstValue(ClaimTypes.NameIdentifier));
+            
+            User user = await uow.UserRepository.FindUserByIdAsync(id);
+            
+            user.Email = newEmail;
+            await uow.SaveChangesAsync();
+            
+            return Ok();
+        }
 
+        [HttpPatch("edit/password/{newPassword}")]
+        [Authorize]
+        public async Task<IActionResult> EditPassword(string newPassword)
+        {
+            return Ok();
+        }
+        
+        
+        [HttpPatch("edit/phoneNumber/{newPhoneNumber}")]
+        [Authorize]
+        public async Task<IActionResult> EditPhoneNumber(string newPhoneNumber)
+        {
+            return Ok();
+        }
+        
+        [HttpPatch("edit/photo")]
+        [Authorize]
+        public async Task<IActionResult> EditPhoto([FromForm] IFormFile file)
+        {
+            int id = int.Parse(User.FindFirstValue(ClaimTypes.NameIdentifier));
+            
+            User user = await uow.UserRepository.FindUserByIdAsync(id); 
+            
+            //Find the location of the old user.photo using Directory path .NET library
+            // Delete the file path with the old name file
+            // Upload the new file path with the new name file
+            //Update user.photo 
+            // Save the changes
+            
+            
+            return Ok();
+        }
+        
     }
 }

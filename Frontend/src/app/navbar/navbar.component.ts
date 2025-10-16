@@ -1,11 +1,11 @@
 import { environment } from './../environments/environment';
- import { Component, HostListener, Inject, OnInit, PLATFORM_ID } from '@angular/core';
+ import { Component, HostListener, Inject, OnInit, PLATFORM_ID, ViewChild } from '@angular/core';
 import { StoreService } from '../store/store.service';
-import { catchError, map } from 'rxjs';
+import { map } from 'rxjs';
 import { isPlatformBrowser } from '@angular/common';
 import { IToken, IUser } from '../models/IUser';
 import { Router } from '@angular/router';
-import { OverlayModule} from '@angular/cdk/overlay';
+
 
 @Component({
   selector: 'app-navbar',
@@ -28,6 +28,8 @@ export class NavbarComponent implements OnInit{
   dropdownOpen = false;
 
   constructor(@Inject(PLATFORM_ID) private platformId: Object, private store: StoreService, private router: Router) { }
+
+
 
   ngOnInit(): void {
     if (isPlatformBrowser(this.platformId)) {

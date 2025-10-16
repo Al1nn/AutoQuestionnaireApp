@@ -62,6 +62,10 @@ export class AuthService {
     return this.http.get<Profile>(this.baseUrl + '/account/me', { withCredentials: true });
   }
 
+  // editProfileName() {
+  //   return this.http.patch()
+  // }
+
   refreshToken() : Observable<IToken> {
     return this.http.post<IToken>(this.baseUrl + '/account/refresh-token', { }, { withCredentials: true })
       .pipe(tap(newToken => {

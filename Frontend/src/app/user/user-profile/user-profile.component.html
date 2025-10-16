@@ -60,48 +60,71 @@
       <mat-tab-group #tabGroup class="mt-[20px] ml-[20px] mr-5" >
         <mat-tab label="Name">
 
-          <div class="flex flex-col min-h-screen">
 
-            <div class="flex flex-col items-center">
+            <div class="flex flex-col min-h-screen">
 
-              <div class="relative w-200 max-w-md  mt-5">
-                <input type="text" class="w-full py-3 pl-5 text-xl border-2 border-black rounded-lg focus:outline-none focus:ring-1 focus:ring-gray-500">
-                <label for="name" class="label  absolute left-5 -top-4 text-gray-500  px-2">Name</label>
-              </div>
+                <form [formGroup]="profileNameForm" (ngSubmit)="changeProfileName()">
 
-              <div class="relative w-200  max-w-md mt-5">
-                <input type="text" class="w-full py-3 pl-5 text-xl border-2 border-black rounded-lg focus:outline-none focus:ring-1 focus:ring-gray-500">
-                <label for="name" class="label  absolute left-5 -top-4 text-gray-500  px-2">New Name</label>
-              </div>
+                  <div class="flex flex-col items-center">
+
+                    <div class="relative w-200 max-w-md  mt-5">
+
+                      <label for="name" class="label  absolute left-5 -top-4 text-gray-500  px-2">Name</label>
+                      <input type="text"
+                      formControlName="oldName"
+                      class="w-full py-3 pl-5 text-xl border-2 border-black rounded-lg focus:outline-none focus:ring-1 focus:ring-gray-500">
+                      <div class="min-h-6 text-red-500">
+
+                      </div>
+
+                    </div>
+
+                    <div class="relative w-200  max-w-md mt-5">
+
+                      <label for="name" class="label  absolute left-5 -top-4 text-gray-500  px-2">New Name</label>
+                      <input type="text"
+                      formControlName="newName"
+                      class="w-full py-3 pl-5 text-xl border-2 border-black rounded-lg focus:outline-none focus:ring-1 focus:ring-gray-500">
+
+                      <div class="min-h-6 text-red-500">
+
+                      </div>
+                    </div>
+
+                  </div>
+
+
+                  <div class="flex mt-[350px] justify-between items-center mr-[5px] ml-[2px]">
+
+                    <div class="flex mb-3">
+
+                      <button type="button" class="w-[50px] h-[42px] max-w-md group" (click)="previousTab()">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1" stroke="currentColor" class="group-hover:stroke-gray-500 transition-colors">
+                          <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5 8.25 12l7.5-7.5" />
+                        </svg>
+                      </button>
+
+                      <button type="button" class="w-[50px] h-[42px] max-w-md group" (click)="nextTab()">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1" stroke="currentColor" class="group-hover:stroke-gray-500 transition-colors">
+                          <path stroke-linecap="round" stroke-linejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" />
+                        </svg>
+                      </button>
+
+                    </div>
+
+                    <button type="submit" class="save-button w-[148px] h-[42px] max-w-md text-white">
+                      SAVE
+                    </button>
+
+                  </div>
+
+                </form>
+
 
             </div>
 
 
-            <div class="flex mt-[400px] justify-between items-center mr-[5px] ml-[2px]">
 
-              <div class="flex mb-3">
-
-                <button type="button" class="w-[50px] h-[42px] max-w-md group" (click)="previousTab()">
-                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1" stroke="currentColor" class="group-hover:stroke-gray-500 transition-colors">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5 8.25 12l7.5-7.5" />
-                  </svg>
-                </button>
-
-                <button type="button" class="w-[50px] h-[42px] max-w-md group" (click)="nextTab()">
-                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1" stroke="currentColor" class="group-hover:stroke-gray-500 transition-colors">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" />
-                  </svg>
-                </button>
-
-              </div>
-
-              <button type="submit" class="save-button w-[148px] h-[42px] max-w-md text-white">
-                SAVE
-              </button>
-
-            </div>
-
-          </div>
 
 
         </mat-tab>
@@ -109,44 +132,62 @@
 
           <div class="flex flex-col min-h-screen">
 
-            <div class="flex flex-col items-center">
+            <form [formGroup]="profileEmailForm" (ngSubmit)="changeProfileEmail()">
 
-              <div class="relative w-200 max-w-md  mt-5">
-                <input type="text" class="w-full py-3 pl-5 text-xl border-2 border-black rounded-lg focus:outline-none focus:ring-1 focus:ring-gray-500">
-                <label for="name" class="label  absolute left-5 -top-4 text-gray-500  px-2">Email</label>
+              <div class="flex flex-col items-center">
+
+                <div class="relative w-200 max-w-md  mt-5">
+
+                  <label for="name" class="label  absolute left-5 -top-4 text-gray-500  px-2">Email</label>
+                  <input type="text"
+                  formControlName="oldEmail"
+                  class="w-full py-3 pl-5 text-xl border-2 border-black rounded-lg focus:outline-none focus:ring-1 focus:ring-gray-500">
+                  <div class="min-h-6 text-red-500">
+
+                      </div>
+                </div>
+
+                <div class="relative w-200  max-w-md mt-5">
+
+                  <label for="name" class="label  absolute left-5 -top-4 text-gray-500  px-2">New Email</label>
+                  <input type="text"
+                  formControlName="newEmail"
+                  class="w-full py-3 pl-5 text-xl border-2 border-black rounded-lg focus:outline-none focus:ring-1 focus:ring-gray-500">
+                  <div class="min-h-6 text-red-500">
+
+                      </div>
+                </div>
+
               </div>
 
-              <div class="relative w-200  max-w-md mt-5">
-                <input type="text" class="w-full py-3 pl-5 text-xl border-2 border-black rounded-lg focus:outline-none focus:ring-1 focus:ring-gray-500">
-                <label for="name" class="label  absolute left-5 -top-4 text-gray-500  px-2">New Email</label>
-              </div>
 
-            </div>
+              <div class="flex mt-[350px] justify-between items-center mr-[5px] ml-[2px]">
 
+                <div class="flex mb-3">
 
-            <div class="flex mt-[400px] justify-between items-center mr-[5px] ml-[2px]">
+                  <button type="button" class="w-[50px] h-[42px] max-w-md group" (click)="previousTab()">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1" stroke="currentColor" class="group-hover:stroke-gray-500 transition-colors">
+                      <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5 8.25 12l7.5-7.5" />
+                    </svg>
+                  </button>
 
-              <div class="flex mb-3">
+                  <button type="button" class="w-[50px] h-[42px] max-w-md group" (click)="nextTab()">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1" stroke="currentColor" class="group-hover:stroke-gray-500 transition-colors">
+                      <path stroke-linecap="round" stroke-linejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" />
+                    </svg>
+                  </button>
 
-                <button type="button" class="w-[50px] h-[42px] max-w-md group" (click)="previousTab()">
-                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1" stroke="currentColor" class="group-hover:stroke-gray-500 transition-colors">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5 8.25 12l7.5-7.5" />
-                  </svg>
+                </div>
+
+                <button type="submit" class="save-button w-[148px] h-[42px] max-w-md text-white">
+                  SAVE
                 </button>
 
-                <button type="button" class="w-[50px] h-[42px] max-w-md group" (click)="nextTab()">
-                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1" stroke="currentColor" class="group-hover:stroke-gray-500 transition-colors">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" />
-                  </svg>
-                </button>
-
               </div>
 
-              <button type="submit" class="save-button w-[148px] h-[42px] max-w-md text-white">
-                SAVE
-              </button>
+            </form>
 
-            </div>
+
 
           </div>
 
@@ -155,44 +196,64 @@
 
           <div class="flex flex-col min-h-screen">
 
-            <div class="flex flex-col items-center">
+            <form [formGroup]="profilePasswordForm" (ngSubmit)="changeProfilePassword()">
+              <div class="flex flex-col items-center">
 
-              <div class="relative w-200 max-w-md  mt-5">
-                <input type="password" class="w-full py-3 pl-5 text-xl border-2 border-black rounded-lg focus:outline-none focus:ring-1 focus:ring-gray-500">
-                <label for="name" class="label  absolute left-5 -top-4 text-gray-500  px-2">Password</label>
-              </div>
+                  <div class="relative w-200 max-w-md  mt-5">
 
-              <div class="relative w-200  max-w-md mt-5">
-                <input type="password" class="w-full py-3 pl-5 text-xl border-2 border-black rounded-lg focus:outline-none focus:ring-1 focus:ring-gray-500">
-                <label for="name" class="label  absolute left-5 -top-4 text-gray-500  px-2">New Password</label>
-              </div>
+                    <label for="name" class="label  absolute left-5 -top-4 text-gray-500  px-2">Password</label>
+                    <input type="password"
+                    formControlName="oldPassword"
+                    class="w-full py-3 pl-5 text-xl border-2 border-black rounded-lg focus:outline-none focus:ring-1 focus:ring-gray-500">
+                    <div class="min-h-6 text-red-500">
 
-            </div>
+                      </div>
+
+                  </div>
+
+                  <div class="relative w-200  max-w-md mt-5">
+
+                    <label for="name" class="label  absolute left-5 -top-4 text-gray-500  px-2">New Password</label>
+                    <input type="password"
+                    formControlName="newPassword"
+                    class="w-full py-3 pl-5 text-xl border-2 border-black rounded-lg focus:outline-none focus:ring-1 focus:ring-gray-500">
+                    <div class="min-h-6 text-red-500">
+
+                      </div>
+                  </div>
+
+                </div>
 
 
-            <div class="flex mt-[400px] justify-between items-center mr-[5px] ml-[2px]">
+              <div class="flex mt-[350px] justify-between items-center mr-[5px] ml-[2px]">
 
-              <div class="flex mb-3">
+                <div class="flex mb-3">
 
-                <button type="button" class="w-[50px] h-[42px] max-w-md group" (click)="previousTab()">
-                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1" stroke="currentColor" class="group-hover:stroke-gray-500 transition-colors">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5 8.25 12l7.5-7.5" />
-                  </svg>
+                  <button type="button" class="w-[50px] h-[42px] max-w-md group" (click)="previousTab()">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1" stroke="currentColor" class="group-hover:stroke-gray-500 transition-colors">
+                      <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5 8.25 12l7.5-7.5" />
+                    </svg>
+                  </button>
+
+                  <button type="button" class="w-[50px] h-[42px] max-w-md group" (click)="nextTab()">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1" stroke="currentColor" class="group-hover:stroke-gray-500 transition-colors">
+                      <path stroke-linecap="round" stroke-linejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" />
+                    </svg>
+                  </button>
+
+                </div>
+
+                <button type="submit" class="save-button w-[148px] h-[42px] max-w-md text-white">
+                  SAVE
                 </button>
 
-                <button type="button" class="w-[50px] h-[42px] max-w-md group" (click)="nextTab()">
-                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1" stroke="currentColor" class="group-hover:stroke-gray-500 transition-colors">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" />
-                  </svg>
-                </button>
-
               </div>
 
-              <button type="submit" class="save-button w-[148px] h-[42px] max-w-md text-white">
-                SAVE
-              </button>
+            </form>
 
-            </div>
+
+
+
 
           </div>
 
@@ -200,44 +261,59 @@
         <mat-tab label="Phone Number">
           <div class="flex flex-col min-h-screen">
 
-            <div class="flex flex-col items-center">
+            <form [formGroup]="profilePhoneNumberForm" (ngSubmit)="changeProfilePhoneNumber()">
 
-              <div class="relative w-200 max-w-md  mt-5">
-                <input type="text" class="w-full py-3 pl-5 text-xl border-2 border-black rounded-lg focus:outline-none focus:ring-1 focus:ring-gray-500">
-                <label for="name" class="label  absolute left-5 -top-4 text-gray-500  px-2">Phone Number</label>
+              <div class="flex flex-col items-center">
+
+                <div class="relative w-200 max-w-md  mt-5">
+                  <label for="name" class="label  absolute left-5 -top-4 text-gray-500  px-2">Phone Number</label>
+                  <input type="text"
+                  formControlName="oldPhoneNumber"
+                  class="w-full py-3 pl-5 text-xl border-2 border-black rounded-lg focus:outline-none focus:ring-1 focus:ring-gray-500">
+                  <div class="min-h-6 text-red-500">
+
+                      </div>
+                </div>
+
+                <div class="relative w-200  max-w-md mt-5">
+                  <label for="name" class="label  absolute left-5 -top-4 text-gray-500  px-2">New Phone Number</label>
+                  <input type="text"
+                  formControlName="newPhoneNumber"
+                  class="w-full py-3 pl-5 text-xl border-2 border-black rounded-lg focus:outline-none focus:ring-1 focus:ring-gray-500">
+                  <div class="min-h-6 text-red-500">
+
+                      </div>
+                </div>
+
               </div>
 
-              <div class="relative w-200  max-w-md mt-5">
-                <input type="text" class="w-full py-3 pl-5 text-xl border-2 border-black rounded-lg focus:outline-none focus:ring-1 focus:ring-gray-500">
-                <label for="name" class="label  absolute left-5 -top-4 text-gray-500  px-2">New Phone Number</label>
-              </div>
 
-            </div>
+              <div class="flex mt-[350px] justify-between items-center mr-[5px] ml-[2px]">
 
+                <div class="flex mb-3">
 
-            <div class="flex mt-[400px] justify-between items-center mr-[5px] ml-[2px]">
+                  <button type="button" class="w-[50px] h-[42px] max-w-md group" (click)="previousTab()">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1" stroke="currentColor" class="group-hover:stroke-gray-500 transition-colors">
+                      <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5 8.25 12l7.5-7.5" />
+                    </svg>
+                  </button>
 
-              <div class="flex mb-3">
+                  <button type="button" class="w-[50px] h-[42px] max-w-md group" (click)="nextTab()">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1" stroke="currentColor" class="group-hover:stroke-gray-500 transition-colors">
+                      <path stroke-linecap="round" stroke-linejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" />
+                    </svg>
+                  </button>
 
-                <button type="button" class="w-[50px] h-[42px] max-w-md group" (click)="previousTab()">
-                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1" stroke="currentColor" class="group-hover:stroke-gray-500 transition-colors">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5 8.25 12l7.5-7.5" />
-                  </svg>
+                </div>
+
+                <button type="submit" class="save-button w-[148px] h-[42px] max-w-md text-white">
+                  SAVE
                 </button>
 
-                <button type="button" class="w-[50px] h-[42px] max-w-md group" (click)="nextTab()">
-                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1" stroke="currentColor" class="group-hover:stroke-gray-500 transition-colors">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" />
-                  </svg>
-                </button>
-
               </div>
 
-              <button type="submit" class="save-button w-[148px] h-[42px] max-w-md text-white">
-                SAVE
-              </button>
+            </form>
 
-            </div>
 
           </div>
         </mat-tab>

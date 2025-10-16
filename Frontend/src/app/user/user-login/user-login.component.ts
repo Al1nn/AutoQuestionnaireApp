@@ -67,9 +67,6 @@ export class UserLoginComponent implements OnInit {
         this.router.navigate(['/']);
       });
 
-
-
-
     }
 
   }

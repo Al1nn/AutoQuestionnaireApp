@@ -12,10 +12,10 @@ import { httpErrorInterceptor } from './interceptors/httpinterceptor.interceptor
 import { StoreService } from './store/store.service';
 import { authTokenInterceptor } from './interceptors/authinterceptor.interceptor';
 import { BreadcrumbComponent } from './components/breadcrumb/breadcrumb.component';
-
-
-
-
+import { MatSidenavModule} from '@angular/material/sidenav';
+import { MatButtonModule } from '@angular/material/button';
+import { MatListModule } from '@angular/material/list';
+import { MatIconModule } from '@angular/material/icon';
 
 
 
@@ -51,7 +51,10 @@ export class AppRoutingModule {
     BrowserModule,
     CommonModule,
     FormsModule,
-
+    MatSidenavModule,
+    MatButtonModule,
+    MatListModule,
+    MatIconModule,
     ReactiveFormsModule
   ];
 
