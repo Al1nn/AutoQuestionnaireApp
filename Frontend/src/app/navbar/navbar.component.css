@@ -16,7 +16,34 @@
 }
 
 .sidenav-footer {
-  margin-top: 55vh;
   border-top: 1px solid #e5e7eb;
 }
 
+.profile-image {
+  cursor: pointer;
+  filter: brightness(100%);
+  transition: filter 0.3s ease-out;
+}
+
+.profile-image:hover {
+  filter: brightness(70%);
+}
+
+.profile-image:hover ~ .edit-icon {
+  opacity: 1;
+}
+
+@keyframes rise {
+  from {
+    transform: translateY(80%);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.animate-rise {
+  animation: rise 0.4s ease-out forwards;
+}

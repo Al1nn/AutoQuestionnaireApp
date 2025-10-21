@@ -26,6 +26,7 @@ export class NavbarComponent implements OnInit{
 
   loggedUser: IUser = null!;
   dropdownOpen = false;
+  hideIcon:boolean = true;
 
   constructor(@Inject(PLATFORM_ID) private platformId: Object, private store: StoreService, private router: Router) { }
 
@@ -95,4 +96,7 @@ export class NavbarComponent implements OnInit{
       }
     }
 
+  onEditImage(){
+    console.log('Edit image clicked');
+  }
 }
