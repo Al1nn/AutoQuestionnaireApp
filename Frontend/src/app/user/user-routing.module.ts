@@ -1,20 +1,22 @@
-import { MatTabGroup, MatTabsModule } from '@angular/material/tabs';
+
 import { Routes, RouterModule } from '@angular/router';
 import { UserLoginComponent } from './user-login/user-login.component';
 import { UserRegisterComponent } from './user-register/user-register.component';
 import { NgModule } from '@angular/core';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { UserProfileComponent } from './user-profile/user-profile.component';
 import { UserSettingsComponent } from './user-settings/user-settings.component';
 import { authGuard } from '../guards/auth-guard';
+import { MatTabsModule, MatTabGroup } from '@angular/material/tabs';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
 
 
 const routes: Routes = [
   {
     path: 'login',
     component: UserLoginComponent,
-
   },
   {
     path: 'register',
@@ -43,15 +45,17 @@ export class UserRoutingModule {
 
   static components: any[] = [
     UserLoginComponent,
-    UserRegisterComponent
+    UserRegisterComponent,
+    UserProfileComponent,
+    UserSettingsComponent,
   ];
 
   static modules: any[] = [
-    UserRoutingModule,
-    ReactiveFormsModule,
     CommonModule,
-    MatTabGroup,
     MatTabsModule,
+    FormsModule,
+    ReactiveFormsModule,
+    UserRoutingModule,
   ]
   static providers: any[] = [
 

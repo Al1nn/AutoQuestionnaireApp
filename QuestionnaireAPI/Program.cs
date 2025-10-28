@@ -1,5 +1,6 @@
 
 
+using System.Security.Claims;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
@@ -7,6 +8,7 @@ using QuestionnaireAPI.Configurations;
 using QuestionnaireAPI.Data;
 using QuestionnaireAPI.Interfaces;
 using QuestionnaireAPI.Middleware;
+using QuestionnaireAPI.Models;
 using QuestionnaireAPI.Repos;
 using QuestionnaireAPI.Repos.ServiceRepos;
 using QuestionnaireAPI.Services;
@@ -39,6 +41,7 @@ builder.Services.AddControllers();
 builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
 builder.Services.Configure<JwtConfig>(builder.Configuration.GetSection("JwtConfig"));
 builder.Services.AddScoped<ITokenService, TokenService>();
+
 builder.Services.AddAuthentication(options =>
 {
     options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
@@ -59,7 +62,22 @@ builder.Services.AddAuthentication(options =>
     };
 });
 
-builder.Services.AddAuthorization();
+builder.Services.AddAuthorization(options =>
+{
+    options.AddPolicy("RequireAdmin", policy =>
+    {
+        policy.RequireClaim(ClaimTypes.NameIdentifier);
+        policy.RequireClaim(ClaimTypes.Role, "Admin");;
+    });
+    options.AddPolicy("RequireAll", policy =>
+    {
+        policy.RequireClaim(ClaimTypes.NameIdentifier);
+        policy.RequireClaim(ClaimTypes.Email);
+        policy.RequireClaim(ClaimTypes.Name);
+        policy.RequireClaim(ClaimTypes.MobilePhone);
+        policy.RequireClaim(ClaimTypes.Role);
+    });
+});
 
 var app = builder.Build();
 

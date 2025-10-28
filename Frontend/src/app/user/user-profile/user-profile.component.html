@@ -69,15 +69,21 @@
 
                     <div class="relative w-200 max-w-md  mt-5">
 
-                      <label for="name" class="label  absolute left-5 -top-4 text-gray-500  px-2">Name</label>
+
                       <input type="text"
                       formControlName="oldName"
-                      class="w-full py-3 pl-5 text-xl border-2 border-black rounded-lg focus:outline-none focus:ring-1 focus:ring-gray-500">
-                      <div class="min-h-6 text-red-500">
+                      class="w-full py-3 pl-5 text-xl border-2 border-black rounded-lg focus:outline-none focus:ring-1 focus:ring-gray-500"/>
+                      <label for="name" class="label  absolute left-5 -top-4 text-gray-500  px-2">Name</label>
 
+                      <div class="min-h-6 text-red-500">
+                        <span *ngIf="!oldName.valid && (newName.touched || profileNameFormSubmitted)">
+                          <span *ngIf="oldName.errors?.['required']">Old Name is required.</span>
+                          <span *ngIf="oldName.errors?.['minlength']">Old Name must be at least 3 characters long.</span>
+                        </span>
                       </div>
 
                     </div>
+
 
                     <div class="relative w-200  max-w-md mt-5">
 
@@ -85,10 +91,13 @@
                       <input type="text"
                       formControlName="newName"
                       class="w-full py-3 pl-5 text-xl border-2 border-black rounded-lg focus:outline-none focus:ring-1 focus:ring-gray-500">
-
                       <div class="min-h-6 text-red-500">
-
+                        <span *ngIf="!newName.valid && (newName.touched || profileNameFormSubmitted)">
+                          <span *ngIf="newName.errors?.['required']">New Name is required.</span>
+                          <span *ngIf="newName.errors?.['minlength']">New Name must be at least 3 characters long.</span>
+                        </span>
                       </div>
+
                     </div>
 
                   </div>

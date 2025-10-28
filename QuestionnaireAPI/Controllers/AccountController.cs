@@ -258,23 +258,17 @@ namespace QuestionnaireAPI.Controllers
             return Ok(userDto);
         }
 
-        [HttpPatch("edit/name/{newName}")] // better is HttpPatch
-        [Authorize]
-        public async Task<IActionResult> EditProfile(string newName)
+        [HttpPatch("edit/name/{oldName}/{newName}")] 
+        [Authorize(Policy = "RequireAll")] // prevent token malformation
+        public async Task<IActionResult> EditProfile(string oldName,string newName)
         {
-            int id = int.Parse(User.FindFirstValue(ClaimTypes.NameIdentifier));
-            
-            User user = await uow.UserRepository.FindUserByIdAsync(id);
-            
-            user.Name = newName;
-            await uow.SaveChangesAsync();
             
             return Ok();
         }
         
-        [HttpPatch("edit/email/{newEmail}")]
-        [Authorize]
-        public async Task<IActionResult> EditEmail(string newEmail)
+        [HttpPatch("edit/email/{oldEmail}/{newEmail}")]
+        [Authorize(Policy = "RequireAll")]
+        public async Task<IActionResult> EditEmail(string oldEmail, string newEmail)
         {
             int id = int.Parse(User.FindFirstValue(ClaimTypes.NameIdentifier));
             
@@ -286,8 +280,8 @@ namespace QuestionnaireAPI.Controllers
             return Ok();
         }
 
-        [HttpPatch("edit/password/{newPassword}")]
-        [Authorize]
+        [HttpPatch("edit/password/{oldPassword}/{newPassword}")]
+        [Authorize(Policy = "RequireUsernameAndId")]
         public async Task<IActionResult> EditPassword(string newPassword)
         {
             return Ok();

@@ -16,6 +16,8 @@ import { MatSidenavModule} from '@angular/material/sidenav';
 import { MatButtonModule } from '@angular/material/button';
 import { MatListModule } from '@angular/material/list';
 import { MatIconModule } from '@angular/material/icon';
+import { MatTabsModule } from '@angular/material/tabs';
+
 
 
 
@@ -50,12 +52,10 @@ export class AppRoutingModule {
     AppRoutingModule,
     BrowserModule,
     CommonModule,
-    FormsModule,
     MatSidenavModule,
     MatButtonModule,
     MatListModule,
     MatIconModule,
-    ReactiveFormsModule
   ];
 
   static providers: any[] = [

@@ -1,10 +1,9 @@
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { MatTabGroup, MatTabsModule } from "@angular/material/tabs";
 import { StoreService } from '../../store/store.service';
 import { Profile } from '../../models/IUser';
-import { env } from 'process';
 import { environment } from '../../environments/environment';
-import { FormBuilder, FormControl, FormGroup, FormsModule, ReactiveFormsModule, Validators } from "@angular/forms";
+import { MatTabGroup } from '@angular/material/tabs';
 
 
 
@@ -13,9 +12,7 @@ import { FormBuilder, FormControl, FormGroup, FormsModule, ReactiveFormsModule, 
   selector: 'app-user-profile',
   templateUrl: './user-profile.component.html',
   styleUrls: ['./user-profile.component.css'],
-  imports: [MatTabsModule, FormsModule, ReactiveFormsModule],
-
-
+  standalone: false,
 })
 export class UserProfileComponent implements OnInit {
 
@@ -27,6 +24,13 @@ export class UserProfileComponent implements OnInit {
   profileEmailForm!: FormGroup;
   profilePasswordForm!: FormGroup;
   profilePhoneNumberForm!: FormGroup;
+
+
+  profileNameFormSubmitted:boolean = false;
+  profileEmailFormSubmitted:boolean = false;
+  profilePasswordFormSubmitted:boolean = false
+  profilePhoneNumberFormSubmitted:boolean = false;
+
 
   get oldName() {
     return this.profileNameForm.get('oldName') as FormControl;
@@ -75,16 +79,16 @@ export class UserProfileComponent implements OnInit {
 
   createForm(){
     this.profileNameForm = this.fb.group({
-      oldName: ['',Validators.required],
-      newName: ['',Validators.required]
+      oldName: ['',[Validators.required, Validators.minLength(3)]],
+      newName: ['',[Validators.required, Validators.minLength(3)]]
     });
     this.profileEmailForm = this.fb.group({
       oldEmail: ['',[Validators.email, Validators.required] ],
       newEmail: ['', [Validators.email, Validators.required]]
     });
     this.profilePasswordForm = this.fb.group({
-      oldPassword: ['', Validators.required],
-      newPassword: ['', Validators.required]
+      oldPassword: ['', [Validators.required]],
+      newPassword: ['', [Validators.required]]
     });
     this.profilePhoneNumberForm = this.fb.group({
       oldPhoneNumber: ['', [Validators.pattern('^\\+?[0-9]{10,15}$'), Validators.required]],
@@ -124,6 +128,7 @@ export class UserProfileComponent implements OnInit {
   }
 
   changeProfileName() {
+    this.profileNameFormSubmitted = true;
     if(this.profileNameForm.valid){
       console.log("Profile Name Valid");
     }
