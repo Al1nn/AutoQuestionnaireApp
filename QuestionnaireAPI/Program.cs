@@ -72,9 +72,7 @@ builder.Services.AddAuthorization(options =>
     options.AddPolicy("RequireAll", policy =>
     {
         policy.RequireClaim(ClaimTypes.NameIdentifier);
-        policy.RequireClaim(ClaimTypes.Email);
         policy.RequireClaim(ClaimTypes.Name);
-        policy.RequireClaim(ClaimTypes.MobilePhone);
         policy.RequireClaim(ClaimTypes.Role);
     });
 });

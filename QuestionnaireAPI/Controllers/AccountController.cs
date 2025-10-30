@@ -1,5 +1,6 @@
 using System.Security.Claims;
 using Microsoft.AspNetCore.Authentication;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Http.HttpResults;
@@ -77,9 +78,9 @@ namespace QuestionnaireAPI.Controllers
 
             if (user == null)
             {
-                return Unauthorized(new ApiError
+                return BadRequest(new ApiError
                 {
-                    ErrorCode = Unauthorized().StatusCode,
+                    ErrorCode = BadRequest().StatusCode,
                     ErrorMessage = "Invalid login credentials"
                 });
             }
@@ -262,7 +263,33 @@ namespace QuestionnaireAPI.Controllers
         [Authorize(Policy = "RequireAll")] // prevent token malformation
         public async Task<IActionResult> EditProfile(string oldName,string newName)
         {
+            var id = User.FindFirstValue(ClaimTypes.NameIdentifier);
+            var name = User.FindFirstValue(ClaimTypes.Name);
             
+            if (!int.TryParse(id, out int userId))
+            {
+                return BadRequest(new ApiError
+                {
+                    ErrorCode = BadRequest().StatusCode,
+                    ErrorMessage = "Invalid Id",
+                    ErrorDetails = ""
+                });
+            }
+            
+            User user = await uow.UserRepository.FindUserByIdAsync(userId);
+
+            if (oldName != user.Name || oldName != name)
+            {
+                return BadRequest(new ApiError
+                {
+                    ErrorCode = BadRequest().StatusCode,
+                    ErrorMessage = "Invalid OldName",
+                    ErrorDetails = ""
+                });
+            }
+            
+            user.Name = newName;
+            await uow.SaveChangesAsync();
             return Ok();
         }
         

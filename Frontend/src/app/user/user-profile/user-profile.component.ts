@@ -4,6 +4,8 @@ import { StoreService } from '../../store/store.service';
 import { Profile } from '../../models/IUser';
 import { environment } from '../../environments/environment';
 import { MatTabGroup } from '@angular/material/tabs';
+import { Router } from '@angular/router';
+import { switchMap } from 'rxjs';
 
 
 
@@ -20,6 +22,7 @@ export class UserProfileComponent implements OnInit {
   profile: Profile = new Profile();
 
   profileUrl: string | ArrayBuffer | null = null;
+
   profileNameForm!: FormGroup;
   profileEmailForm!: FormGroup;
   profilePasswordForm!: FormGroup;
@@ -64,12 +67,11 @@ export class UserProfileComponent implements OnInit {
     return this.profilePhoneNumberForm.get('newPhoneNumber') as FormControl;
   }
 
-  constructor(private store: StoreService, private fb: FormBuilder) { }
+  constructor(private store: StoreService, private fb: FormBuilder, private router: Router) { }
 
   ngOnInit() {
     this.createForm();
     this.store.authService.profile().subscribe((data: Profile) => {
-      console.log(data);
       this.profile = data;
       if(this.profile.photo !== ""){
         this.profileUrl = environment.originalFolder + this.profile.photo
@@ -131,9 +133,32 @@ export class UserProfileComponent implements OnInit {
     this.profileNameFormSubmitted = true;
     if(this.profileNameForm.valid){
       console.log("Profile Name Valid");
+
+      this.store.authService.editProfileName(this.oldName.value, this.newName.value).subscribe(() => {
+
+
+        this.store.authService.refreshToken().subscribe({
+          next: () => {
+            this.store.alertifyService.success("Profile name changed successfully");
+            this.profile.name = this.newName.value;
+            this.resetProfileNameForm();
+          },
+          error: () => {
+            this.store.alertifyService.error("Session Expired");
+            this.router.navigate(['/user/login']);
+            this.store.authService.setToken(null);
+            this.store.authService.setLoggedIn(false);
+            this.store.authService.logoutUser().subscribe();
+          }
+        });
+
+
+      });
+
+
+
     }
   }
-
 
   changeProfileEmail() {
     if(this.profileEmailForm.valid){
@@ -153,4 +178,27 @@ export class UserProfileComponent implements OnInit {
     }
   }
 
+  resetProfileNameForm(){
+    this.profileNameFormSubmitted = false;
+    this.profileNameForm.reset();
+  }
+
+  resetProfileEmailForm(){
+    this.profileEmailFormSubmitted = false;
+    this.profileEmailForm.reset();
+  }
+
+  resetProfilePasswordForm(){
+    this.profilePasswordFormSubmitted = false;
+    this.profilePasswordForm.reset();
+  }
+
+  resetProfilePhoneNumberForm(){
+    this.profilePhoneNumberFormSubmitted = false;
+    this.profilePhoneNumberForm.reset();
+  }
+
+
 }
+
+

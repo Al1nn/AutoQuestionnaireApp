@@ -76,7 +76,7 @@
                       <label for="name" class="label  absolute left-5 -top-4 text-gray-500  px-2">Name</label>
 
                       <div class="min-h-6 text-red-500">
-                        <span *ngIf="!oldName.valid && (newName.touched || profileNameFormSubmitted)">
+                        <span *ngIf="!oldName.valid && (oldName.touched || profileNameFormSubmitted)">
                           <span *ngIf="oldName.errors?.['required']">Old Name is required.</span>
                           <span *ngIf="oldName.errors?.['minlength']">Old Name must be at least 3 characters long.</span>
                         </span>

@@ -1,9 +1,12 @@
-import { inject, Injectable } from '@angular/core';
+import { AlertifyService } from './../services/alertify.service';
 import { HttpErrorResponse, HttpEvent, HttpHandlerFn, HttpInterceptorFn, HttpRequest } from '@angular/common/http';
 import { throwError, timer, Observable } from 'rxjs';
 import { catchError, retry } from 'rxjs/operators';
-import { AlertifyService } from '../services/alertify.service';
+
 import { ErrorCode } from '../enums/enums';
+import { inject } from '@angular/core';
+
+
 
 
 
@@ -58,6 +61,8 @@ export const httpErrorInterceptor: HttpInterceptorFn = (req: HttpRequest<unknown
       console.error('HTTP Error:', error);
 
       const messageToShow = error.error?.errorMessage || errorMessage || 'Unexpected error';
+
+
 
       if (messageToShow !== 'Cookie is missing') {
         alertifyService.error(messageToShow);
