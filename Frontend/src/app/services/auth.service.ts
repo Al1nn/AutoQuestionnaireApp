@@ -66,6 +66,14 @@ export class AuthService {
     return this.http.patch( `${this.baseUrl}/account/edit/name/${oldName}/${newName}`, {withCredentials: true});
   }
 
+  editProfileEmail (oldEmail: string, newEmail: string)  {
+    return this.http.patch( `${this.baseUrl}/account/edit/email/${oldEmail}/${newEmail}`, {withCredentials: true});
+  }
+
+  editProfilePhoneNumber (oldPhoneNumber: string, newPhoneNumber: string)  {
+    return this.http.patch( `${this.baseUrl}/account/edit/phoneNumber/${oldPhoneNumber}/${newPhoneNumber}`, {withCredentials: true});
+  }
+
   refreshToken() : Observable<IToken> {
     return this.http.post<IToken>(this.baseUrl + '/account/refresh-token', { }, { withCredentials: true })
       .pipe(tap(newToken => {

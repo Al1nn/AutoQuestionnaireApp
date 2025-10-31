@@ -161,20 +161,34 @@ export class UserProfileComponent implements OnInit {
   }
 
   changeProfileEmail() {
+    this.profileEmailFormSubmitted = true;
     if(this.profileEmailForm.valid){
       console.log("Profile Email Valid");
+
+      this.store.authService.editProfileEmail(this.oldEmail.value, this.newEmail.value).subscribe(() => {
+        this.profile.email = this.newEmail.value;
+        this.store.alertifyService.success("Profile email changed successfully");
+        this.resetProfileEmailForm();
+      });
+
     }
   }
 
   changeProfilePassword() {
+    this.profilePasswordFormSubmitted = true;
     if(this.profilePasswordForm.valid){
       console.log("Profile Password Valid");
     }
   }
 
   changeProfilePhoneNumber() {
+    this.profilePhoneNumberFormSubmitted = true;
     if(this.profilePhoneNumberForm.valid){
-      console.log("Profile Phone Number Valid");
+      this.store.authService.editProfilePhoneNumber(this.oldPhoneNumber.value, this.newPhoneNumber.value).subscribe(() => {
+        this.profile.phoneNumber = this.newPhoneNumber.value;
+        this.store.alertifyService.success("Profile phone number changed successfully");
+        this.resetProfilePhoneNumberForm();
+      });
     }
   }
 

@@ -283,7 +283,7 @@ namespace QuestionnaireAPI.Controllers
                 return BadRequest(new ApiError
                 {
                     ErrorCode = BadRequest().StatusCode,
-                    ErrorMessage = "Invalid OldName",
+                    ErrorMessage = "Invalid Old Name Credential",
                     ErrorDetails = ""
                 });
             }
@@ -297,13 +297,32 @@ namespace QuestionnaireAPI.Controllers
         [Authorize(Policy = "RequireAll")]
         public async Task<IActionResult> EditEmail(string oldEmail, string newEmail)
         {
-            int id = int.Parse(User.FindFirstValue(ClaimTypes.NameIdentifier));
+            var id = User.FindFirstValue(ClaimTypes.NameIdentifier);
+
+            if (!int.TryParse(id, out int userId))
+            {
+                return BadRequest(new ApiError
+                {
+                    ErrorCode = BadRequest().StatusCode,
+                    ErrorMessage = "Invalid Id",
+                    ErrorDetails = ""
+                });
+            }
             
-            User user = await uow.UserRepository.FindUserByIdAsync(id);
+            User user = await uow.UserRepository.FindUserByIdAsync(userId);
+
+            if (oldEmail != user.Email)
+            {
+                return BadRequest(new ApiError
+                {
+                    ErrorCode = BadRequest().StatusCode,
+                    ErrorMessage = "Invalid Old Email Credential",
+                    ErrorDetails = ""
+                });
+            }
             
             user.Email = newEmail;
             await uow.SaveChangesAsync();
-            
             return Ok();
         }
 
@@ -315,10 +334,36 @@ namespace QuestionnaireAPI.Controllers
         }
         
         
-        [HttpPatch("edit/phoneNumber/{newPhoneNumber}")]
+        [HttpPatch("edit/phoneNumber/{oldPhoneNumber}/{newPhoneNumber}")]
         [Authorize]
-        public async Task<IActionResult> EditPhoneNumber(string newPhoneNumber)
+        public async Task<IActionResult> EditPhoneNumber(string oldPhoneNumber, string newPhoneNumber)
         {
+            var id = User.FindFirstValue(ClaimTypes.NameIdentifier);
+
+            if (!int.TryParse(id, out int userId))
+            {
+                return BadRequest(new ApiError
+                {
+                    ErrorCode = BadRequest().StatusCode,
+                    ErrorMessage = "Invalid Id",
+                    ErrorDetails = ""
+                });
+            }
+            
+            User user = await uow.UserRepository.FindUserByIdAsync(userId);
+
+            if (oldPhoneNumber != user.PhoneNumber)
+            {
+                return BadRequest(new ApiError
+                {
+                    ErrorCode = BadRequest().StatusCode,
+                    ErrorMessage = "Invalid Old Phone Number",
+                    ErrorDetails = ""
+                });
+            }
+            
+            user.PhoneNumber = newPhoneNumber;
+            await uow.SaveChangesAsync();
             return Ok();
         }
         

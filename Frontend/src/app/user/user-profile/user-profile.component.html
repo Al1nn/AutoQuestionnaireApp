@@ -152,8 +152,11 @@
                   formControlName="oldEmail"
                   class="w-full py-3 pl-5 text-xl border-2 border-black rounded-lg focus:outline-none focus:ring-1 focus:ring-gray-500">
                   <div class="min-h-6 text-red-500">
-
-                      </div>
+                    <span *ngIf="!oldEmail.valid && (oldEmail.touched || profileEmailFormSubmitted)">
+                      <span *ngIf="oldEmail.errors?.['required']">Old Email is required.</span>
+                      <span *ngIf="oldEmail.errors?.['email']">Incorrect Old Email format.</span>
+                    </span>
+                  </div>
                 </div>
 
                 <div class="relative w-200  max-w-md mt-5">
@@ -163,8 +166,11 @@
                   formControlName="newEmail"
                   class="w-full py-3 pl-5 text-xl border-2 border-black rounded-lg focus:outline-none focus:ring-1 focus:ring-gray-500">
                   <div class="min-h-6 text-red-500">
-
-                      </div>
+                    <span *ngIf="!newEmail.valid && (newEmail.touched || profileEmailFormSubmitted)">
+                      <span *ngIf="newEmail.errors?.['required']">New Email is required.</span>
+                      <span *ngIf="newEmail.errors?.['email']">Incorrect New Email format.</span>
+                    </span>
+                  </div>
                 </div>
 
               </div>
@@ -280,8 +286,11 @@
                   formControlName="oldPhoneNumber"
                   class="w-full py-3 pl-5 text-xl border-2 border-black rounded-lg focus:outline-none focus:ring-1 focus:ring-gray-500">
                   <div class="min-h-6 text-red-500">
-
-                      </div>
+                    <span *ngIf="!oldPhoneNumber.valid && (oldPhoneNumber.touched || profilePhoneNumberFormSubmitted)">
+                      <span *ngIf="oldPhoneNumber.errors?.['required']">Old Phone Number is required.</span>
+                      <span *ngIf="oldPhoneNumber.errors?.['pattern']">Incorrect Old Phone Number format.</span>
+                    </span>
+                  </div>
                 </div>
 
                 <div class="relative w-200  max-w-md mt-5">
@@ -290,8 +299,11 @@
                   formControlName="newPhoneNumber"
                   class="w-full py-3 pl-5 text-xl border-2 border-black rounded-lg focus:outline-none focus:ring-1 focus:ring-gray-500">
                   <div class="min-h-6 text-red-500">
-
-                      </div>
+                    <span *ngIf="!newPhoneNumber.valid && (newPhoneNumber.touched || profilePhoneNumberFormSubmitted)">
+                      <span *ngIf="newPhoneNumber.errors?.['required']">New Phone Number is required.</span>
+                      <span *ngIf="newPhoneNumber.errors?.['pattern']">Incorrect New Phone Number format.</span>
+                    </span>
+                  </div>
                 </div>
 
               </div>
