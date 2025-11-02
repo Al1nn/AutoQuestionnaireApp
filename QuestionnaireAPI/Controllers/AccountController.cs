@@ -13,6 +13,8 @@ using QuestionnaireAPI.Extensions;
 using QuestionnaireAPI.Interfaces;
 using QuestionnaireAPI.Models;
 using QuestionnaireAPI.Services;
+using SixLabors.ImageSharp;
+using SixLabors.ImageSharp.Processing;
 
 namespace QuestionnaireAPI.Controllers
 {
@@ -241,9 +243,19 @@ namespace QuestionnaireAPI.Controllers
         [Authorize]
         public async Task<IActionResult> Profile()
         {
-            int id = int.Parse(User.FindFirstValue(ClaimTypes.NameIdentifier));
-
-            User user = await uow.UserRepository.FindUserByIdAsync(id);
+            var id = User.FindFirstValue(ClaimTypes.NameIdentifier);
+        
+            if (!int.TryParse(id, out int userId))
+            {
+                return BadRequest(new ApiError
+                {
+                    ErrorCode = BadRequest().StatusCode,
+                    ErrorMessage = "Invalid Id",
+                    ErrorDetails = ""
+                });
+            }
+            
+            User user = await uow.UserRepository.FindUserByIdAsync(userId);
 
             UserDto userDto = new UserDto
             {
@@ -371,17 +383,73 @@ namespace QuestionnaireAPI.Controllers
         [Authorize]
         public async Task<IActionResult> EditPhoto([FromForm] IFormFile file)
         {
-            int id = int.Parse(User.FindFirstValue(ClaimTypes.NameIdentifier));
+            var id = User.FindFirstValue(ClaimTypes.NameIdentifier);
             
-            User user = await uow.UserRepository.FindUserByIdAsync(id); 
+            if (!int.TryParse(id, out int userId))
+            {
+                return BadRequest(new ApiError
+                {
+                    ErrorCode = BadRequest().StatusCode,
+                    ErrorMessage = "Invalid Id",
+                    ErrorDetails = ""
+                });
+            }
+            Console.WriteLine(file.Name);
             
-            //Find the location of the old user.photo using Directory path .NET library
-            // Delete the file path with the old name file
-            // Upload the new file path with the new name file
-            //Update user.photo 
-            // Save the changes
+            string avatarOriginalDirectory = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", "avatars", "original");
+            string avatarThumbnailDirectory = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", "avatars", "thumbnail");
+
+            if (!Directory.Exists(avatarOriginalDirectory))
+            {
+                Directory.CreateDirectory(avatarOriginalDirectory);
+            }
+
+
+            if (!Directory.Exists(avatarThumbnailDirectory))
+            {
+                Directory.CreateDirectory(avatarThumbnailDirectory);
+            }
             
             
+            User user = await uow.UserRepository.FindUserByIdAsync(userId);
+
+            if (!user.Photo.isEmpty()) // Delete existing photo if the user has a photo
+            {
+                var oldPhotoOriginalPath = Path.Combine(avatarOriginalDirectory, user.Photo); 
+                var oldPhotoThumbnailPath = Path.Combine(avatarThumbnailDirectory, user.Photo);
+                
+                System.IO.File.Delete(oldPhotoOriginalPath);
+                System.IO.File.Delete(oldPhotoThumbnailPath);
+            } 
+            
+            //Save the new photo in the server
+            
+            string uniqueId = Guid.NewGuid().ToString();
+            string fileName = $"{uniqueId}_{file.FileName}";
+
+            var newPhotoOriginalPath = Path.Combine(avatarOriginalDirectory, fileName);
+            var newPhotoThumbnailPath = Path.Combine(avatarThumbnailDirectory, fileName);
+            
+            await using (var fileStream = new FileStream(newPhotoOriginalPath, FileMode.Create))
+            {
+               await file.CopyToAsync(fileStream);
+            }
+
+            using (var thumbnail = await Image.LoadAsync(newPhotoOriginalPath))
+            {
+                var resizeOptions = new ResizeOptions
+                {
+                    Mode = ResizeMode.Crop,
+                    Size = new Size(250, 250),
+                    Position = AnchorPositionMode.Center
+                };
+
+                thumbnail.Mutate(x => x.Resize(resizeOptions));
+                await thumbnail.SaveAsync(newPhotoThumbnailPath);
+            }
+            
+            user.Photo = fileName;
+            await uow.SaveChangesAsync();
             return Ok();
         }
         

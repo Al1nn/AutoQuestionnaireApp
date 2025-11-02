@@ -1,23 +1,5 @@
 ﻿<Project>
   <ItemGroup>
-    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\avatars\original\ab854ade-7e16-4c57-8d64-aaa891da4237_maria.jpg'))">
-      <SourceType>Package</SourceType>
-      <SourceId>QuestionnaireAPI</SourceId>
-      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
-      <BasePath>_content/QuestionnaireAPI</BasePath>
-      <RelativePath>avatars/original/ab854ade-7e16-4c57-8d64-aaa891da4237_maria.jpg</RelativePath>
-      <AssetKind>All</AssetKind>
-      <AssetMode>All</AssetMode>
-      <AssetRole>Primary</AssetRole>
-      <RelatedAsset></RelatedAsset>
-      <AssetTraitName></AssetTraitName>
-      <AssetTraitValue></AssetTraitValue>
-      <Fingerprint>tux31hubw2</Fingerprint>
-      <Integrity>JfO5JsCHtjQV8O7AbE3hL1AH55q5QEY3yE/LlEv/oLE=</Integrity>
-      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
-      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
-      <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\avatars\original\ab854ade-7e16-4c57-8d64-aaa891da4237_maria.jpg'))</OriginalItemSpec>
-    </StaticWebAsset>
     <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\avatars\original\c0fc1b6a-394b-4f29-a2c4-13119c95ee78_bill_Gates.jpg'))">
       <SourceType>Package</SourceType>
       <SourceId>QuestionnaireAPI</SourceId>
@@ -36,23 +18,23 @@
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\avatars\original\c0fc1b6a-394b-4f29-a2c4-13119c95ee78_bill_Gates.jpg'))</OriginalItemSpec>
     </StaticWebAsset>
-    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\avatars\thumbnail\ab854ade-7e16-4c57-8d64-aaa891da4237_maria.jpg'))">
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\avatars\original\fe385693-6c9b-4529-af7a-97906bad3854_bluza.jpg'))">
       <SourceType>Package</SourceType>
       <SourceId>QuestionnaireAPI</SourceId>
       <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
       <BasePath>_content/QuestionnaireAPI</BasePath>
-      <RelativePath>avatars/thumbnail/ab854ade-7e16-4c57-8d64-aaa891da4237_maria.jpg</RelativePath>
+      <RelativePath>avatars/original/fe385693-6c9b-4529-af7a-97906bad3854_bluza.jpg</RelativePath>
       <AssetKind>All</AssetKind>
       <AssetMode>All</AssetMode>
       <AssetRole>Primary</AssetRole>
       <RelatedAsset></RelatedAsset>
       <AssetTraitName></AssetTraitName>
       <AssetTraitValue></AssetTraitValue>
-      <Fingerprint>orq8s3wutz</Fingerprint>
-      <Integrity>hEFKDLU6C3YbYGPHIFkx0s69m97WWAs6/Dq+TrBm6ZU=</Integrity>
+      <Fingerprint>gnuxgez63o</Fingerprint>
+      <Integrity>bNEOy7S6IZh3o0idUaoL4qGP6rkovGoanN1v2k+6yj4=</Integrity>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
-      <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\avatars\thumbnail\ab854ade-7e16-4c57-8d64-aaa891da4237_maria.jpg'))</OriginalItemSpec>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\avatars\original\fe385693-6c9b-4529-af7a-97906bad3854_bluza.jpg'))</OriginalItemSpec>
     </StaticWebAsset>
     <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\avatars\thumbnail\c0fc1b6a-394b-4f29-a2c4-13119c95ee78_bill_Gates.jpg'))">
       <SourceType>Package</SourceType>
@@ -71,6 +53,24 @@
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\avatars\thumbnail\c0fc1b6a-394b-4f29-a2c4-13119c95ee78_bill_Gates.jpg'))</OriginalItemSpec>
+    </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\avatars\thumbnail\fe385693-6c9b-4529-af7a-97906bad3854_bluza.jpg'))">
+      <SourceType>Package</SourceType>
+      <SourceId>QuestionnaireAPI</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/QuestionnaireAPI</BasePath>
+      <RelativePath>avatars/thumbnail/fe385693-6c9b-4529-af7a-97906bad3854_bluza.jpg</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <Fingerprint>2zhfv0ss93</Fingerprint>
+      <Integrity>QrhQ94X7p0maBmaqSq/Z+oZnDkGbs5n3OkzxEDdQvi0=</Integrity>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\avatars\thumbnail\fe385693-6c9b-4529-af7a-97906bad3854_bluza.jpg'))</OriginalItemSpec>
     </StaticWebAsset>
   </ItemGroup>
 </Project>

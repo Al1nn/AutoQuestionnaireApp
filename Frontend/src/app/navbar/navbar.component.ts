@@ -17,16 +17,19 @@ export class NavbarComponent implements OnInit{
 
 
 
+
   activeSection: 'legislation' | 'roadsigns' | 'questionnaire' | 'register' | 'login' | 'admin' | null = null;
-  userPhotoUrl = environment.imageFolder;
+
 
   loggedIn$ = this.store.authService.loggedIn$;
   token$ = this.store.authService.token$;
   browserRefresh = false;
 
   loggedUser: IUser = null!;
-  dropdownOpen = false;
   hideIcon:boolean = true;
+
+  profileUrl: string | ArrayBuffer | null = null;
+  formData: FormData = new FormData();
 
   constructor(@Inject(PLATFORM_ID) private platformId: Object, private store: StoreService, private router: Router) { }
 
@@ -45,7 +48,9 @@ export class NavbarComponent implements OnInit{
             map ( (token: IToken | null) => {
               if(token){
                 this.loggedUser = this.store.authService.decodeToken(token);
-
+                if(this.loggedUser.photo !== ""){
+                  this.profileUrl = environment.originalFolder + this.loggedUser.photo;
+                }
               }
             })
           ).subscribe();
@@ -63,8 +68,6 @@ export class NavbarComponent implements OnInit{
     this.activeSection = section;
   }
 
-
-
   logout(): void {
     this.store.authService.logoutUser().subscribe({
       next: () => {
@@ -72,31 +75,26 @@ export class NavbarComponent implements OnInit{
         this.store.authService.setLoggedIn(false);
         this.store.alertifyService.message('You have been logged out');
         this.router.navigate(['/']);
-        this.dropdownOpen = false;
       }
     });
   }
 
-  toggleDropdown() {
-    this.dropdownOpen = !this.dropdownOpen;
-  }
 
-  @HostListener('document:click', ['$event'])
-    onDocumentClick(event: Event): void {
-      const target = event.target as HTMLElement;
-      const dropdownElement = document.getElementById('dropdownMenu');
-      const dropdownButton = event.target as HTMLElement;
+  onPhotoChanged(event: any) {
+    const file: File = event.target.files[0];
+    // add to formData
 
-      // Check if click is outside dropdown and not on the dropdown button
-      if (this.dropdownOpen &&
-          dropdownElement &&
-          !dropdownElement.contains(target) &&
-          !dropdownButton.closest('button')?.contains(target)) {
-        this.dropdownOpen = false;
-      }
+    //call the request to change photo here
+
+    if (file) {
+      this.formData.set('file', file);
+      const reader = new FileReader();
+      reader.onload = (e: any) => {
+        this.profileUrl = e.target.result;
+      };
+      reader.readAsDataURL(file);
     }
 
-  onEditImage(){
-    console.log('Edit image clicked');
+    console.log("Photo Changed : " + file);
   }
 }

@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "8wp47DivVsEOn6mQpvzuSPFtmo3bMbmnf1Om9H49ZeI=",
+  "Hash": "KeMc8sK25QNWbzOXYNi9581pqtrHxCzo+5dKTFNnG8g=",
   "Source": "QuestionnaireAPI",
   "BasePath": "_content/QuestionnaireAPI",
   "Mode": "Default",
@@ -16,27 +16,6 @@
     }
   ],
   "Assets": [
-    {
-      "Identity": "/Users/alingeorgian/Desktop/AutoQuestionnaireApp/QuestionnaireAPI/wwwroot/avatars/original/ab854ade-7e16-4c57-8d64-aaa891da4237_maria.jpg",
-      "SourceId": "QuestionnaireAPI",
-      "SourceType": "Discovered",
-      "ContentRoot": "/Users/alingeorgian/Desktop/AutoQuestionnaireApp/QuestionnaireAPI/wwwroot/",
-      "BasePath": "_content/QuestionnaireAPI",
-      "RelativePath": "avatars/original/ab854ade-7e16-4c57-8d64-aaa891da4237_maria#[.{fingerprint}]?.jpg",
-      "AssetKind": "All",
-      "AssetMode": "All",
-      "AssetRole": "Primary",
-      "AssetMergeBehavior": "",
-      "AssetMergeSource": "",
-      "RelatedAsset": "",
-      "AssetTraitName": "",
-      "AssetTraitValue": "",
-      "Fingerprint": "tux31hubw2",
-      "Integrity": "JfO5JsCHtjQV8O7AbE3hL1AH55q5QEY3yE/LlEv/oLE=",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot/avatars/original/ab854ade-7e16-4c57-8d64-aaa891da4237_maria.jpg"
-    },
     {
       "Identity": "/Users/alingeorgian/Desktop/AutoQuestionnaireApp/QuestionnaireAPI/wwwroot/avatars/original/c0fc1b6a-394b-4f29-a2c4-13119c95ee78_bill_Gates.jpg",
       "SourceId": "QuestionnaireAPI",
@@ -59,12 +38,12 @@
       "OriginalItemSpec": "wwwroot/avatars/original/c0fc1b6a-394b-4f29-a2c4-13119c95ee78_bill_Gates.jpg"
     },
     {
-      "Identity": "/Users/alingeorgian/Desktop/AutoQuestionnaireApp/QuestionnaireAPI/wwwroot/avatars/thumbnail/ab854ade-7e16-4c57-8d64-aaa891da4237_maria.jpg",
+      "Identity": "/Users/alingeorgian/Desktop/AutoQuestionnaireApp/QuestionnaireAPI/wwwroot/avatars/original/fe385693-6c9b-4529-af7a-97906bad3854_bluza.jpg",
       "SourceId": "QuestionnaireAPI",
       "SourceType": "Discovered",
       "ContentRoot": "/Users/alingeorgian/Desktop/AutoQuestionnaireApp/QuestionnaireAPI/wwwroot/",
       "BasePath": "_content/QuestionnaireAPI",
-      "RelativePath": "avatars/thumbnail/ab854ade-7e16-4c57-8d64-aaa891da4237_maria#[.{fingerprint}]?.jpg",
+      "RelativePath": "avatars/original/fe385693-6c9b-4529-af7a-97906bad3854_bluza#[.{fingerprint}]?.jpg",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -73,11 +52,11 @@
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
-      "Fingerprint": "orq8s3wutz",
-      "Integrity": "hEFKDLU6C3YbYGPHIFkx0s69m97WWAs6/Dq+TrBm6ZU=",
+      "Fingerprint": "gnuxgez63o",
+      "Integrity": "bNEOy7S6IZh3o0idUaoL4qGP6rkovGoanN1v2k+6yj4=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot/avatars/thumbnail/ab854ade-7e16-4c57-8d64-aaa891da4237_maria.jpg"
+      "OriginalItemSpec": "wwwroot/avatars/original/fe385693-6c9b-4529-af7a-97906bad3854_bluza.jpg"
     },
     {
       "Identity": "/Users/alingeorgian/Desktop/AutoQuestionnaireApp/QuestionnaireAPI/wwwroot/avatars/thumbnail/c0fc1b6a-394b-4f29-a2c4-13119c95ee78_bill_Gates.jpg",
@@ -99,91 +78,30 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot/avatars/thumbnail/c0fc1b6a-394b-4f29-a2c4-13119c95ee78_bill_Gates.jpg"
+    },
+    {
+      "Identity": "/Users/alingeorgian/Desktop/AutoQuestionnaireApp/QuestionnaireAPI/wwwroot/avatars/thumbnail/fe385693-6c9b-4529-af7a-97906bad3854_bluza.jpg",
+      "SourceId": "QuestionnaireAPI",
+      "SourceType": "Discovered",
+      "ContentRoot": "/Users/alingeorgian/Desktop/AutoQuestionnaireApp/QuestionnaireAPI/wwwroot/",
+      "BasePath": "_content/QuestionnaireAPI",
+      "RelativePath": "avatars/thumbnail/fe385693-6c9b-4529-af7a-97906bad3854_bluza#[.{fingerprint}]?.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "2zhfv0ss93",
+      "Integrity": "QrhQ94X7p0maBmaqSq/Z+oZnDkGbs5n3OkzxEDdQvi0=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot/avatars/thumbnail/fe385693-6c9b-4529-af7a-97906bad3854_bluza.jpg"
     }
   ],
   "Endpoints": [
-    {
-      "Route": "avatars/original/ab854ade-7e16-4c57-8d64-aaa891da4237_maria.jpg",
-      "AssetFile": "/Users/alingeorgian/Desktop/AutoQuestionnaireApp/QuestionnaireAPI/wwwroot/avatars/original/ab854ade-7e16-4c57-8d64-aaa891da4237_maria.jpg",
-      "Selectors": [],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "37966"
-        },
-        {
-          "Name": "Content-Type",
-          "Value": "image/jpeg"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"JfO5JsCHtjQV8O7AbE3hL1AH55q5QEY3yE/LlEv/oLE=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Fri, 22 Aug 2025 11:32:01 GMT"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "max-age=3600, must-revalidate"
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "integrity",
-          "Value": "sha256-JfO5JsCHtjQV8O7AbE3hL1AH55q5QEY3yE/LlEv/oLE="
-        }
-      ]
-    },
-    {
-      "Route": "avatars/original/ab854ade-7e16-4c57-8d64-aaa891da4237_maria.tux31hubw2.jpg",
-      "AssetFile": "/Users/alingeorgian/Desktop/AutoQuestionnaireApp/QuestionnaireAPI/wwwroot/avatars/original/ab854ade-7e16-4c57-8d64-aaa891da4237_maria.jpg",
-      "Selectors": [],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "37966"
-        },
-        {
-          "Name": "Content-Type",
-          "Value": "image/jpeg"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"JfO5JsCHtjQV8O7AbE3hL1AH55q5QEY3yE/LlEv/oLE=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Fri, 22 Aug 2025 11:32:01 GMT"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "max-age=31536000, immutable"
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "fingerprint",
-          "Value": "tux31hubw2"
-        },
-        {
-          "Name": "label",
-          "Value": "avatars/original/ab854ade-7e16-4c57-8d64-aaa891da4237_maria.jpg"
-        },
-        {
-          "Name": "integrity",
-          "Value": "sha256-JfO5JsCHtjQV8O7AbE3hL1AH55q5QEY3yE/LlEv/oLE="
-        }
-      ]
-    },
     {
       "Route": "avatars/original/c0fc1b6a-394b-4f29-a2c4-13119c95ee78_bill_Gates.1rdikgq25k.jpg",
       "AssetFile": "/Users/alingeorgian/Desktop/AutoQuestionnaireApp/QuestionnaireAPI/wwwroot/avatars/original/c0fc1b6a-394b-4f29-a2c4-13119c95ee78_bill_Gates.jpg",
@@ -267,8 +185,8 @@
       ]
     },
     {
-      "Route": "avatars/thumbnail/ab854ade-7e16-4c57-8d64-aaa891da4237_maria.jpg",
-      "AssetFile": "/Users/alingeorgian/Desktop/AutoQuestionnaireApp/QuestionnaireAPI/wwwroot/avatars/thumbnail/ab854ade-7e16-4c57-8d64-aaa891da4237_maria.jpg",
+      "Route": "avatars/original/fe385693-6c9b-4529-af7a-97906bad3854_bluza.gnuxgez63o.jpg",
+      "AssetFile": "/Users/alingeorgian/Desktop/AutoQuestionnaireApp/QuestionnaireAPI/wwwroot/avatars/original/fe385693-6c9b-4529-af7a-97906bad3854_bluza.jpg",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -277,7 +195,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "9222"
+          "Value": "3505"
         },
         {
           "Name": "Content-Type",
@@ -285,48 +203,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"hEFKDLU6C3YbYGPHIFkx0s69m97WWAs6/Dq+TrBm6ZU=\""
+          "Value": "\"bNEOy7S6IZh3o0idUaoL4qGP6rkovGoanN1v2k+6yj4=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Fri, 22 Aug 2025 11:32:02 GMT"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "max-age=3600, must-revalidate"
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "integrity",
-          "Value": "sha256-hEFKDLU6C3YbYGPHIFkx0s69m97WWAs6/Dq+TrBm6ZU="
-        }
-      ]
-    },
-    {
-      "Route": "avatars/thumbnail/ab854ade-7e16-4c57-8d64-aaa891da4237_maria.orq8s3wutz.jpg",
-      "AssetFile": "/Users/alingeorgian/Desktop/AutoQuestionnaireApp/QuestionnaireAPI/wwwroot/avatars/thumbnail/ab854ade-7e16-4c57-8d64-aaa891da4237_maria.jpg",
-      "Selectors": [],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "9222"
-        },
-        {
-          "Name": "Content-Type",
-          "Value": "image/jpeg"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"hEFKDLU6C3YbYGPHIFkx0s69m97WWAs6/Dq+TrBm6ZU=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Fri, 22 Aug 2025 11:32:02 GMT"
+          "Value": "Sun, 02 Nov 2025 14:50:36 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -336,15 +217,52 @@
       "EndpointProperties": [
         {
           "Name": "fingerprint",
-          "Value": "orq8s3wutz"
+          "Value": "gnuxgez63o"
         },
         {
           "Name": "label",
-          "Value": "avatars/thumbnail/ab854ade-7e16-4c57-8d64-aaa891da4237_maria.jpg"
+          "Value": "avatars/original/fe385693-6c9b-4529-af7a-97906bad3854_bluza.jpg"
         },
         {
           "Name": "integrity",
-          "Value": "sha256-hEFKDLU6C3YbYGPHIFkx0s69m97WWAs6/Dq+TrBm6ZU="
+          "Value": "sha256-bNEOy7S6IZh3o0idUaoL4qGP6rkovGoanN1v2k+6yj4="
+        }
+      ]
+    },
+    {
+      "Route": "avatars/original/fe385693-6c9b-4529-af7a-97906bad3854_bluza.jpg",
+      "AssetFile": "/Users/alingeorgian/Desktop/AutoQuestionnaireApp/QuestionnaireAPI/wwwroot/avatars/original/fe385693-6c9b-4529-af7a-97906bad3854_bluza.jpg",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "3505"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/jpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"bNEOy7S6IZh3o0idUaoL4qGP6rkovGoanN1v2k+6yj4=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sun, 02 Nov 2025 14:50:36 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-bNEOy7S6IZh3o0idUaoL4qGP6rkovGoanN1v2k+6yj4="
         }
       ]
     },
@@ -427,6 +345,88 @@
         {
           "Name": "integrity",
           "Value": "sha256-txfd5G2fLpXBP41vtqOO5fOzhol59PS/xHaVx36okXA="
+        }
+      ]
+    },
+    {
+      "Route": "avatars/thumbnail/fe385693-6c9b-4529-af7a-97906bad3854_bluza.2zhfv0ss93.jpg",
+      "AssetFile": "/Users/alingeorgian/Desktop/AutoQuestionnaireApp/QuestionnaireAPI/wwwroot/avatars/thumbnail/fe385693-6c9b-4529-af7a-97906bad3854_bluza.jpg",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "7951"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/jpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"QrhQ94X7p0maBmaqSq/Z+oZnDkGbs5n3OkzxEDdQvi0=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sun, 02 Nov 2025 14:50:38 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "2zhfv0ss93"
+        },
+        {
+          "Name": "label",
+          "Value": "avatars/thumbnail/fe385693-6c9b-4529-af7a-97906bad3854_bluza.jpg"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-QrhQ94X7p0maBmaqSq/Z+oZnDkGbs5n3OkzxEDdQvi0="
+        }
+      ]
+    },
+    {
+      "Route": "avatars/thumbnail/fe385693-6c9b-4529-af7a-97906bad3854_bluza.jpg",
+      "AssetFile": "/Users/alingeorgian/Desktop/AutoQuestionnaireApp/QuestionnaireAPI/wwwroot/avatars/thumbnail/fe385693-6c9b-4529-af7a-97906bad3854_bluza.jpg",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "7951"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/jpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"QrhQ94X7p0maBmaqSq/Z+oZnDkGbs5n3OkzxEDdQvi0=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sun, 02 Nov 2025 14:50:38 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-QrhQ94X7p0maBmaqSq/Z+oZnDkGbs5n3OkzxEDdQvi0="
         }
       ]
     }

@@ -9,14 +9,13 @@
     </div>
 
 
-    <div class="flex flex-col items-center">
+    <div class="flex flex-col items-center" *ngIf="(loggedIn$ | async)">
       <div class="relative inline-block">
+        <input #editProfilePhoto type="file" accept="image/*" (change)="onPhotoChanged($event)" hidden/>
         <img
-          [src]="(loggedIn$ | async) && loggedUser.photo !== ''
-            ? userPhotoUrl + loggedUser.photo
-            : '../../assets/images/user-default.png'"
+          [src]="profileUrl || '../../assets/images/user-default.png'"
           alt="User Photo"
-          (click)="onEditImage()"
+          (click)="editProfilePhoto.click()"
           (mouseenter)="hideIcon = false;"
           (mouseleave)="hideIcon = true;"
           class="profile-image h-[150px] w-[150px] rounded-full object-cover"
@@ -35,7 +34,7 @@
         </div>
       </div>
       <br>
-      <h3 *ngIf="loggedIn$ | async">Welcome, {{ loggedUser.name }}</h3>
+      <h3>Welcome, {{ loggedUser.name }}</h3>
     </div>
 
 
@@ -229,9 +228,7 @@
         <div *ngIf="loggedIn$ | async" class="flex justify-end-2"  >
 
           <img
-            [src]="loggedUser.photo !== ''
-                    ? userPhotoUrl + loggedUser.photo
-                    : '../../assets/images/user-default.png'"
+            [src]="profileUrl || '../../assets/images/user-default.png'"
             alt="User Photo"
             class="h-8 w-8 rounded-full object-cover mr-2 mt-[11px]"
           />

@@ -22,6 +22,7 @@ export class UserProfileComponent implements OnInit {
   profile: Profile = new Profile();
 
   profileUrl: string | ArrayBuffer | null = null;
+  formData: FormData = new FormData();
 
   profileNameForm!: FormGroup;
   profileEmailForm!: FormGroup;
@@ -116,12 +117,13 @@ export class UserProfileComponent implements OnInit {
     const file: File = event.target.files[0];
     // add to formData
 
+    //call the request to change photo here
+
     if (file) {
+      this.formData.set('file', file);
       const reader = new FileReader();
       reader.onload = (e: any) => {
-
         this.profileUrl = e.target.result;
-
       };
       reader.readAsDataURL(file);
     }
