@@ -5,6 +5,7 @@ import { map } from 'rxjs';
 import { isPlatformBrowser } from '@angular/common';
 import { IToken, IUser } from '../models/IUser';
 import { Router } from '@angular/router';
+import { IPhoto } from '../models/IPhoto';
 
 
 @Component({
@@ -23,12 +24,13 @@ export class NavbarComponent implements OnInit{
 
   loggedIn$ = this.store.authService.loggedIn$;
   token$ = this.store.authService.token$;
+  profilePicture$ = this.store.authService.profilePicture$;
+
   browserRefresh = false;
 
   loggedUser: IUser = null!;
   hideIcon:boolean = true;
 
-  profileUrl: string | ArrayBuffer | null = null;
   formData: FormData = new FormData();
 
   constructor(@Inject(PLATFORM_ID) private platformId: Object, private store: StoreService, private router: Router) { }
@@ -49,7 +51,7 @@ export class NavbarComponent implements OnInit{
               if(token){
                 this.loggedUser = this.store.authService.decodeToken(token);
                 if(this.loggedUser.photo !== ""){
-                  this.profileUrl = environment.originalFolder + this.loggedUser.photo;
+                  this.store.authService.setProfilePicture(environment.originalFolder + this.loggedUser.photo);
                 }
               }
             })
@@ -82,19 +84,16 @@ export class NavbarComponent implements OnInit{
 
   onPhotoChanged(event: any) {
     const file: File = event.target.files[0];
-    // add to formData
-
-    //call the request to change photo here
 
     if (file) {
       this.formData.set('file', file);
-      const reader = new FileReader();
-      reader.onload = (e: any) => {
-        this.profileUrl = e.target.result;
-      };
-      reader.readAsDataURL(file);
+      this.store.authService.editProfilePicture(this.formData).subscribe((data: IPhoto) => {
+        this.store.alertifyService.success("Profile picture changed successfully");
+        this.store.authService.setProfilePicture(environment.originalFolder + data.photo);
+      });
+
     }
 
-    console.log("Photo Changed : " + file);
+
   }
 }

@@ -1,20 +1,20 @@
 {
   "Files": [
     {
+      "Id": "/Users/alingeorgian/Desktop/AutoQuestionnaireApp/QuestionnaireAPI/wwwroot/avatars/original/20552d1a-e589-45a9-a973-b0877a41d453_maria2.jpg",
+      "PackagePath": "staticwebassets/avatars/original/20552d1a-e589-45a9-a973-b0877a41d453_maria2.jpg"
+    },
+    {
       "Id": "/Users/alingeorgian/Desktop/AutoQuestionnaireApp/QuestionnaireAPI/wwwroot/avatars/original/c0fc1b6a-394b-4f29-a2c4-13119c95ee78_bill_Gates.jpg",
       "PackagePath": "staticwebassets/avatars/original/c0fc1b6a-394b-4f29-a2c4-13119c95ee78_bill_Gates.jpg"
     },
     {
-      "Id": "/Users/alingeorgian/Desktop/AutoQuestionnaireApp/QuestionnaireAPI/wwwroot/avatars/original/fe385693-6c9b-4529-af7a-97906bad3854_bluza.jpg",
-      "PackagePath": "staticwebassets/avatars/original/fe385693-6c9b-4529-af7a-97906bad3854_bluza.jpg"
+      "Id": "/Users/alingeorgian/Desktop/AutoQuestionnaireApp/QuestionnaireAPI/wwwroot/avatars/thumbnail/20552d1a-e589-45a9-a973-b0877a41d453_maria2.jpg",
+      "PackagePath": "staticwebassets/avatars/thumbnail/20552d1a-e589-45a9-a973-b0877a41d453_maria2.jpg"
     },
     {
       "Id": "/Users/alingeorgian/Desktop/AutoQuestionnaireApp/QuestionnaireAPI/wwwroot/avatars/thumbnail/c0fc1b6a-394b-4f29-a2c4-13119c95ee78_bill_Gates.jpg",
       "PackagePath": "staticwebassets/avatars/thumbnail/c0fc1b6a-394b-4f29-a2c4-13119c95ee78_bill_Gates.jpg"
-    },
-    {
-      "Id": "/Users/alingeorgian/Desktop/AutoQuestionnaireApp/QuestionnaireAPI/wwwroot/avatars/thumbnail/fe385693-6c9b-4529-af7a-97906bad3854_bluza.jpg",
-      "PackagePath": "staticwebassets/avatars/thumbnail/fe385693-6c9b-4529-af7a-97906bad3854_bluza.jpg"
     },
     {
       "Id": "obj/Debug/net9.0/staticwebassets/msbuild.QuestionnaireAPI.Microsoft.AspNetCore.StaticWebAssetEndpoints.props",

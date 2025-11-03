@@ -8,7 +8,7 @@
   <div class="profile-body  flex overflow-hidden w-[1240px] h-[839px] mt-[100px] rounded-4xl shadow-md border border-black z-2">
 
     <div class="w-[439px] h-[494px] bg-gray-100 rounded-4xl ml-[40px] mt-[40px] profile-left border border-black relative flex items-center">
-      <img [src]="profileUrl || '../../assets/images/user-default.png'"  alt="User Avatar" class="w-full h-full object-cover rounded-4xl">
+      <img [src]="(profilePicture$ | async) || '../../assets/images/user-default.png'"  alt="User Avatar" class="w-full h-full object-cover rounded-4xl">
 
       <input #editProfilePhoto type="file" accept="image/*" (change)="onPhotoChanged($event)" hidden/>
       <button type="button"

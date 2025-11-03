@@ -394,7 +394,6 @@ namespace QuestionnaireAPI.Controllers
                     ErrorDetails = ""
                 });
             }
-            Console.WriteLine(file.Name);
             
             string avatarOriginalDirectory = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", "avatars", "original");
             string avatarThumbnailDirectory = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", "avatars", "thumbnail");
@@ -450,7 +449,7 @@ namespace QuestionnaireAPI.Controllers
             
             user.Photo = fileName;
             await uow.SaveChangesAsync();
-            return Ok();
+            return Ok(new { photo = user.Photo });
         }
         
     }

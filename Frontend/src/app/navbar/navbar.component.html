@@ -13,7 +13,7 @@
       <div class="relative inline-block">
         <input #editProfilePhoto type="file" accept="image/*" (change)="onPhotoChanged($event)" hidden/>
         <img
-          [src]="profileUrl || '../../assets/images/user-default.png'"
+          [src]="(profilePicture$ | async) || '../../assets/images/user-default.png'"
           alt="User Photo"
           (click)="editProfilePhoto.click()"
           (mouseenter)="hideIcon = false;"
@@ -228,7 +228,7 @@
         <div *ngIf="loggedIn$ | async" class="flex justify-end-2"  >
 
           <img
-            [src]="profileUrl || '../../assets/images/user-default.png'"
+            [src]="(profilePicture$ | async) || '../../assets/images/user-default.png'"
             alt="User Photo"
             class="h-8 w-8 rounded-full object-cover mr-2 mt-[11px]"
           />

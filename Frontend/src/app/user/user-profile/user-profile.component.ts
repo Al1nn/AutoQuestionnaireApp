@@ -5,7 +5,8 @@ import { Profile } from '../../models/IUser';
 import { environment } from '../../environments/environment';
 import { MatTabGroup } from '@angular/material/tabs';
 import { Router } from '@angular/router';
-import { switchMap } from 'rxjs';
+import { IPhoto } from '../../models/IPhoto';
+
 
 
 
@@ -20,8 +21,8 @@ export class UserProfileComponent implements OnInit {
 
   @ViewChild('tabGroup') tabGroup!: MatTabGroup;
   profile: Profile = new Profile();
+  profilePicture$ = this.store.authService.profilePicture$;
 
-  profileUrl: string | ArrayBuffer | null = null;
   formData: FormData = new FormData();
 
   profileNameForm!: FormGroup;
@@ -75,7 +76,7 @@ export class UserProfileComponent implements OnInit {
     this.store.authService.profile().subscribe((data: Profile) => {
       this.profile = data;
       if(this.profile.photo !== ""){
-        this.profileUrl = environment.originalFolder + this.profile.photo
+        this.store.authService.setProfilePicture(environment.originalFolder + this.profile.photo);
       }
     });
   }
@@ -115,20 +116,15 @@ export class UserProfileComponent implements OnInit {
 
   onPhotoChanged(event: any) {
     const file: File = event.target.files[0];
-    // add to formData
-
-    //call the request to change photo here
 
     if (file) {
       this.formData.set('file', file);
-      const reader = new FileReader();
-      reader.onload = (e: any) => {
-        this.profileUrl = e.target.result;
-      };
-      reader.readAsDataURL(file);
+      this.store.authService.editProfilePicture(this.formData).subscribe((data: IPhoto) => {
+        this.store.alertifyService.success("Profile picture changed successfully");
+        this.store.authService.setProfilePicture(environment.originalFolder + data.photo);
+      });
     }
 
-    console.log("Photo Changed : " + file);
   }
 
   changeProfileName() {

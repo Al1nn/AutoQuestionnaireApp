@@ -25,3 +25,4 @@ export class Profile {
     phoneNumber: string = '';
     //more fields to come for average score and questionnaires solved
 }
+
