@@ -13,4 +13,8 @@ public interface IUserRepository
     Task<User> FindUserByIdAsync(int id);
 
     Task<User> FindUserByRefreshTokenAsync(string refreshToken);
+
+    bool VerifyPassword(string password, byte[] passwordHash, byte[] passwordKey);
+    
+    void EncryptPassword(string password, out byte[] passwordHash, out byte[] passwordKey);
 }

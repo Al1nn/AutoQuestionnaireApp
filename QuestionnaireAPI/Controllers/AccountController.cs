@@ -339,9 +339,39 @@ namespace QuestionnaireAPI.Controllers
         }
 
         [HttpPatch("edit/password/{oldPassword}/{newPassword}")]
-        [Authorize(Policy = "RequireUsernameAndId")]
-        public async Task<IActionResult> EditPassword(string newPassword)
+        [Authorize(Policy = "RequireAll")]
+        public async Task<IActionResult> EditPassword(string oldPassword, string newPassword)
         {
+            var id = User.FindFirstValue(ClaimTypes.NameIdentifier);
+
+            if (!int.TryParse(id, out int userId))
+            {
+                return BadRequest(new ApiError
+                {
+                    ErrorCode = BadRequest().StatusCode,
+                    ErrorMessage = "Invalid Id",
+                    ErrorDetails = ""
+                });
+            }
+            
+            User user = await uow.UserRepository.FindUserByIdAsync(userId);
+
+            if (!uow.UserRepository.VerifyPassword(oldPassword, user.Password, user.PasswordKey))
+            {
+                return BadRequest(new ApiError
+                {
+                    ErrorCode = BadRequest().StatusCode,
+                    ErrorMessage = "Your Old Password Is Incorrect",
+                    ErrorDetails = ""
+                });
+            };
+
+            uow.UserRepository.EncryptPassword(newPassword, out byte[] passwordHash, out byte[] passwordKey);;
+
+            user.Password = passwordHash;
+            user.PasswordKey = passwordKey; 
+            
+            await uow.SaveChangesAsync();
             return Ok();
         }
         

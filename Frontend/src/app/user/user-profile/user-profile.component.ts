@@ -1,4 +1,4 @@
-import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { AbstractControl, FormBuilder, FormControl, FormGroup, ValidationErrors, Validators } from '@angular/forms';
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { StoreService } from '../../store/store.service';
 import { Profile } from '../../models/IUser';
@@ -61,6 +61,10 @@ export class UserProfileComponent implements OnInit {
     return this.profilePasswordForm.get('newPassword') as FormControl;
   }
 
+  get confirmNewPassword() {
+    return this.profilePasswordForm.get('confirmNewPassword') as FormControl;
+  }
+
   get oldPhoneNumber() {
     return this.profilePhoneNumberForm.get('oldPhoneNumber') as FormControl;
   }
@@ -91,13 +95,22 @@ export class UserProfileComponent implements OnInit {
       newEmail: ['', [Validators.email, Validators.required]]
     });
     this.profilePasswordForm = this.fb.group({
-      oldPassword: ['', [Validators.required]],
-      newPassword: ['', [Validators.required]]
-    });
+      oldPassword: ['', [Validators.required, Validators.minLength(5)]],
+      newPassword: ['', [Validators.required, Validators.minLength(5)]],
+      confirmNewPassword: ['', [Validators.required, Validators.minLength(5)]]
+    }
+    , { validators: this.passwordMatchingValidator }
+    );
     this.profilePhoneNumberForm = this.fb.group({
       oldPhoneNumber: ['', [Validators.pattern('^\\+?[0-9]{10,15}$'), Validators.required]],
       newPhoneNumber: ['', [Validators.pattern('^\\+?[0-9]{10,15}$'), Validators.required]]
     });
+  }
+
+  passwordMatchingValidator(fc: AbstractControl): ValidationErrors | null {
+        return fc.get('newPassword')?.value === fc.get('confirmNewPassword')?.value
+            ? null
+            : { notmatched: true };
   }
 
   nextTab() {
@@ -133,8 +146,6 @@ export class UserProfileComponent implements OnInit {
       console.log("Profile Name Valid");
 
       this.store.authService.editProfileName(this.oldName.value, this.newName.value).subscribe(() => {
-
-
         this.store.authService.refreshToken().subscribe({
           next: () => {
             this.store.alertifyService.success("Profile name changed successfully");
@@ -175,7 +186,10 @@ export class UserProfileComponent implements OnInit {
   changeProfilePassword() {
     this.profilePasswordFormSubmitted = true;
     if(this.profilePasswordForm.valid){
-      console.log("Profile Password Valid");
+      this.store.authService.editProfilePassword(this.oldPassword.value, this.newPassword.value).subscribe(() => {
+        this.store.alertifyService.success("Profile password changed successfully");
+        this.resetProfilePasswordForm();
+      });
     }
   }
 

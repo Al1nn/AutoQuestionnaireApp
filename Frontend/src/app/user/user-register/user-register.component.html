@@ -89,6 +89,7 @@
                 <div class="min-h-6 text-red-500">
                   <span *ngIf="!password.valid && (password.touched || userSubmited)" class="text-red-500">
                     <span *ngIf="password.errors?.['required']">Password is required.</span>
+                    <span *ngIf="password.errors?.['minlength']">Password must be at least 5 characters long.</span>
                   </span>
                 </div>
 
@@ -99,8 +100,8 @@
               <div class="relative w-200 h-full max-w-md mt-7">
                 <input type="password" formControlName="confirmPassword"
                 [ngClass]="{
-                  'border-red-500': !confirmPassword.valid && (confirmPassword.touched || userSubmited) || registerationForm.hasError('notMatching'),
-                  'border-black': confirmPassword.valid || !(confirmPassword.touched || userSubmited) && !registerationForm.hasError('notMatching')
+                  'border-red-500': !confirmPassword.valid && (confirmPassword.touched || userSubmited) ,
+                  'border-black': confirmPassword.valid || !(confirmPassword.touched || userSubmited)
                 }"
                 class="w-full py-3 pl-5 text-xl border-2 rounded-lg focus:outline-none focus:ring-1 focus:ring-gray-500 tracking-widest">
                 <label for="password"
@@ -109,9 +110,9 @@
 
                 <div class="min-h-6 text-red-500">
                   <span *ngIf="!confirmPassword.valid && (confirmPassword.touched || userSubmited)" >
-                    Confirm Password is required.
+                    <span *ngIf="confirmPassword.errors?.['required']">Confirm Password is required.</span>
                   </span>
-                  <span *ngIf="registerationForm.hasError('notMatching') && confirmPassword.valid">
+                  <span *ngIf="registerationForm.hasError('notMatching') && (confirmPassword.valid || userSubmited )">
                     Passwords do not match.
                   </span>
                 </div>

@@ -216,13 +216,16 @@
 
                   <div class="relative w-200 max-w-md  mt-5">
 
-                    <label for="name" class="label  absolute left-5 -top-4 text-gray-500  px-2">Password</label>
+                    <label for="name" class="label  absolute left-5 -top-4 text-gray-500  px-2">Old Password</label>
                     <input type="password"
                     formControlName="oldPassword"
                     class="w-full py-3 pl-5 text-xl border-2 border-black rounded-lg focus:outline-none focus:ring-1 focus:ring-gray-500">
                     <div class="min-h-6 text-red-500">
-
-                      </div>
+                      <span *ngIf="!oldPassword.valid && (oldPassword.touched || profilePasswordFormSubmitted)">
+                        <span *ngIf="oldPassword.errors?.['required']">Old Password is required.</span>
+                        <span *ngIf="oldPassword.errors?.['minlength']">Old Password must be at least 5 characters long.</span>
+                      </span>
+                    </div>
 
                   </div>
 
@@ -233,14 +236,35 @@
                     formControlName="newPassword"
                     class="w-full py-3 pl-5 text-xl border-2 border-black rounded-lg focus:outline-none focus:ring-1 focus:ring-gray-500">
                     <div class="min-h-6 text-red-500">
+                      <span *ngIf="!newPassword.valid && (newPassword.touched || profilePasswordFormSubmitted)">
+                        <span *ngIf="newPassword.errors?.['required']">New Password is required.</span>
+                        <span *ngIf="newPassword.errors?.['minlength']">New Password must be at least 5 characters long.</span>
+                      </span>
+                    </div>
+                  </div>
 
-                      </div>
+                  <div class="relative w-200  max-w-md mt-5">
+
+                    <label for="name" class="label  absolute left-5 -top-4 text-gray-500  px-2">Confirm New Password</label>
+                    <input type="password"
+                    formControlName="confirmNewPassword"
+                    class="w-full py-3 pl-5 text-xl border-2 border-black rounded-lg focus:outline-none focus:ring-1 focus:ring-gray-500">
+                    <div class="min-h-6 text-red-500">
+                      <span *ngIf="!confirmNewPassword.valid && (confirmNewPassword.touched || profilePasswordFormSubmitted)" >
+                        <span *ngIf="confirmNewPassword.errors?.['required']">Confirm New Password is required.</span>
+                        <span *ngIf="confirmNewPassword.errors?.['minlength']">Confirm New Password must be at least 5 characters long.</span>
+                      </span>
+                      <span *ngIf="profilePasswordForm.hasError('notmatched') && confirmNewPassword.valid">
+                        Passwords do not match.
+                      </span>
+                    </div>
+
                   </div>
 
                 </div>
 
 
-              <div class="flex mt-[350px] justify-between items-center mr-[5px] ml-[2px]">
+              <div class="flex mt-[218px] justify-between items-center mr-[5px] ml-[2px]">
 
                 <div class="flex mb-3">
 

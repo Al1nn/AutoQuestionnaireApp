@@ -18,7 +18,7 @@ public class UserRepository : IUserRepository
     }
     
     
-    private void EncryptPassword(string password, out byte[] passwordHash, out byte[] passwordKey)
+    public void EncryptPassword(string password, out byte[] passwordHash, out byte[] passwordKey)
     {
         using (var hmac = new HMACSHA512())
         {
@@ -27,7 +27,7 @@ public class UserRepository : IUserRepository
         }
     }
 
-    private bool VerifyPassword(string password, byte[] passwordHash, byte[] passwordKey)
+    public bool VerifyPassword(string password, byte[] passwordHash, byte[] passwordKey)
     {
         using (var hmac = new HMACSHA512(passwordKey))
         {

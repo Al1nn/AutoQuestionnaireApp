@@ -1,5 +1,5 @@
 import { environment } from './../environments/environment';
- import { Component, HostListener, Inject, OnInit, PLATFORM_ID, ViewChild } from '@angular/core';
+ import { Component, Inject, OnInit, PLATFORM_ID } from '@angular/core';
 import { StoreService } from '../store/store.service';
 import { map } from 'rxjs';
 import { isPlatformBrowser } from '@angular/common';
@@ -76,6 +76,7 @@ export class NavbarComponent implements OnInit{
         this.store.authService.setToken(null);
         this.store.authService.setLoggedIn(false);
         this.store.alertifyService.message('You have been logged out');
+        this.store.authService.setProfilePicture(null);
         this.router.navigate(['/']);
       }
     });

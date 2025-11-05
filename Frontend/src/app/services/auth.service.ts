@@ -84,6 +84,10 @@ export class AuthService {
     return this.http.patch<IPhoto>( `${this.baseUrl}/account/edit/photo`, picture, {withCredentials: true});
   }
 
+  editProfilePassword (oldPassword: string, newPassword: string)  {
+    return this.http.patch( `${this.baseUrl}/account/edit/password/${oldPassword}/${newPassword}`, {withCredentials: true});
+  }
+
   refreshToken() : Observable<IToken> {
     return this.http.post<IToken>(this.baseUrl + '/account/refresh-token', { }, { withCredentials: true })
       .pipe(tap(newToken => {
