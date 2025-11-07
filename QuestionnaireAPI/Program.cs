@@ -6,12 +6,14 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using QuestionnaireAPI.Configurations;
 using QuestionnaireAPI.Data;
+using QuestionnaireAPI.Helpers;
 using QuestionnaireAPI.Interfaces;
 using QuestionnaireAPI.Middleware;
 using QuestionnaireAPI.Models;
 using QuestionnaireAPI.Repos;
 using QuestionnaireAPI.Repos.ServiceRepos;
 using QuestionnaireAPI.Services;
+
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -37,6 +39,7 @@ options.UseNpgsql(builder.Configuration.GetConnectionString("DefaultConnection")
 
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+builder.Services.AddAutoMapper(cfg => { }, typeof(MapperProfiles).Assembly);
 builder.Services.AddControllers();
 builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
 builder.Services.Configure<JwtConfig>(builder.Configuration.GetSection("JwtConfig"));

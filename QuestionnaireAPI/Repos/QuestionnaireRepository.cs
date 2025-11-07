@@ -13,7 +13,7 @@ public class QuestionnaireRepository : IQuestionnaireRepository
         this.dc = dc;
     }
 
-    public async Task<List<Questionnaire>> GetQuestionnairesByCategoryAsync(string category)
+    public async Task<List<Questionnaire>> GetByCategoryAsync(string category)
     {
         return await dc.Questionnaires.Where(q => q.Category == category.ToUpper())
             .Include(qs => qs.Questions)

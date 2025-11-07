@@ -269,3 +269,4 @@
 /Users/alingeorgian/Desktop/AutoQuestionnaireApp/QuestionnaireAPI/bin/Debug/net9.0/Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
 /Users/alingeorgian/Desktop/AutoQuestionnaireApp/QuestionnaireAPI/bin/Debug/net9.0/Microsoft.IdentityModel.Tokens.dll
 /Users/alingeorgian/Desktop/AutoQuestionnaireApp/QuestionnaireAPI/bin/Debug/net9.0/System.IdentityModel.Tokens.Jwt.dll
+/Users/alingeorgian/Desktop/AutoQuestionnaireApp/QuestionnaireAPI/bin/Debug/net9.0/AutoMapper.dll
