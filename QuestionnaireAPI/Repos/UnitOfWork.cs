@@ -18,6 +18,8 @@ public class UnitOfWork : IUnitOfWork
     
     public IUserRepository UserRepository => new UserRepository(dc);
 
+    public IQuestionnaireRepository QuestionnaireRepository => new QuestionnaireRepository(dc);
+
     //More repositories will be added here
 
     public async Task<bool> SaveChangesAsync()
