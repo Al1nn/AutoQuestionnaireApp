@@ -20,4 +20,9 @@ public class QuestionnaireRepository : IQuestionnaireRepository
             .ThenInclude(qa => qa.Answers)
             .ToListAsync();
     }
+
+    public Task<List<Question>> GetAllQuestionsAsync()
+    {
+        throw new NotImplementedException();
+    }
 }

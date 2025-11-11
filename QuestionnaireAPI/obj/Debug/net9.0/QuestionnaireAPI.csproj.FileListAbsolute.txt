@@ -51,7 +51,6 @@
 /Users/alingeorgian/Desktop/AutoQuestionnaireApp/QuestionnaireAPI/bin/Debug/net9.0/Microsoft.VisualStudio.Web.CodeGeneration.Templating.dll
 /Users/alingeorgian/Desktop/AutoQuestionnaireApp/QuestionnaireAPI/bin/Debug/net9.0/Microsoft.VisualStudio.Web.CodeGeneration.Utils.dll
 /Users/alingeorgian/Desktop/AutoQuestionnaireApp/QuestionnaireAPI/bin/Debug/net9.0/Microsoft.VisualStudio.Web.CodeGenerators.Mvc.dll
-/Users/alingeorgian/Desktop/AutoQuestionnaireApp/QuestionnaireAPI/bin/Debug/net9.0/Microsoft.Win32.SystemEvents.dll
 /Users/alingeorgian/Desktop/AutoQuestionnaireApp/QuestionnaireAPI/bin/Debug/net9.0/Mono.TextTemplating.dll
 /Users/alingeorgian/Desktop/AutoQuestionnaireApp/QuestionnaireAPI/bin/Debug/net9.0/Newtonsoft.Json.dll
 /Users/alingeorgian/Desktop/AutoQuestionnaireApp/QuestionnaireAPI/bin/Debug/net9.0/Npgsql.dll
@@ -75,11 +74,8 @@
 /Users/alingeorgian/Desktop/AutoQuestionnaireApp/QuestionnaireAPI/bin/Debug/net9.0/System.Composition.Runtime.dll
 /Users/alingeorgian/Desktop/AutoQuestionnaireApp/QuestionnaireAPI/bin/Debug/net9.0/System.Composition.TypedParts.dll
 /Users/alingeorgian/Desktop/AutoQuestionnaireApp/QuestionnaireAPI/bin/Debug/net9.0/System.Configuration.ConfigurationManager.dll
-/Users/alingeorgian/Desktop/AutoQuestionnaireApp/QuestionnaireAPI/bin/Debug/net9.0/System.Drawing.Common.dll
 /Users/alingeorgian/Desktop/AutoQuestionnaireApp/QuestionnaireAPI/bin/Debug/net9.0/System.Reflection.MetadataLoadContext.dll
 /Users/alingeorgian/Desktop/AutoQuestionnaireApp/QuestionnaireAPI/bin/Debug/net9.0/System.Security.Cryptography.ProtectedData.dll
-/Users/alingeorgian/Desktop/AutoQuestionnaireApp/QuestionnaireAPI/bin/Debug/net9.0/System.Security.Permissions.dll
-/Users/alingeorgian/Desktop/AutoQuestionnaireApp/QuestionnaireAPI/bin/Debug/net9.0/System.Windows.Extensions.dll
 /Users/alingeorgian/Desktop/AutoQuestionnaireApp/QuestionnaireAPI/bin/Debug/net9.0/af/Humanizer.resources.dll
 /Users/alingeorgian/Desktop/AutoQuestionnaireApp/QuestionnaireAPI/bin/Debug/net9.0/ar/Humanizer.resources.dll
 /Users/alingeorgian/Desktop/AutoQuestionnaireApp/QuestionnaireAPI/bin/Debug/net9.0/az/Humanizer.resources.dll
@@ -232,10 +228,6 @@
 /Users/alingeorgian/Desktop/AutoQuestionnaireApp/QuestionnaireAPI/bin/Debug/net9.0/tr/Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
 /Users/alingeorgian/Desktop/AutoQuestionnaireApp/QuestionnaireAPI/bin/Debug/net9.0/zh-Hans/Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
 /Users/alingeorgian/Desktop/AutoQuestionnaireApp/QuestionnaireAPI/bin/Debug/net9.0/zh-Hant/Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
-/Users/alingeorgian/Desktop/AutoQuestionnaireApp/QuestionnaireAPI/bin/Debug/net9.0/runtimes/win/lib/net7.0/Microsoft.Win32.SystemEvents.dll
-/Users/alingeorgian/Desktop/AutoQuestionnaireApp/QuestionnaireAPI/bin/Debug/net9.0/runtimes/win/lib/net7.0/System.Drawing.Common.dll
-/Users/alingeorgian/Desktop/AutoQuestionnaireApp/QuestionnaireAPI/bin/Debug/net9.0/runtimes/win/lib/net7.0/System.Security.Cryptography.ProtectedData.dll
-/Users/alingeorgian/Desktop/AutoQuestionnaireApp/QuestionnaireAPI/bin/Debug/net9.0/runtimes/win/lib/net7.0/System.Windows.Extensions.dll
 /Users/alingeorgian/Desktop/AutoQuestionnaireApp/QuestionnaireAPI/obj/Debug/net9.0/QuestionnaireAPI.csproj.AssemblyReference.cache
 /Users/alingeorgian/Desktop/AutoQuestionnaireApp/QuestionnaireAPI/obj/Debug/net9.0/QuestionnaireAPI.GeneratedMSBuildEditorConfig.editorconfig
 /Users/alingeorgian/Desktop/AutoQuestionnaireApp/QuestionnaireAPI/obj/Debug/net9.0/QuestionnaireAPI.AssemblyInfoInputs.cache
@@ -270,3 +262,8 @@
 /Users/alingeorgian/Desktop/AutoQuestionnaireApp/QuestionnaireAPI/bin/Debug/net9.0/Microsoft.IdentityModel.Tokens.dll
 /Users/alingeorgian/Desktop/AutoQuestionnaireApp/QuestionnaireAPI/bin/Debug/net9.0/System.IdentityModel.Tokens.Jwt.dll
 /Users/alingeorgian/Desktop/AutoQuestionnaireApp/QuestionnaireAPI/bin/Debug/net9.0/AutoMapper.dll
+/Users/alingeorgian/Desktop/AutoQuestionnaireApp/QuestionnaireAPI/bin/Debug/net9.0/Microsoft.Build.Tasks.Core.dll
+/Users/alingeorgian/Desktop/AutoQuestionnaireApp/QuestionnaireAPI/bin/Debug/net9.0/Microsoft.Build.Utilities.Core.dll
+/Users/alingeorgian/Desktop/AutoQuestionnaireApp/QuestionnaireAPI/bin/Debug/net9.0/Microsoft.VisualStudio.Web.CodeGeneration.Contracts.dll
+/Users/alingeorgian/Desktop/AutoQuestionnaireApp/QuestionnaireAPI/bin/Debug/net9.0/dotnet-aspnet-codegenerator.dll
+/Users/alingeorgian/Desktop/AutoQuestionnaireApp/QuestionnaireAPI/bin/Debug/net9.0/System.Xml.XPath.XmlDocument.dll

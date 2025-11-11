@@ -20,6 +20,8 @@ public class UnitOfWork : IUnitOfWork
 
     public IQuestionnaireRepository QuestionnaireRepository => new QuestionnaireRepository(dc);
 
+    
+    public IAdminRepository AdminRepository => new AdminRepository(dc);
     //More repositories will be added here
 
     public async Task<bool> SaveChangesAsync()

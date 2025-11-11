@@ -28,8 +28,10 @@ namespace QuestionnaireAPI.Controllers
         public async Task<ActionResult<List<Questionnaire>>> GetQuestionnairesByCategory(string category)
         {
             var questionnaires = await uow.QuestionnaireRepository.GetByCategoryAsync(category);
-            var dto = mapper.Map<List<QuestionnaireDto>>(questionnaires);
+            var dto = mapper.Map<List<QuestionnaireDto>>(questionnaires); // Avoiding infinite cycle error
             return Ok(dto);
         }
+        
+        
     }
 }
