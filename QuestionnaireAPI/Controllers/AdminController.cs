@@ -5,6 +5,8 @@ using Microsoft.AspNetCore.Mvc;
 using QuestionnaireAPI.Interfaces;
 using QuestionnaireAPI.Models;
 
+
+//This controller is for displaying and handling data on Admin Panel page 
 namespace QuestionnaireAPI.Controllers
 {
     [ApiController]
@@ -27,6 +29,14 @@ namespace QuestionnaireAPI.Controllers
             var questions = await uow.AdminRepository.GetAllQuestionsAsync();
             
             return Ok(questions);
+        }
+        
+        [HttpGet("answers")]
+        public async Task<IActionResult> GetAnswers()
+        {
+            var answers = await uow.AdminRepository.GetAllAnswersAsync();
+            
+            return Ok(answers);
         }
     }
 }

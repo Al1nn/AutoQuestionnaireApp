@@ -4,5 +4,7 @@ namespace QuestionnaireAPI.Interfaces;
 
 public interface IAdminRepository
 {
-    Task<IEnumerable<AdminQuestionDto>> GetAllQuestionsAsync();
+    Task<List<AdminQuestionDto>> GetAllQuestionsAsync();
+    
+    Task<List<AdminAnswersDto>> GetAllAnswersAsync();
 }

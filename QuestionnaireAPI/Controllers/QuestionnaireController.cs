@@ -9,6 +9,7 @@ using QuestionnaireAPI.Dtos;
 using QuestionnaireAPI.Interfaces;
 using QuestionnaireAPI.Models;
 
+//This controller is for displaying and handling the main questionnaires page data 
 namespace QuestionnaireAPI.Controllers
 {
     [ApiController]

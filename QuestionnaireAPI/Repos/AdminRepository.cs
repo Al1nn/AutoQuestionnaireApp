@@ -15,14 +15,14 @@ public class AdminRepository : IAdminRepository
     }
 
 
-    public async Task<IEnumerable<AdminQuestionDto>> GetAllQuestionsAsync()
+    public async Task<List<AdminQuestionDto>> GetAllQuestionsAsync()
     {
         return await dc.Questions
             .Select(q => new AdminQuestionDto
             {
                 Id = q.Id,
                 QuestionnaireId = q.QuestionnaireId,
-                QuestionnaireTitle = q.Questionnaire.Title, // 
+                QuestionnaireTitle = q.Questionnaire.Title, 
                 Text = q.Text,
                 Photo = q.Photo,
                 LastUpdatedBy = q.LastUpdatedBy,
@@ -31,5 +31,23 @@ public class AdminRepository : IAdminRepository
             .OrderBy(q => q.Id)
             .ToListAsync();
 
+    }
+
+    public async Task<List<AdminAnswersDto>> GetAllAnswersAsync()
+    {
+        return await dc.Answers
+            .Select(qa => new AdminAnswersDto
+            {
+                Id = qa.Id,
+                QuestionId = qa.QuestionId,
+                QuestionText = qa.Question.Text,
+                QuestionnaireTitle = qa.Question.Questionnaire.Title,
+                Text = qa.Text,
+                IsCorrect = qa.IsCorrect,
+                LastUpdatedBy = qa.LastUpdatedBy,
+                LastUpdatedOn = qa.LastUpdatedOn
+            })
+            .OrderBy(qa => qa.Id)
+            .ToListAsync();
     }
 }
