@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("QuestionnaireAPI")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+26e740420e61bfc110322fe445969b0327d0cde0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+a4c9744896583fb5a80efe36aa216b2909a68101")]
 [assembly: System.Reflection.AssemblyProductAttribute("QuestionnaireAPI")]
 [assembly: System.Reflection.AssemblyTitleAttribute("QuestionnaireAPI")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

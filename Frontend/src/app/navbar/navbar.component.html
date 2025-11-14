@@ -44,7 +44,7 @@
         <button
           type="button"
           routerLink="/user/profile"
-          (click)="drawer.close()"
+          (click)="drawer.close();"
           class=" flex justify-center gap-2 px-4 py-3 text-gray-700 hover:bg-gray-100"
         >
           <!-- <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" >
@@ -59,7 +59,7 @@
         <button
           type="button"
           routerLink=""
-          (click)="drawer.close()"
+          (click)="drawer.close(); "
           class=" flex justify-center gap-2 px-4 py-3 text-gray-700 hover:bg-gray-100"
         >
           <mat-icon>dashboard</mat-icon>
@@ -76,8 +76,8 @@
 
           <button
             type="button"
-            routerLink=""
-            (click)="drawer.close()"
+            routerLink="admin"
+            (click)="drawer.close();"
             class="flex justify-center gap-2 px-4 py-3 text-gray-700 hover:bg-gray-100"
           >
             <mat-icon>admin_panel_settings</mat-icon>
@@ -87,7 +87,7 @@
           <button
             type="button"
             routerLink="/user/settings"
-            (click)="drawer.close()"
+            (click)="drawer.close();"
             class="flex justify-center gap-2 px-4 py-3 text-gray-700 hover:bg-gray-100"
           >
             <mat-icon>settings</mat-icon>
@@ -96,7 +96,7 @@
 
           <button
             type="button"
-            (click)="logout(); drawer.close()"
+            (click)="logout(); drawer.close();"
             class="flex justify-center gap-2 px-4 py-3 text-red-600 hover:bg-gray-100"
           >
             <mat-icon>logout</mat-icon>
@@ -111,7 +111,7 @@
         <button
           type="button"
           routerLink="/user/settings"
-          (click)="drawer.close()"
+          (click)="drawer.close();"
           class="flex justify-center gap-2 px-4 py-3 text-gray-700 hover:bg-gray-100"
         >
           <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg" fill="none"
@@ -126,7 +126,7 @@
 
         <button
           type="button"
-          (click)="logout(); drawer.close()"
+          (click)="logout(); drawer.close();"
           class="flex justify-center gap-2 px-4 py-3 text-red-600 hover:bg-gray-100"
         >
           <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"
@@ -237,7 +237,7 @@
               Welcome, {{ loggedUser.name }}
             </span>
 
-            <button mat-icon-button (click)="drawer.toggle()">
+            <button mat-icon-button (click)="drawer.toggle(); activeSection = null">
               <mat-icon>menu</mat-icon>
             </button>
 

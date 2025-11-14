@@ -45,8 +45,14 @@ export class BreadcrumbService {
               return [];
             }
 
+            // If label is 'DRPCIV', always set url to '/'
+            let breadcrumbUrl = url;
+            if (label === 'DRPCIV') {
+                breadcrumbUrl = '/';
+            }
+
             if (label ) {
-                breadcrumbs.push({ label, url });
+                breadcrumbs.push({ label, url: breadcrumbUrl });
             }
 
 
