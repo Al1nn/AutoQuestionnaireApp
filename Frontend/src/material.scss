@@ -13,4 +13,45 @@ $myapp-theme: mat.m2-define-light-theme((
   )
 ));
 
+.admin-body{ /*  */
+  .mat-mdc-tab-group {
+
+    .mat-mdc-tab .mdc-tab-indicator .mdc-tab-indicator__content--underline {
+      border-color: #FF0000 !important;
+      border-top-width: 2px !important;
+    }
+
+
+    .mat-mdc-tab.mdc-tab--active .mdc-tab__text-label {
+      color: #000000 !important;
+
+    }
+
+
+    .mat-mdc-tab:not(.mdc-tab--active) .mdc-tab__text-label {
+      color: #000000 !important;
+    }
+
+
+    .mat-mdc-tab:hover:not(.mdc-tab--active) {
+      background-color: rgba(211, 47, 47, 0.04);
+
+      .mdc-tab__text-label {
+        color: #424242 !important;
+      }
+    }
+
+
+    .mat-mdc-tab-header {
+      border-bottom: 1px solid #e0e0e0;
+    }
+
+
+    .mat-mdc-tab .mat-ripple-element {
+      background-color: rgba(255, 0, 0, 0.1) !important;
+    }
+  }
+}
+
+
 @include mat.all-component-themes($myapp-theme);

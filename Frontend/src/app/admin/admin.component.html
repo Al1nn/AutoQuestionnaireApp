@@ -1,3 +1,25 @@
-<div class="admin-body flex justify-center rounded-4xl shadow-md  border  mt-[75px] ml-[25px] mr-[25px] h-[85vh] ">
-
+<div class="admin-body flex justify-center   border rounded-[15px]   mt-[75px] ml-[25px] mr-[25px] h-[85vh] shadow-[0_4px_4px_0_rgba(0,0,0,0.25)]">
+  <mat-tab-group #tabGroup class="w-full h-full" >
+    <mat-tab label="Users">
+      <app-admin-user></app-admin-user>
+    </mat-tab>
+    <mat-tab label="Questionnaires">
+      <app-admin-questionnaire></app-admin-questionnaire>
+    </mat-tab>
+    <mat-tab label="Questions">
+      <app-admin-question></app-admin-question>
+    </mat-tab>
+    <mat-tab label="Answers">
+      <app-admin-answer></app-admin-answer>
+    </mat-tab>
+    <mat-tab label="Solved Questionnaires">
+      <app-admin-solved-questionnaire></app-admin-solved-questionnaire>
+    </mat-tab>
+    <mat-tab label="Legislation">
+      <app-admin-legislation></app-admin-legislation>
+    </mat-tab>
+    <mat-tab label="Road Signs">
+      <app-admin-road-sign></app-admin-road-sign>
+    </mat-tab>
+  </mat-tab-group>
 </div>
